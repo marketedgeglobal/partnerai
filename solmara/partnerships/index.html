@@ -17,8 +17,9 @@
   <div class="scrim"></div>
   <div class="wrap">
     <div class="eyebrow">Chapter 3 · Shared Value Partnerships · Solmara Blue Economy Growth Programme</div>
-    <h1>Most partnerships get identified. Few get operationalized.</h1>
-    <p class="lede">MarketEdge works the gap between the two: score the candidates on capital and trust together, map what actually flows between partners, rehearse the conversation that decides it, and build the governance that keeps it alive. Strategy to action.</p>
+    <h1>Naming a partnership is easy. Running one is the work.</h1>
+    <p class="lede">MarketEdge works the gap between the two: score the candidates on capital and trust together, map what flows between partners, rehearse the conversation that decides it, and build the governance that keeps it alive. Strategy to action.</p>
+    <p class="posline">A guided PartnerAI demo by MarketEdge. Solmara is a fictional country with fictional data. Chapter 3 of 3 · <a href="../../">Overview</a> · <a href="../analytics/">Chapter 1</a> · <a href="../leaders/">Chapter 2</a></p>
   </div>
 </div>
 
@@ -46,7 +47,7 @@
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">03 · The value-flow map: what actually moves between partners</div>
+    <div class="beat-label">03 · The value-flow map: what moves between partners</div>
     <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:22px">Capital, goods, services, data, and governance move in different directions at once. Drawing the flows makes each partner's stake legible, and shows where the partnership breaks if one flow stops.</p>
     <div class="flow-wrap reveal" id="flow-diagram"></div>
   </div>
@@ -68,6 +69,7 @@
         <button class="btn solid" id="play">Play the rehearsal</button>
         <span style="font-size:13.5px;color:var(--olive)" id="persona-line"></span>
       </div>
+      <p style="font-size:13.5px;color:var(--olive);margin-top:4px">This replay is scripted so it always works. The live persona catalog, with donor, government, and buyer personas, ships inside engagements. Ask for it in the walkthrough.</p>
       <div class="chat" id="chat" aria-live="polite"></div>
       <div class="violet-card" id="coach-card" style="margin-top:22px;display:none">
         <div class="who">MarketEdge coach note · Human in the loop</div>
@@ -97,7 +99,7 @@
 </div>
 
 <footer class="demo-foot">
-  <div class="wrap">Demo environment. Fictional country, fictional data. Figures are illustrative. · PartnerAI by MarketEdge · The live persona catalog ships inside engagements; this replay is scripted.</div>
+  <div class="wrap">Demo environment. Fictional country, fictional data. Figures are illustrative.<br>PartnerAI by MarketEdge · <a href="https://www.marketedgeglobal.com">marketedgeglobal.com</a></div>
 </footer>
 
 <script>
@@ -126,8 +128,9 @@
       var anchor = p.commercial > 7.5 ? 'end' : 'start';
       var dx = p.commercial > 7.5 ? -16 : 16;
       var dy = p.rank === 1 ? 26 : (p.rank === 2 ? -14 : 4);
-      s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (lead ? 11 : 8) + '" fill="' + (lead ? '#242337' : (p.rank <= 3 ? 'rgba(57,61,50,.55)' : '#b4540a')) + '"/>';
-      s += '<text x="' + (cx + dx) + '" y="' + (cy + dy) + '" text-anchor="' + anchor + '" font-size="13.5" font-weight="' + (lead ? '600' : '400') + '" font-family="Josefin Sans,sans-serif" fill="#393d32">' + p.name + '</text>';
+      var delay = (partners.length - p.rank + 1) * 90; // rank 1 lands last
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (lead ? 11 : 8) + '" fill="' + (lead ? '#242337' : (p.rank <= 3 ? 'rgba(57,61,50,.55)' : '#b4540a')) + '" style="transition-delay:' + delay + 'ms"/>';
+      s += '<text class="plabel" x="' + (cx + dx) + '" y="' + (cy + dy) + '" text-anchor="' + anchor + '" font-size="13.5" font-weight="' + (lead ? '600' : '400') + '" font-family="Josefin Sans,sans-serif" fill="#393d32">' + p.name + '</text>';
     });
     return s + '</svg>';
   }
@@ -198,11 +201,22 @@
       '<div class="flow-key">' + Object.keys(TYPE_COLORS).map(function (t) {
         return '<span><span class="k" style="background:' + TYPE_COLORS[t] + '"></span>' + t.charAt(0).toUpperCase() + t.slice(1) + '</span>';
       }).join('') + '</div>';
-    // set up draw-on-reveal
-    flowWrap.querySelectorAll('path.flow').forEach(function (p) {
+    // set up draw-on-reveal, plus a traveling dot per flow
+    flowWrap.querySelectorAll('path.flow').forEach(function (p, i) {
       var len = p.getTotalLength();
       p.style.strokeDasharray = len;
       p.style.strokeDashoffset = reduced ? 0 : len;
+      if (!reduced) {
+        var dot = document.createElementNS(NS, 'circle');
+        dot.setAttribute('r', '3.5');
+        dot.setAttribute('fill', p.getAttribute('stroke'));
+        var motion = document.createElementNS(NS, 'animateMotion');
+        motion.setAttribute('dur', (7 + i * 0.9) + 's');
+        motion.setAttribute('repeatCount', 'indefinite');
+        motion.setAttribute('path', p.getAttribute('d'));
+        dot.appendChild(motion);
+        p.ownerSVGElement.appendChild(dot);
+      }
     });
 
     document.getElementById('ops-grid').innerHTML = data.partnerships.operationalization.map(function (o) {
@@ -224,24 +238,43 @@
       playBtn.textContent = 'Rehearsal running…';
       chat.innerHTML = '';
       document.getElementById('coach-card').style.display = 'none';
-      var delay = reduced ? 0 : 2600;
-      script.messages.forEach(function (m, i) {
+      function side(m) { return m.from === 'elena' ? 'elena' : 'client'; }
+      function addMsg(m) {
+        var div = document.createElement('div');
+        div.className = 'msg ' + side(m);
+        div.innerHTML = '<span class="who">' + (m.from === 'elena' ? script.persona : (m.name || 'Your negotiator')) + '</span>' + m.text;
+        chat.appendChild(div);
+        requestAnimationFrame(function () { div.classList.add('shown'); });
+      }
+      function finish() {
         setTimeout(function () {
-          var div = document.createElement('div');
-          div.className = 'msg ' + (m.from === 'elena' ? 'elena' : 'client');
-          div.innerHTML = '<span class="who">' + (m.from === 'elena' ? script.persona : (m.name || 'Your negotiator')) + '</span>' + m.text;
-          chat.appendChild(div);
-          requestAnimationFrame(function () { div.classList.add('shown'); });
-          if (i === script.messages.length - 1) {
-            setTimeout(function () {
-              document.getElementById('coach-card').style.display = 'block';
-              playBtn.disabled = false;
-              playBtn.textContent = 'Play it again';
-              playing = false;
-            }, reduced ? 0 : 1400);
-          }
-        }, i * delay);
-      });
+          document.getElementById('coach-card').style.display = 'block';
+          playBtn.disabled = false;
+          playBtn.textContent = 'Play it again';
+          playing = false;
+        }, reduced ? 0 : 1400);
+      }
+      if (reduced) {
+        script.messages.forEach(addMsg);
+        finish();
+        return;
+      }
+      var i = 0;
+      (function next() {
+        if (i >= script.messages.length) { finish(); return; }
+        var m = script.messages[i];
+        var typing = document.createElement('div');
+        typing.className = 'msg typing shown ' + side(m);
+        typing.innerHTML = '<i></i><i></i><i></i>';
+        chat.appendChild(typing);
+        var typeFor = Math.min(2400, Math.max(900, m.text.length * 28));
+        setTimeout(function () {
+          typing.remove();
+          addMsg(m);
+          i += 1;
+          setTimeout(next, 700);
+        }, typeFor);
+      })();
     });
   });
 })();

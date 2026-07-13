@@ -19,6 +19,7 @@
     <div class="eyebrow">Chapter 1 · Advanced Analytics · Solmara Blue Economy Growth Programme</div>
     <h1>Every finding traces back to the person who said it.</h1>
     <p class="lede">Field research in Solmara, synthesized as it arrives. Findings update live across the team, every statement links to its source, and the bias checks run in the open. No black box.</p>
+    <p class="posline">A guided PartnerAI demo by MarketEdge. Solmara is a fictional country with fictional data. Chapter 1 of 3 · <a href="../../">Overview</a> · <a href="../leaders/">Chapter 2</a> · <a href="../partnerships/">Chapter 3</a></p>
   </div>
 </div>
 
@@ -45,7 +46,10 @@
           <p>The researchers who conduct the interviews review every capture. AI does not lead; it keeps up. Accuracy is checked by the people who were in the room.</p>
         </div>
       </div>
-      <div id="interview-stream" class="reveal-stagger"></div>
+      <div>
+        <div class="live-chip"><i></i>Live capture · six provinces · verified by the field team</div>
+        <div id="interview-stream" class="reveal-stagger"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -87,7 +91,7 @@
 <section class="beat">
   <div class="wrap">
     <div class="beat-label">05 · Findings land in decisions: the scored pipeline</div>
-    <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:22px">Verified findings feed the investment pipeline the program actually runs. Fourteen prospects, five explicit criteria, one comparable score. Move a weight and the ranking answers.</p>
+    <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:22px">Verified findings feed the investment pipeline the program runs. Fourteen prospects, five explicit criteria, one comparable score. Move a weight and the ranking answers.</p>
     <div class="panel" style="overflow-x:auto;margin-bottom:18px">
       <table class="pipeline" aria-live="polite">
         <thead>
@@ -98,7 +102,7 @@
     </div>
     <div class="panel" style="margin-bottom:18px">
       <div class="weights" id="weights"></div>
-      <div class="weights-note">Weights renormalize to 100%. Try market access at 35% and watch who rises, then read why the team still says no.</div>
+      <div class="weights-note">Weights renormalize to 100%. Try market access at 35% and watch who rises. Then read why the team ranks the third-place score first.</div>
     </div>
     <div class="violet-card reveal">
       <div class="who">MarketEdge senior review · Human in the loop</div>
@@ -118,7 +122,7 @@
 </div>
 
 <footer class="demo-foot">
-  <div class="wrap">Demo environment. Fictional country, fictional data. Figures are illustrative. · PartnerAI by MarketEdge</div>
+  <div class="wrap">Demo environment. Fictional country, fictional data. Figures are illustrative.<br>PartnerAI by MarketEdge · <a href="https://www.marketedgeglobal.com">marketedgeglobal.com</a></div>
 </footer>
 
 <script>
@@ -208,7 +212,7 @@
         '<div class="statement">' + f.statement + '</div>' +
         flags +
         '<div class="hint">' + f.sources.length + ' source' + (f.sources.length > 1 ? 's' : '') + ' · select to trace every statement to who said it</div>' +
-        '<div class="trace">' + srcs + '</div></div>';
+        '<div class="trace"><div class="trace-inner">' + srcs + '</div></div></div>';
     }).join('');
     document.querySelectorAll('.finding-card').forEach(function (card) {
       function toggle() {

@@ -8,6 +8,20 @@
     scope.querySelectorAll('.bar-anim i[data-w]').forEach(function (i) {
       i.style.width = i.getAttribute('data-w');
     });
+    if (!reduced) {
+      scope.querySelectorAll('[data-count]:not(.counted)').forEach(function (b) {
+        b.classList.add('counted');
+        var end = parseFloat(b.getAttribute('data-count'));
+        var suffix = b.getAttribute('data-suffix') || '';
+        var t0 = performance.now();
+        (function step(t) {
+          var k = Math.min(1, (t - t0) / 900);
+          var e = 1 - Math.pow(1 - k, 3);
+          b.textContent = Math.round(end * e).toLocaleString('en-US') + suffix;
+          if (k < 1) requestAnimationFrame(step);
+        })(t0);
+      });
+    }
   }
   function showAll() {
     document.querySelectorAll('.reveal,.reveal-stagger').forEach(function (el) { el.classList.add('in'); });

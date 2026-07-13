@@ -616,7 +616,7 @@
         {
           "label": "Data use",
           "value": "This project only",
-          "detail": "All interview data sits under the BEGP protocol. Nothing trains anything. Nothing leaves the engagement."
+          "detail": "All interview data sits under the written BEGP protocol and serves this project only. No client data trains models."
         }
       ],
       "localization": {
