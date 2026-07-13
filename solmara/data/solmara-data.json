@@ -331,7 +331,302 @@
         "tag": "Risk",
         "text": "Crab stock assessment in Varo flags juvenile catch rates above threshold; seasonal closure under discussion."
       }
-    ]
+    ],
+    "research": {
+      "interviews": [
+        {
+          "id": "int-01",
+          "date": "2026-08-12",
+          "respondent": "Mirna Talos",
+          "role": "Chairwoman",
+          "org": "Tanjor Crab Producers Cooperative",
+          "province": "Tanjor",
+          "language": "Solmaran",
+          "method": "Semi-structured interview",
+          "excerpts": [
+            {
+              "id": "x-01a",
+              "theme": "cold-chain",
+              "quote": "We lose a third of the catch on hot days. The ice comes by truck from Marell, and on market days it does not come at all."
+            },
+            {
+              "id": "x-01b",
+              "theme": "pricing",
+              "quote": "The trader sets the price at the beach. If we could hold the crab two days, we could sell to the plant instead."
+            }
+          ]
+        },
+        {
+          "id": "int-02",
+          "date": "2026-08-13",
+          "respondent": "Deno Vasel",
+          "role": "Buying agent",
+          "org": "Independent trader network",
+          "province": "Tanjor",
+          "language": "Solmaran",
+          "method": "Key informant interview",
+          "excerpts": [
+            {
+              "id": "x-02a",
+              "theme": "pricing",
+              "quote": "People say we squeeze the fishers. But I carry the spoilage risk the moment the crab leaves the beach. Give me reliable ice and my margin drops on its own."
+            }
+          ]
+        },
+        {
+          "id": "int-03",
+          "date": "2026-08-19",
+          "respondent": "Sela Ondrin",
+          "role": "Sourcing manager",
+          "org": "Pelagia Foods International",
+          "province": "Marell",
+          "language": "English",
+          "method": "Semi-structured interview",
+          "excerpts": [
+            {
+              "id": "x-03a",
+              "theme": "traceability",
+              "quote": "Our retail buyers committed to traceable sourcing from 2027. We will pay for verified chain of custody because our contracts now depend on it."
+            },
+            {
+              "id": "x-03b",
+              "theme": "cold-chain",
+              "quote": "Volume is not the constraint. Consistency is. A cold chain at two landing sites changes our whole Solmara calculus."
+            }
+          ]
+        },
+        {
+          "id": "int-04",
+          "date": "2026-08-21",
+          "respondent": "Ansel Kurio",
+          "role": "Provincial Fisheries Officer",
+          "org": "MFCE",
+          "province": "Kepu",
+          "language": "Solmaran",
+          "method": "Key informant interview",
+          "excerpts": [
+            {
+              "id": "x-04a",
+              "theme": "stock-health",
+              "quote": "Juvenile catch is rising in Varo. If we close the season without an income bridge, enforcement will fail. The fishers know this better than we do."
+            }
+          ]
+        },
+        {
+          "id": "int-05",
+          "date": "2026-08-26",
+          "respondent": "Wera Salin",
+          "role": "Treasurer",
+          "org": "Lindan Women’s Savings Circle",
+          "province": "Lindan",
+          "language": "Solmaran",
+          "method": "Focus group discussion",
+          "excerpts": [
+            {
+              "id": "x-05a",
+              "theme": "finance",
+              "quote": "The seaweed money is women’s money here. When the buyer pays monthly instead of daily, the household savings rate doubles. We keep the books to prove it."
+            },
+            {
+              "id": "x-05b",
+              "theme": "pricing",
+              "quote": "Grade A and grade B dry the same in the sun. The difference is the price sheet nobody shows us."
+            }
+          ]
+        },
+        {
+          "id": "int-06",
+          "date": "2026-09-02",
+          "respondent": "Harel Domas",
+          "role": "Operations lead",
+          "org": "Harborline Logistics",
+          "province": "Tanjor",
+          "language": "English",
+          "method": "Site visit interview",
+          "excerpts": [
+            {
+              "id": "x-06a",
+              "theme": "cold-chain",
+              "quote": "The concession works at 60% utilization. Below that, we would need an anchor buyer to underwrite the first two years."
+            }
+          ]
+        },
+        {
+          "id": "int-07",
+          "date": "2026-09-04",
+          "respondent": "Petra Nolim",
+          "role": "Field coordinator",
+          "org": "TidePoint Alliance",
+          "province": "Varo",
+          "language": "English",
+          "method": "Debrief interview",
+          "excerpts": [
+            {
+              "id": "x-07a",
+              "theme": "stock-health",
+              "quote": "Everyone in Varo tells you the crab is smaller than five years ago. What they disagree on is who should stop fishing first."
+            }
+          ]
+        },
+        {
+          "id": "int-08",
+          "date": "2026-09-09",
+          "respondent": "Kaved Ilsor",
+          "role": "Port operations manager",
+          "org": "Tanjor Port Authority",
+          "province": "Tanjor",
+          "language": "Solmaran",
+          "method": "Key informant interview",
+          "excerpts": [
+            {
+              "id": "x-08a",
+              "theme": "cold-chain",
+              "quote": "The cold storage tender closes in October. Two bidders are serious. The port wants a partner who will still be here in year five."
+            }
+          ]
+        }
+      ],
+      "findings": [
+        {
+          "id": "f-01",
+          "theme": "cold-chain",
+          "confidence": "Verified",
+          "statement": "Cold chain at the Tanjor and Kepu landing sites is the binding constraint on the crab value chain. It gates buyer volumes, producer bargaining power, and the Harborline investment case at once.",
+          "sources": [
+            {
+              "interviewId": "int-01",
+              "excerptId": "x-01a"
+            },
+            {
+              "interviewId": "int-03",
+              "excerptId": "x-03b"
+            },
+            {
+              "interviewId": "int-06",
+              "excerptId": "x-06a"
+            },
+            {
+              "interviewId": "int-08",
+              "excerptId": "x-08a"
+            }
+          ],
+          "flags": []
+        },
+        {
+          "id": "f-02",
+          "theme": "pricing",
+          "confidence": "Corroborated",
+          "statement": "Beach-side price setting reflects spoilage risk more than market power. Storage capacity shifts the negotiation, not regulation.",
+          "sources": [
+            {
+              "interviewId": "int-01",
+              "excerptId": "x-01b"
+            },
+            {
+              "interviewId": "int-02",
+              "excerptId": "x-02a"
+            },
+            {
+              "interviewId": "int-05",
+              "excerptId": "x-05b"
+            }
+          ],
+          "flags": [
+            {
+              "type": "bias",
+              "text": "Perspective check: trader self-report on margins is uncorroborated. Team to request transaction records before this hardens into a recommendation."
+            }
+          ]
+        },
+        {
+          "id": "f-03",
+          "theme": "traceability",
+          "confidence": "Verified",
+          "statement": "Pelagia will pay a premium for verified chain of custody because its retail contracts now require it. The commercial case for traceability is contractual, not reputational.",
+          "sources": [
+            {
+              "interviewId": "int-03",
+              "excerptId": "x-03a"
+            }
+          ],
+          "flags": [
+            {
+              "type": "coverage",
+              "text": "Single-source finding. Corroborate with the second regional buyer before the investment committee brief."
+            }
+          ]
+        },
+        {
+          "id": "f-04",
+          "theme": "finance",
+          "confidence": "Corroborated",
+          "statement": "Monthly settlement in the seaweed chain doubles household savings among women producers. Payment cadence is a development outcome hiding inside a commercial term.",
+          "sources": [
+            {
+              "interviewId": "int-05",
+              "excerptId": "x-05a"
+            }
+          ],
+          "flags": [
+            {
+              "type": "translation",
+              "text": "Key excerpt captured in Solmaran and verified by a bilingual reviewer against the recording."
+            }
+          ]
+        },
+        {
+          "id": "f-05",
+          "theme": "stock-health",
+          "confidence": "Emerging",
+          "statement": "A Varo seasonal closure will fail without an income bridge. Enforcement capacity is not the constraint; household cash flow is.",
+          "sources": [
+            {
+              "interviewId": "int-04",
+              "excerptId": "x-04a"
+            },
+            {
+              "interviewId": "int-07",
+              "excerptId": "x-07a"
+            }
+          ],
+          "flags": [
+            {
+              "type": "bias",
+              "text": "Both sources are program-adjacent. The audit agent flagged missing fisher voice; two Varo focus groups scheduled for week 12."
+            }
+          ]
+        }
+      ],
+      "audit": [
+        {
+          "label": "Findings traced to source",
+          "value": "100%",
+          "detail": "Every statement links to the interview, the excerpt, and the respondent who said it."
+        },
+        {
+          "label": "Bias flags open",
+          "value": "2",
+          "detail": "Single-source enthusiasm and program-adjacent sampling, each with a corrective action and an owner."
+        },
+        {
+          "label": "Local-language excerpts verified",
+          "value": "31 of 31",
+          "detail": "Captured in Solmaran by the model, checked against recordings by bilingual reviewers."
+        },
+        {
+          "label": "Data use",
+          "value": "This project only",
+          "detail": "All interview data sits under the BEGP protocol. Nothing trains anything. Nothing leaves the engagement."
+        }
+      ],
+      "localization": {
+        "original": "“Kama sel varo, tida es marun. Es presyo-lista ke nadi mostra nos.”",
+        "language": "Solmaran (fictional)",
+        "translation": "“Grade A and grade B dry the same in the sun. The difference is the price sheet nobody shows us.”",
+        "reviewer": "Verified against the recording by a bilingual reviewer, week 9.",
+        "note": "The model drafts in the respondent’s language; a person signs off. Detail survives translation instead of dying in a summary row."
+      }
+    }
   },
   "leaders": {
     "competencies": [
@@ -1190,7 +1485,106 @@
           "text": "Close routine holding. Board presentation lands; treasurer transition on track."
         }
       ]
-    }
+    },
+    "pillars": [
+      {
+        "key": "self-led",
+        "title": "Self-led learning",
+        "text": "Tailored self-paced courses and guides, built from the client’s own context and each participant’s starting point."
+      },
+      {
+        "key": "classroom",
+        "title": "Classroom training",
+        "text": "Inductive and participatory: case studies, scenarios, and AI-generated stakeholder personas that force a walk in someone else’s shoes. Practice tied to real job functions and team dynamics."
+      },
+      {
+        "key": "agents",
+        "title": "AI agents and mentorship",
+        "text": "Tailored agents support the daily work of social enterprises; senior mentors track one-on-one progress across the whole engagement. Analytics show what works and where to coach next."
+      }
+    ],
+    "mentorship": {
+      "fellow": "Nadia Kerel",
+      "mentor": "MarketEdge senior advisor",
+      "entries": [
+        {
+          "month": 1,
+          "pillar": "self-led",
+          "text": "Baseline self-assessment sets her learning path: finance fundamentals and negotiation modules first."
+        },
+        {
+          "month": 2,
+          "pillar": "classroom",
+          "text": "Cohort workshop, Tanjor. Plays the buyer in a persona exercise; reports it changed how she opens real meetings."
+        },
+        {
+          "month": 3,
+          "pillar": "agents",
+          "text": "Uses the proposal agent to draft the co-op’s first cold-storage grant application. Mentor reviews the draft, not the blank page."
+        },
+        {
+          "month": 5,
+          "pillar": "mentorship",
+          "text": "Mid-point review against the dashboard. Financial management dip surfaces; mentor and fellow set the 90-day close routine.",
+          "advisor": true
+        },
+        {
+          "month": 7,
+          "pillar": "agents",
+          "text": "Compliance agent flags two gaps in the federation’s donor report before submission. She fixes both in an afternoon."
+        },
+        {
+          "month": 9,
+          "pillar": "mentorship",
+          "text": "Grant approved. Board presentation lands. The dashboard shows five competencies up, one recovering, and a written plan she owns.",
+          "advisor": true
+        }
+      ]
+    },
+    "agents": [
+      {
+        "name": "Proposal Studio",
+        "focus": "Business development",
+        "text": "Reviews and helps draft grant applications and buyer proposals for social enterprises. The fellow leads; the agent structures, sharpens, and cites."
+      },
+      {
+        "name": "Compliance Desk",
+        "focus": "Donor and regulatory compliance",
+        "text": "Checks reports and agreements against donor rules and MFCE regulations, and flags gaps with the fix attached."
+      },
+      {
+        "name": "Copy and Design Studio",
+        "focus": "Communications",
+        "text": "Copyedits in plain language and drafts the graphics a small enterprise cannot staff: one-pagers, pitch visuals, price sheets."
+      },
+      {
+        "name": "Market Scout",
+        "focus": "Market linkages",
+        "text": "Tracks buyer requirements, certification windows, and price signals relevant to each enterprise, and briefs the fellow weekly."
+      }
+    ],
+    "pillarStats": [
+      {
+        "label": "Self-paced modules completed",
+        "value": "312",
+        "detail": "Across 24 fellows over nine months, tailored per learning path."
+      },
+      {
+        "label": "Agent sessions logged",
+        "value": "1,140",
+        "detail": "Proposal, compliance, communications, and market work product."
+      },
+      {
+        "label": "Mentor hours tracked",
+        "value": "196",
+        "detail": "One-on-one, targeted by what the dashboard flags."
+      },
+      {
+        "label": "Grant proposals submitted",
+        "value": "11",
+        "detail": "Seven approved by month 9, all drafted fellow-first."
+      }
+    ]
   },
   "partnerships": {
     "partners": [
@@ -1341,6 +1735,102 @@
         }
       ],
       "coachNote": "What worked: leading with the buyer’s own 2027 commitments, conceding volume honestly, and converting her audit condition into a symmetric incentive. Practice the methodology answer next; she will ask how coverage is measured."
-    }
+    },
+    "valueFlows": {
+      "nodes": [
+        {
+          "id": "pelagia",
+          "label": "Pelagia Foods",
+          "type": "Corporate buyer"
+        },
+        {
+          "id": "scpf",
+          "label": "SCPF Cooperatives",
+          "type": "Producer federation"
+        },
+        {
+          "id": "harborline",
+          "label": "Harborline Logistics",
+          "type": "Infrastructure"
+        },
+        {
+          "id": "coral",
+          "label": "Coral Capital",
+          "type": "Impact investor"
+        },
+        {
+          "id": "mfce",
+          "label": "MFCE",
+          "type": "Government"
+        },
+        {
+          "id": "tidepoint",
+          "label": "TidePoint Alliance",
+          "type": "NGO"
+        }
+      ],
+      "flows": [
+        {
+          "from": "pelagia",
+          "to": "scpf",
+          "label": "Traceability premium, paid at the co-op gate",
+          "type": "capital"
+        },
+        {
+          "from": "scpf",
+          "to": "pelagia",
+          "label": "Verified, consistent supply from 31 landing sites",
+          "type": "goods"
+        },
+        {
+          "from": "coral",
+          "to": "harborline",
+          "label": "Patient capital for the cold-chain concession",
+          "type": "capital"
+        },
+        {
+          "from": "harborline",
+          "to": "scpf",
+          "label": "Cold storage that shifts the beach-side negotiation",
+          "type": "service"
+        },
+        {
+          "from": "mfce",
+          "to": "pelagia",
+          "label": "Co-management framework and licensing certainty",
+          "type": "governance"
+        },
+        {
+          "from": "tidepoint",
+          "to": "scpf",
+          "label": "Technical assistance and quality systems",
+          "type": "service"
+        },
+        {
+          "from": "scpf",
+          "to": "mfce",
+          "label": "Catch data that makes stock policy enforceable",
+          "type": "data"
+        }
+      ]
+    },
+    "operationalization": [
+      {
+        "step": "Governance",
+        "text": "A partnership steering group with named seats, a decision log, and an escalation path. Who decides what, written down before the first dispute."
+      },
+      {
+        "step": "Internal change",
+        "text": "Each partner assigns an owner and adjusts one internal process. Pelagia changes how procurement scores suppliers; SCPF changes how co-ops report grade data."
+      },
+      {
+        "step": "Cadence",
+        "text": "Monthly operational check-ins, quarterly value reviews against the flow map, and an annual renegotiation window everyone can see coming."
+      },
+      {
+        "step": "Relationships",
+        "text": "A relationship map with a named MarketEdge integrator watching the seams between organizations, where partnerships actually fail."
+      }
+    ]
   }
 }
