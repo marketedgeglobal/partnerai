@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Partnership Structuring Suite — PartnerAI demo by MarketEdge</title>
+<title>Partnership Structuring Suite · PartnerAI demo by MarketEdge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/demo.css">
@@ -18,7 +18,7 @@
 </div>
 
 <section class="beat wrap">
-  <div class="beat-label">01 · The scorecard — one chart, both cases</div>
+  <div class="beat-label">01 · The scorecard: one chart, both cases</div>
   <div class="scatter-wrap" id="scatter"></div>
   <div class="foot-note">Figures are illustrative.</div>
 </section>
@@ -29,7 +29,7 @@
 </section>
 
 <section class="beat wrap">
-  <div class="beat-label">03 · The rehearsal — scripted replay, 30 seconds</div>
+  <div class="beat-label">03 · The rehearsal: scripted replay, 30 seconds</div>
   <div class="panel">
     <div class="tag" id="scenario"></div>
     <div class="replay-controls" style="margin-top:12px">
@@ -91,7 +91,9 @@
       s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (lead ? 11 : 8) + '" fill="' + (lead ? '#1c5a44' : (p.rank <= 3 ? 'rgba(28,90,68,.55)' : '#b4540a')) + '"/>';
       var anchor = p.commercial > 7.5 ? 'end' : 'start';
       var dx = p.commercial > 7.5 ? -16 : 16;
-      s += '<text x="' + (cx + dx) + '" y="' + (cy + 4) + '" text-anchor="' + anchor + '" font-size="13" font-weight="' + (lead ? '700' : '500') + '" font-family="Space Grotesk,sans-serif" fill="#15201b">' + p.name + '</text>';
+      // keep the two top-right labels from colliding: lead sits below its dot, runner-up above
+      var dy = p.rank === 1 ? 26 : (p.rank === 2 ? -14 : 4);
+      s += '<text x="' + (cx + dx) + '" y="' + (cy + dy) + '" text-anchor="' + anchor + '" font-size="13" font-weight="' + (lead ? '700' : '500') + '" font-family="Space Grotesk,sans-serif" fill="#15201b">' + p.name + '</text>';
     });
     return s + '</svg>';
   }
@@ -110,7 +112,7 @@
     }).join('');
 
     document.getElementById('scenario').textContent = script.scenario;
-    document.getElementById('persona-line').textContent = script.persona + ' — ' + script.personaRole + '. Scripted replay, not a live model.';
+    document.getElementById('persona-line').textContent = script.persona + ', ' + script.personaRole + '. Scripted replay, not a live model.';
     document.getElementById('violet-moment').textContent = script.violetMoment;
     document.getElementById('coach-note').textContent = script.coachNote;
 
