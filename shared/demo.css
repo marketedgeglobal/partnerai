@@ -219,6 +219,8 @@ section.beat.dark .beat-label{color:#a5a3bd}
 .agent{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
 .agent b{display:block;font-size:16px;font-weight:600;margin:6px 0}
 .agent p{font-size:13.5px;color:var(--olive)}
+.dark .agent{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.14)}
+.dark .agent b{color:#fff}
 
 /* ---------- scorecard + flows (chapter 3) ---------- */
 .scatter-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
