@@ -32,6 +32,13 @@
   .posline{font-family:var(--serif);font-style:italic;font-size:18px;color:#c9c7d8;margin-top:22px}
 
   /* contrast section */
+  .contrast-tabs{display:inline-flex;background:rgba(255,255,255,.07);border-radius:999px;padding:4px;gap:4px;margin-bottom:22px}
+  .contrast-tabs button{
+    font-family:inherit;font-size:13.5px;font-weight:600;border:0;cursor:pointer;
+    padding:9px 20px;border-radius:999px;background:transparent;color:#c9c7d8;
+    transition:background .25s,color .25s;
+  }
+  .contrast-tabs button[aria-pressed="true"]{background:#f1f3ee;color:#242337}
   .contrast-video{width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.16);display:block}
   .contrast-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
   @media (max-width:760px){ .contrast-cols{grid-template-columns:1fr} }
@@ -146,17 +153,23 @@
 <section class="beat dark" id="contrast">
   <div class="wrap">
     <div class="beat-label">The difference · What most teams experience, and what MarketEdge delivers</div>
+    <div class="contrast-tabs" role="group" aria-label="Pick a service area">
+      <button data-c="aa" aria-pressed="true">Advanced Analytics</button>
+      <button data-c="od" aria-pressed="false">Organizational Development</button>
+      <button data-c="svp" aria-pressed="false">Shared Value Partnerships</button>
+    </div>
     <div class="reveal">
-      <video class="contrast-video" src="videos/contrast.mp4" poster="videos/contrast-poster.png" autoplay muted loop playsinline preload="metadata" aria-label="Animation contrasting fragmented research with a live, traceable evidence base"></video>
+      <video class="contrast-video" src="videos/contrast.mp4" poster="videos/contrast-poster.png" autoplay muted loop playsinline preload="metadata" aria-label="Animation contrasting how most teams work with what MarketEdge delivers"></video>
     </div>
     <div class="contrast-cols reveal-stagger">
       <div>
         <h3>What most teams experience</h3>
-        <p>Raw data scattered across notebooks and inboxes. One loud meeting sets the story. The write-up arrives after the decision.</p>
+        <p id="contrast-left">Raw data scattered across notebooks and inboxes. One loud meeting sets the story. The write-up arrives after the decision.</p>
       </div>
       <div>
         <h3>What MarketEdge delivers</h3>
-        <p>One living evidence base that updates as data lands. Every finding traced to its source. Senior judgment on every output, inside the decision window.</p>
+        <p id="contrast-right">One living evidence base that updates as data lands. Every finding traced to its source. Senior judgment on every output, inside the decision window.</p>
+        <p style="margin-top:12px"><a id="contrast-link" href="solmara/analytics/" style="color:#fff;font-weight:600;font-size:14px">See it in Section 1 &rarr;</a></p>
       </div>
     </div>
   </div>
@@ -231,19 +244,58 @@
 (function () {
   var v = document.querySelector('.contrast-video');
   if (!v) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) {
     v.removeAttribute('autoplay');
     v.pause();
     v.controls = true;
-    return;
-  }
-  if ('IntersectionObserver' in window) {
+  } else if ('IntersectionObserver' in window) {
     new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { v.play(); } else { v.pause(); }
       });
     }, { threshold: 0.25 }).observe(v);
   }
+
+  var CONTRASTS = {
+    aa: {
+      src: 'videos/contrast.mp4', poster: 'videos/contrast-poster.png',
+      left: 'Raw data scattered across notebooks and inboxes. One loud meeting sets the story. The write-up arrives after the decision.',
+      right: 'One living evidence base that updates as data lands. Every finding traced to its source. Senior judgment on every output, inside the decision window.',
+      link: 'solmara/analytics/', label: 'See it in Section 1 →',
+    },
+    od: {
+      src: 'videos/contrast-od.mp4', poster: 'videos/contrast-od-poster.png',
+      left: 'A consultant visits every few years. An 80-page report lands, gets read once, and gathers dust. The capability leaves with the consultant.',
+      right: 'Assessment becomes a habit your team owns. Mentors coach where the dashboard points, and the tools stay at handover.',
+      link: 'solmara/leaders/', label: 'See it in Section 2 →',
+    },
+    svp: {
+      src: 'videos/contrast-svp.mp4', poster: 'videos/contrast-svp-poster.png',
+      left: 'The signing gets a photo. The pipeline lives in one inbox, check-ins slip, and by month nine nobody owns it.',
+      right: 'Value flows mapped, governance with named seats and a cadence, and the hard conversation rehearsed before it counts.',
+      link: 'solmara/partnerships/', label: 'See it in Section 3 →',
+    },
+  };
+  document.querySelectorAll('.contrast-tabs button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var c = CONTRASTS[btn.getAttribute('data-c')];
+      if (!c) return;
+      document.querySelectorAll('.contrast-tabs button').forEach(function (b) {
+        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      });
+      v.pause();
+      v.setAttribute('poster', c.poster);
+      v.src = c.src;
+      v.load();
+      if (!reduced) { v.play(); }
+      document.getElementById('contrast-left').textContent = c.left;
+      document.getElementById('contrast-right').textContent = c.right;
+      var link = document.getElementById('contrast-link');
+      link.href = c.link;
+      link.textContent = c.label;
+    });
+  });
 })();
 </script>
 </body>
