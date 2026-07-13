@@ -3,60 +3,116 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Solmara Investment Pipeline · PartnerAI demo by MarketEdge</title>
+<title>Solmara Research &amp; Synthesis · PartnerAI demo by MarketEdge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/demo.css">
 </head>
 <body>
-<script src="../../shared/banner.js" data-demo="Solmara Investment Pipeline" defer></script>
+<script src="../../shared/banner.js" data-demo="Solmara Research and Synthesis" defer></script>
+<script src="../../shared/reveal.js" defer></script>
 
-<div class="demo-head wrap">
-  <div class="eyebrow">Chapter 1 · Advanced Analytics · Solmara Blue Economy Growth Programme</div>
-  <h1>Fourteen prospects, one comparable score.</h1>
-  <p class="lede">The BEGP investment pipeline, scored on five explicit criteria. Change a weight and watch the ranking answer. The criteria are on the table, so the conclusions are checkable.</p>
+<div class="demo-head">
+  <div class="photo" style="background-image:url('../../shared/img/solmara-coast.jpg');background-position:center 70%"></div>
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="eyebrow">Chapter 1 · Advanced Analytics · Solmara Blue Economy Growth Programme</div>
+    <h1>Every finding traces back to the person who said it.</h1>
+    <p class="lede">Field research in Solmara, synthesized as it arrives. Findings update live across the team, every statement links to its source, and the bias checks run in the open. No black box.</p>
+  </div>
 </div>
 
-<section class="beat wrap" id="pipeline-beat">
-  <div class="beat-label">01 · The pipeline, scored and sorted</div>
-  <div class="panel" style="overflow-x:auto">
-    <table class="pipeline" aria-live="polite">
-      <thead>
-        <tr><th>Rank</th><th>Prospect</th><th>Stage</th><th>Sectors</th><th style="text-align:right">Fit score</th></tr>
-      </thead>
-      <tbody id="pipeline-body"></tbody>
-    </table>
-  </div>
-  <div class="foot-note">Figures are illustrative.</div>
-</section>
-
-<section class="beat wrap" id="weights-beat">
-  <div class="beat-label">02 · Your criteria, your weights: the one live control</div>
-  <div class="panel">
-    <div class="weights" id="weights"></div>
-    <div class="weights-note">Weights renormalize to 100%. Try market access at 35%: watch who rises. The trader with the deep buyer network climbs, and the scorecard shows exactly why your team would still say no.</div>
+<section class="beat dark">
+  <div class="wrap">
+    <div class="beat-label">00 · How field research usually breaks</div>
+    <p class="serif-pull reveal">One strong meeting becomes the story. A stretched team mistakes first enthusiasm for evidence, transcripts pile up unread, and six notebooks hold six different versions of the truth. Nobody can course-correct what nobody can see.</p>
+    <div class="stat-tiles reveal-stagger" style="margin-top:34px">
+      <div class="tile"><b>1 meeting</b><span>is all it takes for researcher bias to set the narrative</span></div>
+      <div class="tile"><b>6 notebooks</b><span>hold the raw data, in six formats, against no shared framework</span></div>
+      <div class="tile"><b>Weeks late</b><span>patterns surface only at write-up, when course correction costs the most</span></div>
+    </div>
   </div>
 </section>
 
-<section class="beat wrap" id="review-beat">
-  <div class="beat-label">03 · What the numbers miss</div>
-  <div class="violet-card">
-    <div class="who">MarketEdge senior review · Human in the loop</div>
-    <p id="review-text"></p>
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">01 · The evidence stream: interviews arrive, everyone sees them</div>
+    <div class="split">
+      <div>
+        <p style="font-size:15.5px;color:var(--olive);max-width:32em;margin-bottom:18px">Local experts run the meetings. PartnerAI captures the full detail, in the respondent's language, tagged to the research framework as it lands. The whole team works from the same living evidence base.</p>
+        <div class="violet-card reveal">
+          <div class="who">Expert-led, AI-assisted · Human in the loop</div>
+          <p>The researchers who conduct the interviews review every capture. AI does not lead; it keeps up. Accuracy is checked by the people who were in the room.</p>
+        </div>
+      </div>
+      <div id="interview-stream" class="reveal-stagger"></div>
+    </div>
   </div>
 </section>
 
-<section class="beat wrap" id="signals-beat">
-  <div class="beat-label">04 · Sector signals, scanned continuously</div>
-  <div class="signals" id="signals"></div>
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">02 · The findings board: live, sourced, and challengeable</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:40em;margin-bottom:22px">Findings form as evidence accumulates, not after the fieldwork ends. Select any finding to follow the thread back to the original statements. Flags stay visible until the team resolves them.</p>
+    <div id="findings-board"></div>
+    <div class="foot-note">Figures are illustrative.</div>
+  </div>
+</section>
+
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">03 · Language is data: nothing dies in translation</div>
+    <div class="split">
+      <div class="panel reveal">
+        <div class="tag">Captured in Solmaran</div>
+        <p class="serif-pull" id="loc-original" style="font-size:21px;margin-top:12px"></p>
+      </div>
+      <div class="panel reveal">
+        <div class="tag">Verified English</div>
+        <p class="serif-pull" id="loc-translation" style="font-size:21px;margin-top:12px"></p>
+        <p style="font-size:13.5px;color:var(--olive);margin-top:14px" id="loc-reviewer"></p>
+      </div>
+    </div>
+    <p style="font-size:15px;color:var(--olive);max-width:44em;margin-top:18px" id="loc-note"></p>
+  </div>
+</section>
+
+<section class="beat dark">
+  <div class="wrap">
+    <div class="beat-label">04 · The audit trail runs while the research runs</div>
+    <div class="stat-tiles reveal-stagger" id="audit-tiles"></div>
+  </div>
+</section>
+
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">05 · Findings land in decisions: the scored pipeline</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:22px">Verified findings feed the investment pipeline the program actually runs. Fourteen prospects, five explicit criteria, one comparable score. Move a weight and the ranking answers.</p>
+    <div class="panel" style="overflow-x:auto;margin-bottom:18px">
+      <table class="pipeline" aria-live="polite">
+        <thead>
+          <tr><th>Rank</th><th>Prospect</th><th>Stage</th><th>Sectors</th><th style="text-align:right">Fit score</th></tr>
+        </thead>
+        <tbody id="pipeline-body"></tbody>
+      </table>
+    </div>
+    <div class="panel" style="margin-bottom:18px">
+      <div class="weights" id="weights"></div>
+      <div class="weights-note">Weights renormalize to 100%. Try market access at 35% and watch who rises, then read why the team still says no.</div>
+    </div>
+    <div class="violet-card reveal">
+      <div class="who">MarketEdge senior review · Human in the loop</div>
+      <p id="review-text"></p>
+    </div>
+  </div>
 </section>
 
 <div class="cta-band">
   <div class="wrap">
-    <div class="eyebrow" style="color:#9fc0af">See it on your pipeline</div>
+    <div class="eyebrow">See it on your research</div>
     <h2>Walk through this on your own workflow. 30 minutes.</h2>
-    <p>Bring the investor list you track today. MarketEdge shows you what explicit criteria and senior review change about the next decision.</p>
-    <a class="btn" href="mailto:info@marketedgeglobal.com?subject=Demo%20request%3A%20Solmara%20Investment%20Pipeline&body=Organization%3A%0ARole%3A%0AThe%20workflow%20we%20want%20to%20improve%3A%0A">Book the walkthrough</a>
+    <p>Bring a study you are fielding now. MarketEdge shows you what live synthesis, open bias checks, and full traceability change about your findings, and about who trusts them.</p>
+    <a class="btn" href="mailto:info@marketedgeglobal.com?subject=Demo%20request%3A%20Solmara%20Research%20and%20Synthesis&body=Organization%3A%0ARole%3A%0AThe%20workflow%20we%20want%20to%20improve%3A%0A">Book the walkthrough</a>
     <div class="email">info@marketedgeglobal.com</div>
   </div>
 </div>
@@ -75,48 +131,36 @@
     state.criteria.forEach(function (c) { s += inv.scores[c.key] * (weights[c.key] / total); });
     return s;
   }
-
   function currentWeights() {
     var w = {}, total = 0;
     state.criteria.forEach(function (c) {
-      var el = document.getElementById('w-' + c.key);
-      w[c.key] = parseInt(el.value, 10);
+      w[c.key] = parseInt(document.getElementById('w-' + c.key).value, 10);
       total += w[c.key];
     });
     return { w: w, total: total || 1 };
   }
-
-  function render(first) {
+  function renderPipeline(first) {
     var cw = currentWeights();
     var ranked = state.investors.slice().sort(function (a, b) {
       return score(b, cw.w, cw.total) - score(a, cw.w, cw.total);
     });
-
-    // update normalized weight readouts
     state.criteria.forEach(function (c) {
-      var out = document.getElementById('o-' + c.key);
-      out.textContent = Math.round((cw.w[c.key] / cw.total) * 100) + '%';
+      document.getElementById('o-' + c.key).textContent = Math.round((cw.w[c.key] / cw.total) * 100) + '%';
     });
-
     var tbody = document.getElementById('pipeline-body');
     var prev = {};
     if (!first && !reduced) {
-      Array.prototype.forEach.call(tbody.children, function (tr) {
-        prev[tr.dataset.id] = tr.getBoundingClientRect().top;
-      });
+      Array.prototype.forEach.call(tbody.children, function (tr) { prev[tr.dataset.id] = tr.getBoundingClientRect().top; });
     }
-
     tbody.innerHTML = ranked.map(function (inv, i) {
       var hot = inv.stage === 'Term sheet' || inv.stage === 'Due diligence';
       return '<tr data-id="' + inv.id + '"' + (inv.name === state.review.target ? ' class="reviewed"' : '') + '>' +
         '<td class="rank">' + (i + 1) + '</td>' +
         '<td class="name"><b>' + inv.name + '</b><span>' + inv.type + ' · ' + inv.note + '</span></td>' +
         '<td><span class="stage-pill' + (hot ? ' hot' : '') + '">' + inv.stage + '</span></td>' +
-        '<td style="font-size:12.5px;color:var(--muted)">' + inv.sectors.join(', ') + '</td>' +
-        '<td class="score">' + score(inv, cw.w, cw.total).toFixed(2) + '</td>' +
-        '</tr>';
+        '<td style="font-size:13px;color:var(--olive)">' + inv.sectors.join(', ') + '</td>' +
+        '<td class="score">' + score(inv, cw.w, cw.total).toFixed(2) + '</td></tr>';
     }).join('');
-
     if (!first && !reduced) {
       Array.prototype.forEach.call(tbody.children, function (tr) {
         var before = prev[tr.dataset.id];
@@ -125,37 +169,81 @@
         if (!delta) return;
         tr.style.transition = 'none';
         tr.style.transform = 'translateY(' + delta + 'px)';
-        requestAnimationFrame(function () {
-          tr.style.transition = '';
-          tr.style.transform = '';
-        });
+        requestAnimationFrame(function () { tr.style.transition = ''; tr.style.transform = ''; });
       });
     }
   }
 
   fetch('../data/solmara-data.json').then(function (r) { return r.json(); }).then(function (data) {
+    var research = data.analytics.research;
+
+    // Beat 01: interview stream (latest first, capped for pace)
+    var interviews = research.interviews.slice().reverse();
+    document.getElementById('interview-stream').innerHTML = interviews.map(function (iv) {
+      return '<div class="interview-card">' +
+        '<div class="meta"><span>' + iv.date + ' · ' + iv.province + ' · ' + iv.method + '</span><span class="lang">' + iv.language + '</span></div>' +
+        '<b>' + iv.respondent + ' · ' + iv.role + ', ' + iv.org + '</b>' +
+        iv.excerpts.map(function (x) { return '<div class="quote">“' + x.quote.replace(/^“|”$/g, '') + '”</div>'; }).join('') +
+        '</div>';
+    }).join('');
+
+    // Beat 02: findings board with click-through traceability
+    var byId = {};
+    research.interviews.forEach(function (iv) {
+      iv.excerpts.forEach(function (x) { byId[iv.id + '/' + x.id] = { iv: iv, x: x }; });
+    });
+    document.getElementById('findings-board').innerHTML = research.findings.map(function (f) {
+      var badge = f.confidence.toLowerCase();
+      var srcs = f.sources.map(function (s) {
+        var rec = byId[s.interviewId + '/' + s.excerptId];
+        return '<div class="src"><div class="quote">“' + rec.x.quote.replace(/^“|”$/g, '') + '”</div>' +
+          '<div class="who">' + rec.iv.respondent + ' · ' + rec.iv.role + ', ' + rec.iv.org + ' · ' + rec.iv.province + ' · ' + rec.iv.date + '</div></div>';
+      }).join('');
+      var flags = f.flags.map(function (fl) {
+        return '<div class="flag' + (fl.type === 'translation' ? ' translation' : '') + '"><span>' +
+          (fl.type === 'bias' ? '⚑ Bias check' : fl.type === 'coverage' ? '⚑ Coverage' : '✓ Translation') + '</span><span>' + fl.text + '</span></div>';
+      }).join('');
+      return '<div class="finding-card reveal" data-id="' + f.id + '" tabindex="0" role="button" aria-expanded="false">' +
+        '<div class="top"><span class="tag">' + f.theme.replace('-', ' ') + '</span><span class="badge ' + badge + '">' + f.confidence + '</span></div>' +
+        '<div class="statement">' + f.statement + '</div>' +
+        flags +
+        '<div class="hint">' + f.sources.length + ' source' + (f.sources.length > 1 ? 's' : '') + ' · select to trace every statement to who said it</div>' +
+        '<div class="trace">' + srcs + '</div></div>';
+    }).join('');
+    document.querySelectorAll('.finding-card').forEach(function (card) {
+      function toggle() {
+        card.classList.toggle('open');
+        card.setAttribute('aria-expanded', card.classList.contains('open') ? 'true' : 'false');
+      }
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+    });
+
+    // Beat 03: localization
+    document.getElementById('loc-original').textContent = research.localization.original;
+    document.getElementById('loc-translation').textContent = research.localization.translation;
+    document.getElementById('loc-reviewer').textContent = research.localization.reviewer;
+    document.getElementById('loc-note').textContent = research.localization.note;
+
+    // Beat 04: audit tiles
+    document.getElementById('audit-tiles').innerHTML = research.audit.map(function (a) {
+      return '<div class="tile"><b>' + a.value + '</b><span><strong style="display:block;color:inherit">' + a.label + '</strong>' + a.detail + '</span></div>';
+    }).join('');
+
+    // Beat 05: pipeline + weights
     state.criteria = data.analytics.criteria;
     state.investors = data.analytics.investors;
     state.review = data.analytics.seniorReview;
-
     document.getElementById('weights').innerHTML = state.criteria.map(function (c) {
       return '<div class="weight">' +
         '<label for="w-' + c.key + '">' + c.label + ' <output id="o-' + c.key + '">' + c.weight + '%</output></label>' +
-        '<input type="range" id="w-' + c.key + '" min="0" max="50" step="5" value="' + c.weight + '">' +
-        '</div>';
+        '<input type="range" id="w-' + c.key + '" min="0" max="50" step="5" value="' + c.weight + '"></div>';
     }).join('');
     state.criteria.forEach(function (c) {
-      document.getElementById('w-' + c.key).addEventListener('input', function () { render(false); });
+      document.getElementById('w-' + c.key).addEventListener('input', function () { renderPipeline(false); });
     });
-
     document.getElementById('review-text').textContent = state.review.text;
-
-    document.getElementById('signals').innerHTML = data.analytics.signals.map(function (s) {
-      return '<div class="signal"><span class="d mono">' + s.date + '</span>' +
-        '<span class="t"><span class="tag">' + s.tag + '</span></span><span>' + s.text + '</span></div>';
-    }).join('');
-
-    render(true);
+    renderPipeline(true);
   });
 })();
 </script>
