@@ -5,53 +5,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Coastal Leaders Cohort · PartnerAI demo by MarketEdge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../shared/demo.css">
 </head>
 <body>
 <script src="../../shared/banner.js" data-demo="Coastal Leaders Cohort Dashboard" defer></script>
+<script src="../../shared/reveal.js" defer></script>
 
-<div class="demo-head wrap">
-  <div class="eyebrow">Chapter 2 · Organizational Development · Solmara Blue Economy Growth Programme</div>
-  <h1>Teams change institutions. Here is one changing.</h1>
-  <p class="lede">Twenty-four fellows, four per coastal province, self-assessed on six competencies at months 1, 5, and 9. The dashboard their coaches and MFCE counterparts read is the one below.</p>
+<div class="demo-head">
+  <div class="photo" style="background-image:url('../../shared/img/solmara-coast.jpg');background-position:center 30%"></div>
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="eyebrow">Chapter 2 · Organizational Development · Solmara Blue Economy Growth Programme</div>
+    <h1>Teams change institutions. Here is one changing.</h1>
+    <p class="lede">Twenty-four fellows, four per coastal province, building the capability their institutions keep. Three pillars carry them: self-led learning, classroom training, and AI agents with senior mentorship. The dashboard below tracks all of it.</p>
+  </div>
 </div>
 
-<section class="beat wrap">
-  <div class="beat-label">01 · The cohort at month 1: wide variance, honest baseline</div>
-  <div class="radar-grid" id="cohort-grid"></div>
-  <div class="foot-note">Each radar: six competencies, self-assessed 1 to 5. Figures are illustrative.</div>
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">00 · Three pillars, one program: AI complements expertise, never replaces it</div>
+    <div class="pillars reveal-stagger" id="pillars"></div>
+  </div>
 </section>
 
-<section class="beat wrap">
-  <div class="beat-label">02 · One fellow, months 1 to 9</div>
-  <div class="panel" style="display:flex;flex-wrap:wrap;gap:28px;align-items:center">
-    <div id="featured-radar" style="flex:none"></div>
-    <div style="flex:1;min-width:260px">
-      <div class="tag" id="featured-role"></div>
-      <h2 id="featured-name" style="margin:6px 0 10px"></h2>
-      <p style="font-size:14.5px;color:var(--muted);max-width:36em" id="featured-story"></p>
-      <div class="legend" id="featured-legend"></div>
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">01 · The cohort at month 1: wide variance, honest baseline</div>
+    <div class="radar-grid reveal-stagger" id="cohort-grid"></div>
+    <div class="foot-note">Each radar: six competencies, self-assessed 1 to 5. Figures are illustrative.</div>
+  </div>
+</section>
+
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">02 · One fellow, months 1 to 9</div>
+    <div class="panel reveal" style="display:flex;flex-wrap:wrap;gap:28px;align-items:center">
+      <div id="featured-radar" style="flex:none"></div>
+      <div style="flex:1;min-width:260px">
+        <div class="tag" id="featured-role"></div>
+        <h2 id="featured-name" style="margin:6px 0 10px"></h2>
+        <p style="font-size:15px;color:var(--olive);max-width:36em" id="featured-story"></p>
+        <div class="legend" id="featured-legend"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="beat wrap">
-  <div class="beat-label">03 · Where coaching made the difference</div>
-  <div class="log" id="coaching-log"></div>
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">03 · The mentorship thread: tracked across the whole engagement</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:40em;margin-bottom:24px">Every fellow carries a one-on-one mentorship record. The three pillars show up in it: modules set the base, the classroom builds the reflex, the agents carry the daily work, and the mentor coaches where the data points.</p>
+    <div class="timeline" id="mentorship"></div>
+  </div>
 </section>
 
-<section class="beat wrap">
-  <div class="beat-label">04 · Province rollup at month 9</div>
-  <div class="rollup" id="rollup"></div>
-  <div class="legend"><span><span class="k" style="background:#b9cfc2"></span>Month 1 average</span><span><span class="k" style="background:var(--ever-mid)"></span>Month 9 average</span></div>
+<section class="beat dark">
+  <div class="wrap">
+    <div class="beat-label">04 · The agents behind the fellows: built for social enterprises</div>
+    <div class="agent-grid reveal-stagger" id="agents"></div>
+    <div class="stat-tiles reveal-stagger" id="pillar-stats" style="margin-top:26px"></div>
+  </div>
+</section>
+
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">05 · Province rollup at month 9</div>
+    <div class="rollup reveal-stagger" id="rollup"></div>
+    <div class="legend"><span><span class="k" style="background:var(--olive-soft)"></span>Month 1 average</span><span><span class="k" style="background:var(--indigo)"></span>Month 9 average</span></div>
+  </div>
 </section>
 
 <div class="cta-band">
   <div class="wrap">
-    <div class="eyebrow" style="color:#9fc0af">See it on your team</div>
+    <div class="eyebrow">See it on your team</div>
     <h2>Walk through this on your own workflow. 30 minutes.</h2>
-    <p>Bring an assessment you run today, or one you wish you ran. MarketEdge shows you what a living cohort dashboard changes about where you coach.</p>
+    <p>Bring an assessment you run today, or one you wish you ran. MarketEdge shows you what a living cohort dashboard changes about where you coach and what your team keeps.</p>
     <a class="btn" href="mailto:info@marketedgeglobal.com?subject=Demo%20request%3A%20Coastal%20Leaders%20Cohort%20Dashboard&body=Organization%3A%0ARole%3A%0AThe%20workflow%20we%20want%20to%20improve%3A%0A">Book the walkthrough</a>
     <div class="email">info@marketedgeglobal.com</div>
   </div>
@@ -65,9 +94,8 @@
 (function () {
   var NS = 'http://www.w3.org/2000/svg';
 
-  // Build one radar SVG. layers: [{values:[...], stroke, fill}], labels shown on big radars.
   function radar(size, keys, layers, labels) {
-    var c = size / 2, rMax = c - (labels ? 34 : 8), n = keys.length;
+    var c = size / 2, rMax = c - (labels ? 60 : 8), n = keys.length;
     function pt(i, v) {
       var a = (Math.PI * 2 * i) / n - Math.PI / 2;
       var r = (v / 5) * rMax;
@@ -75,21 +103,19 @@
     }
     var svg = '<svg xmlns="' + NS + '" width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" role="img">';
     [1, 2, 3, 4, 5].forEach(function (ring) {
-      var pts = keys.map(function (_, i) { return pt(i, ring).join(','); }).join(' ');
-      svg += '<polygon points="' + pts + '" fill="none" stroke="#e3e8e3" stroke-width="1"/>';
+      svg += '<polygon points="' + keys.map(function (_, i) { return pt(i, ring).join(','); }).join(' ') + '" fill="none" stroke="#e0e2da" stroke-width="1"/>';
     });
     keys.forEach(function (_, i) {
       var p = pt(i, 5);
-      svg += '<line x1="' + c + '" y1="' + c + '" x2="' + p[0] + '" y2="' + p[1] + '" stroke="#e3e8e3" stroke-width="1"/>';
+      svg += '<line x1="' + c + '" y1="' + c + '" x2="' + p[0] + '" y2="' + p[1] + '" stroke="#e0e2da" stroke-width="1"/>';
     });
     layers.forEach(function (L) {
-      var pts = L.values.map(function (v, i) { return pt(i, v).join(','); }).join(' ');
-      svg += '<polygon points="' + pts + '" fill="' + L.fill + '" stroke="' + L.stroke + '" stroke-width="2" stroke-linejoin="round"/>';
+      svg += '<polygon points="' + L.values.map(function (v, i) { return pt(i, v).join(','); }).join(' ') + '" fill="' + L.fill + '" stroke="' + L.stroke + '" stroke-width="2" stroke-linejoin="round"/>';
     });
     if (labels) {
       keys.forEach(function (k, i) {
-        var p = pt(i, 6.15);
-        svg += '<text x="' + p[0] + '" y="' + p[1] + '" text-anchor="middle" font-size="10" font-family="IBM Plex Mono,monospace" fill="#5c6b63">' + labels[i] + '</text>';
+        var p = pt(i, 6.35);
+        svg += '<text x="' + p[0] + '" y="' + p[1] + '" text-anchor="middle" font-size="11" font-family="Josefin Sans,sans-serif" letter-spacing="1" fill="#6a6e64">' + labels[i].toUpperCase() + '</text>';
       });
     }
     return svg + '</svg>';
@@ -100,39 +126,47 @@
     var keys = comps.map(function (c) { return c.key; });
     var fellows = data.leaders.fellows;
 
-    // Beat 1: cohort grid at month 1
+    document.getElementById('pillars').innerHTML = data.leaders.pillars.map(function (p, i) {
+      return '<div class="pillar"><div class="num">0' + (i + 1) + '</div><b>' + p.title + '</b><p>' + p.text + '</p></div>';
+    }).join('');
+
     document.getElementById('cohort-grid').innerHTML = fellows.map(function (f) {
       var vals = keys.map(function (k) { return f.assessments.month1[k]; });
       return '<div class="radar-cell' + (f.featured ? ' featured' : '') + '">' +
-        radar(120, keys, [{ values: vals, stroke: '#1c5a44', fill: 'rgba(28,90,68,.18)' }]) +
+        radar(120, keys, [{ values: vals, stroke: '#393d32', fill: 'rgba(57,61,50,.16)' }]) +
         '<b>' + f.name + '</b><span>' + f.province + '</span></div>';
     }).join('');
 
-    // Beat 2: featured fellow overlay
     var f = fellows.filter(function (x) { return x.featured; })[0];
     var m1 = keys.map(function (k) { return f.assessments.month1[k]; });
     var m9 = keys.map(function (k) { return f.assessments.month9[k]; });
     var shortLabels = ['Strategy', 'Stakeholders', 'Finance', 'Leadership', 'Data', 'Adaptive'];
     document.getElementById('featured-radar').innerHTML = radar(340, keys, [
-      { values: m1, stroke: '#b9cfc2', fill: 'rgba(185,207,194,.30)' },
-      { values: m9, stroke: '#1c5a44', fill: 'rgba(28,90,68,.22)' }
+      { values: m1, stroke: '#aab0a4', fill: 'rgba(170,176,164,.28)' },
+      { values: m9, stroke: '#242337', fill: 'rgba(36,35,55,.20)' }
     ], shortLabels);
     document.getElementById('featured-name').textContent = f.name;
     document.getElementById('featured-role').textContent = f.role + ' · ' + f.province + ' Province';
     document.getElementById('featured-story').textContent =
-      'Five competencies climb over nine months. One does not: financial management dips from 3.1 to 2.7 after she takes on the federation treasurer role and the systems change under her. Real growth is uneven. The dashboard shows it, and the coaching plan answers it.';
+      'Five competencies climb over nine months. One does not: financial management dips from 3.1 to 2.7 after she takes on the federation treasurer role and the systems change under her. Real growth is uneven. The dashboard shows it, and the mentorship thread below answers it.';
     document.getElementById('featured-legend').innerHTML =
-      '<span><span class="k" style="background:#b9cfc2"></span>Month 1</span>' +
-      '<span><span class="k" style="background:#1c5a44"></span>Month 9</span>';
+      '<span><span class="k" style="background:#aab0a4"></span>Month 1</span>' +
+      '<span><span class="k" style="background:#242337"></span>Month 9</span>';
 
-    // Beat 3: coaching log
-    document.getElementById('coaching-log').innerHTML = data.leaders.coachingLog.entries.map(function (e) {
-      return '<div class="log-entry' + (e.advisor ? ' advisor' : '') + '">' +
-        '<span class="m">Month ' + e.month + '</span>' +
-        '<span class="body"><b>' + e.type + (e.advisor ? ' · Human in the loop' : '') + '</b><p>' + e.text + '</p></span></div>';
+    var pillarNames = { 'self-led': 'Self-led learning', classroom: 'Classroom training', agents: 'AI agents', mentorship: 'Mentorship' };
+    document.getElementById('mentorship').innerHTML = data.leaders.mentorship.entries.map(function (e) {
+      return '<div class="tl-entry reveal' + (e.advisor ? ' advisor' : '') + '">' +
+        '<div class="m">Month ' + e.month + ' · ' + pillarNames[e.pillar] + (e.advisor ? ' · Human in the loop' : '') + '</div>' +
+        '<p>' + e.text + '</p></div>';
     }).join('');
 
-    // Beat 4: province rollup, month 1 vs month 9 average across all competencies
+    document.getElementById('agents').innerHTML = data.leaders.agents.map(function (a) {
+      return '<div class="agent"><span class="tag" style="color:#a5a3bd">' + a.focus + '</span><b>' + a.name + '</b><p style="color:#c9c7d8">' + a.text + '</p></div>';
+    }).join('');
+    document.getElementById('pillar-stats').innerHTML = data.leaders.pillarStats.map(function (s) {
+      return '<div class="tile"><b>' + s.value + '</b><span><strong style="display:block;color:inherit">' + s.label + '</strong>' + s.detail + '</span></div>';
+    }).join('');
+
     var byProv = {};
     fellows.forEach(function (fl) {
       var p = (byProv[fl.province] = byProv[fl.province] || { m1: 0, m9: 0, n: 0 });
@@ -143,8 +177,8 @@
       var p = byProv[prov];
       var a1 = p.m1 / p.n, a9 = p.m9 / p.n;
       return '<div class="prov"><b>' + prov + '</b>' +
-        '<div class="bar"><i class="base" style="width:' + (a1 / 5) * 100 + '%"></i></div>' +
-        '<div class="bar"><i style="width:' + (a9 / 5) * 100 + '%"></i></div>' +
+        '<div class="bar bar-anim"><i class="base" data-w="' + (a1 / 5) * 100 + '%" style="width:0"></i></div>' +
+        '<div class="bar bar-anim"><i data-w="' + (a9 / 5) * 100 + '%" style="width:0"></i></div>' +
         '<span>' + a1.toFixed(1) + ' &rarr; ' + a9.toFixed(1) + ' / 5</span></div>';
     }).join('');
   });
