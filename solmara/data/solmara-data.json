@@ -1,0 +1,1346 @@
+{
+  "meta": {
+    "program": "Solmara Blue Economy Growth Programme (BEGP)",
+    "country": "Republic of Solmara",
+    "donor": "Aldern Development Agency (ADA)",
+    "ministry": "Ministry of Fisheries and Coastal Economy (MFCE)",
+    "timeframe": "Year 1, Q3 (2026)",
+    "banner": "Demo environment. Fictional country, fictional data. These tools ship inside MarketEdge engagements.",
+    "footnote": "Figures are illustrative.",
+    "demoEmail": "info@marketedgeglobal.com",
+    "provinces": [
+      "Marell",
+      "Tanjor",
+      "Ostara",
+      "Kepu",
+      "Lindan",
+      "Varo"
+    ],
+    "valueChains": [
+      "Seaweed",
+      "Blue swimming crab",
+      "Reef fish",
+      "Coastal eco-tourism"
+    ]
+  },
+  "analytics": {
+    "criteria": [
+      {
+        "key": "market_access",
+        "label": "Market access",
+        "weight": 20
+      },
+      {
+        "key": "capital_readiness",
+        "label": "Capital readiness",
+        "weight": 25
+      },
+      {
+        "key": "smallholder_inclusion",
+        "label": "Smallholder inclusion",
+        "weight": 20
+      },
+      {
+        "key": "sustainability_alignment",
+        "label": "Sustainability alignment",
+        "weight": 15
+      },
+      {
+        "key": "execution_capacity",
+        "label": "Execution capacity",
+        "weight": 20
+      }
+    ],
+    "investors": [
+      {
+        "id": "inv-01",
+        "name": "Pelagia Foods International",
+        "type": "Regional seafood buyer",
+        "stage": "Due diligence",
+        "sectors": [
+          "Reef fish",
+          "Blue swimming crab"
+        ],
+        "scores": {
+          "market_access": 9,
+          "capital_readiness": 8,
+          "smallholder_inclusion": 7,
+          "sustainability_alignment": 8,
+          "execution_capacity": 8
+        },
+        "note": "Committed offtake with a traceability premium paid at the cooperative gate."
+      },
+      {
+        "id": "inv-02",
+        "name": "Coral Capital Partners",
+        "type": "Impact investor",
+        "stage": "Term sheet",
+        "sectors": [
+          "Seaweed",
+          "Coastal eco-tourism"
+        ],
+        "scores": {
+          "market_access": 7,
+          "capital_readiness": 9,
+          "smallholder_inclusion": 7,
+          "sustainability_alignment": 8,
+          "execution_capacity": 7
+        },
+        "note": "Term sheet on the table for seaweed aggregation infrastructure in Tanjor."
+      },
+      {
+        "id": "inv-03",
+        "name": "Harborline Logistics",
+        "type": "Cold chain and port logistics",
+        "stage": "Engaged",
+        "sectors": [
+          "Blue swimming crab",
+          "Reef fish"
+        ],
+        "scores": {
+          "market_access": 8,
+          "capital_readiness": 7,
+          "smallholder_inclusion": 6,
+          "sustainability_alignment": 6,
+          "execution_capacity": 9
+        },
+        "note": "Cold chain proposal covering Tanjor and Kepu landing sites."
+      },
+      {
+        "id": "inv-04",
+        "name": "Averlyn Development Finance",
+        "type": "Development financier",
+        "stage": "Engaged",
+        "sectors": [
+          "Seaweed"
+        ],
+        "scores": {
+          "market_access": 6,
+          "capital_readiness": 8,
+          "smallholder_inclusion": 8,
+          "sustainability_alignment": 8,
+          "execution_capacity": 5
+        },
+        "note": "Concessional window open for first-loss capital, slow internal clock."
+      },
+      {
+        "id": "inv-05",
+        "name": "Mistrale Ocean Fund",
+        "type": "Blue economy fund",
+        "stage": "Screened",
+        "sectors": [
+          "Reef fish"
+        ],
+        "scores": {
+          "market_access": 6,
+          "capital_readiness": 8,
+          "smallholder_inclusion": 6,
+          "sustainability_alignment": 9,
+          "execution_capacity": 6
+        },
+        "note": "Strong mandate fit; wants a bankable co-management story first."
+      },
+      {
+        "id": "inv-06",
+        "name": "Tessara Blue Holdings",
+        "type": "Seaweed processor",
+        "stage": "Due diligence",
+        "sectors": [
+          "Seaweed"
+        ],
+        "scores": {
+          "market_access": 7,
+          "capital_readiness": 6,
+          "smallholder_inclusion": 7,
+          "sustainability_alignment": 7,
+          "execution_capacity": 7
+        },
+        "note": "Processing capacity in place; financing gap on working capital."
+      },
+      {
+        "id": "inv-07",
+        "name": "Kelvane Foods Group",
+        "type": "Reef fish buyer",
+        "stage": "Engaged",
+        "sectors": [
+          "Reef fish"
+        ],
+        "scores": {
+          "market_access": 8,
+          "capital_readiness": 6,
+          "smallholder_inclusion": 5,
+          "sustainability_alignment": 5,
+          "execution_capacity": 7
+        },
+        "note": "Volume appetite is real; sourcing standards still loose."
+      },
+      {
+        "id": "inv-08",
+        "name": "Nerivo Marine Ingredients",
+        "type": "Seaweed extracts manufacturer",
+        "stage": "Screened",
+        "sectors": [
+          "Seaweed"
+        ],
+        "scores": {
+          "market_access": 7,
+          "capital_readiness": 5,
+          "smallholder_inclusion": 6,
+          "sustainability_alignment": 8,
+          "execution_capacity": 6
+        },
+        "note": "Carrageenan demand growing; needs consistent grade from Lindan farms."
+      },
+      {
+        "id": "inv-09",
+        "name": "Sunmere Coastal Ventures",
+        "type": "Eco-tourism developer",
+        "stage": "Screened",
+        "sectors": [
+          "Coastal eco-tourism"
+        ],
+        "scores": {
+          "market_access": 6,
+          "capital_readiness": 6,
+          "smallholder_inclusion": 7,
+          "sustainability_alignment": 7,
+          "execution_capacity": 5
+        },
+        "note": "Two-lodge concept with community equity; pre-feasibility stage."
+      },
+      {
+        "id": "inv-10",
+        "name": "Quillon Bay Seafoods",
+        "type": "Crab processor",
+        "stage": "Engaged",
+        "sectors": [
+          "Blue swimming crab"
+        ],
+        "scores": {
+          "market_access": 6,
+          "capital_readiness": 5,
+          "smallholder_inclusion": 7,
+          "sustainability_alignment": 6,
+          "execution_capacity": 6
+        },
+        "note": "Expansion blocked on cold chain; watch the Harborline dependency."
+      },
+      {
+        "id": "inv-11",
+        "name": "Corvess Trading Company",
+        "type": "Commodity trader",
+        "stage": "Identified",
+        "sectors": [
+          "Blue swimming crab",
+          "Reef fish"
+        ],
+        "scores": {
+          "market_access": 8,
+          "capital_readiness": 7,
+          "smallholder_inclusion": 2,
+          "sustainability_alignment": 3,
+          "execution_capacity": 7
+        },
+        "note": "Deep buyer network, extractive model. Prices out smallholders today."
+      },
+      {
+        "id": "inv-12",
+        "name": "Bravane Aquatech",
+        "type": "Reef fish hatchery",
+        "stage": "Identified",
+        "sectors": [
+          "Reef fish"
+        ],
+        "scores": {
+          "market_access": 4,
+          "capital_readiness": 5,
+          "smallholder_inclusion": 5,
+          "sustainability_alignment": 7,
+          "execution_capacity": 5
+        },
+        "note": "Hatchery technology promising; team unproven at commercial scale."
+      },
+      {
+        "id": "inv-13",
+        "name": "Halovane BioMarine",
+        "type": "Seaweed biotech",
+        "stage": "Identified",
+        "sectors": [
+          "Seaweed"
+        ],
+        "scores": {
+          "market_access": 5,
+          "capital_readiness": 6,
+          "smallholder_inclusion": 4,
+          "sustainability_alignment": 8,
+          "execution_capacity": 5
+        },
+        "note": "High-value extracts angle; three years from offtake volumes."
+      },
+      {
+        "id": "inv-14",
+        "name": "Selvatier Hospitality Group",
+        "type": "Resort operator",
+        "stage": "Identified",
+        "sectors": [
+          "Coastal eco-tourism"
+        ],
+        "scores": {
+          "market_access": 7,
+          "capital_readiness": 4,
+          "smallholder_inclusion": 4,
+          "sustainability_alignment": 6,
+          "execution_capacity": 4
+        },
+        "note": "Brand interest without capital commitment; 18-month decision cycle."
+      }
+    ],
+    "seniorReview": {
+      "target": "Harborline Logistics",
+      "author": "MarketEdge senior review",
+      "text": "The score puts Harborline third. We rank it first for sequencing: without cold chain at the Tanjor and Kepu landing sites, neither Pelagia’s volumes nor Quillon Bay’s expansion close. Harborline’s deal unlocks two others. Read the pipeline as a system, not a list."
+    },
+    "signals": [
+      {
+        "date": "2026-09-04",
+        "tag": "Demand",
+        "text": "Regional carrageenan spot prices up 11% quarter on quarter; Nerivo and Halovane both cite supply gaps."
+      },
+      {
+        "date": "2026-08-28",
+        "tag": "Policy",
+        "text": "MFCE publishes draft co-management regulations for reef fisheries; comment window closes October."
+      },
+      {
+        "date": "2026-08-19",
+        "tag": "Capital",
+        "text": "Aldern Development Agency confirms blended finance facility for coastal value chains, first call expected Q4."
+      },
+      {
+        "date": "2026-08-07",
+        "tag": "Infrastructure",
+        "text": "Tanjor port authority approves cold storage concession tender; Harborline shortlisted."
+      },
+      {
+        "date": "2026-07-30",
+        "tag": "Demand",
+        "text": "Two regional retail chains announce traceable-seafood sourcing commitments from 2027."
+      },
+      {
+        "date": "2026-07-16",
+        "tag": "Risk",
+        "text": "Crab stock assessment in Varo flags juvenile catch rates above threshold; seasonal closure under discussion."
+      }
+    ]
+  },
+  "leaders": {
+    "competencies": [
+      {
+        "key": "strategic_planning",
+        "label": "Strategic planning"
+      },
+      {
+        "key": "stakeholder_engagement",
+        "label": "Stakeholder engagement"
+      },
+      {
+        "key": "financial_management",
+        "label": "Financial management"
+      },
+      {
+        "key": "team_leadership",
+        "label": "Team leadership"
+      },
+      {
+        "key": "data_use",
+        "label": "Data-driven decisions"
+      },
+      {
+        "key": "adaptive_management",
+        "label": "Adaptive management"
+      }
+    ],
+    "fellows": [
+      {
+        "id": "fel-01",
+        "name": "Dario Ventane",
+        "province": "Marell",
+        "role": "MFCE Provincial Fisheries Officer",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.5,
+            "stakeholder_engagement": 2.3,
+            "financial_management": 3.3,
+            "team_leadership": 2.4,
+            "data_use": 3.3,
+            "adaptive_management": 2.7
+          },
+          "month5": {
+            "strategic_planning": 3.1,
+            "stakeholder_engagement": 2.7,
+            "financial_management": 3.5,
+            "team_leadership": 2.7,
+            "data_use": 4,
+            "adaptive_management": 3.5
+          },
+          "month9": {
+            "strategic_planning": 3.6,
+            "stakeholder_engagement": 3.1,
+            "financial_management": 4.3,
+            "team_leadership": 3,
+            "data_use": 4.4,
+            "adaptive_management": 3.9
+          }
+        },
+        "touchpoints": 3
+      },
+      {
+        "id": "fel-02",
+        "name": "Lys Amaro",
+        "province": "Marell",
+        "role": "SCPF Cooperative Coordinator",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 3.3,
+            "stakeholder_engagement": 2.5,
+            "financial_management": 3.1,
+            "team_leadership": 3.2,
+            "data_use": 3,
+            "adaptive_management": 2.7
+          },
+          "month5": {
+            "strategic_planning": 3.9,
+            "stakeholder_engagement": 3.1,
+            "financial_management": 3.6,
+            "team_leadership": 3.9,
+            "data_use": 3.8,
+            "adaptive_management": 2.9
+          },
+          "month9": {
+            "strategic_planning": 4.6,
+            "stakeholder_engagement": 3.6,
+            "financial_management": 4.2,
+            "team_leadership": 4.5,
+            "data_use": 4.4,
+            "adaptive_management": 3.8
+          }
+        },
+        "touchpoints": 7
+      },
+      {
+        "id": "fel-03",
+        "name": "Petra Solin",
+        "province": "Marell",
+        "role": "TidePoint Field Program Lead",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 3.3,
+            "stakeholder_engagement": 3,
+            "financial_management": 2.4,
+            "team_leadership": 3.4,
+            "data_use": 2.5,
+            "adaptive_management": 2.5
+          },
+          "month5": {
+            "strategic_planning": 4.1,
+            "stakeholder_engagement": 3.2,
+            "financial_management": 2.9,
+            "team_leadership": 3.9,
+            "data_use": 2.7,
+            "adaptive_management": 3.3
+          },
+          "month9": {
+            "strategic_planning": 4.5,
+            "stakeholder_engagement": 4.5,
+            "financial_management": 3.5,
+            "team_leadership": 4.6,
+            "data_use": 3.7,
+            "adaptive_management": 4.1
+          }
+        },
+        "touchpoints": 7
+      },
+      {
+        "id": "fel-04",
+        "name": "Emeric Tavos",
+        "province": "Marell",
+        "role": "Cooperative Enterprise Manager",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 3.4,
+            "stakeholder_engagement": 3.1,
+            "financial_management": 2.6,
+            "team_leadership": 2.5,
+            "data_use": 2.3,
+            "adaptive_management": 2.7
+          },
+          "month5": {
+            "strategic_planning": 3.9,
+            "stakeholder_engagement": 3.7,
+            "financial_management": 2.7,
+            "team_leadership": 3,
+            "data_use": 2.9,
+            "adaptive_management": 3.2
+          },
+          "month9": {
+            "strategic_planning": 4.3,
+            "stakeholder_engagement": 4.1,
+            "financial_management": 3.5,
+            "team_leadership": 3.7,
+            "data_use": 3.4,
+            "adaptive_management": 3.5
+          }
+        },
+        "touchpoints": 4
+      },
+      {
+        "id": "fel-05",
+        "name": "Nadia Kerel",
+        "province": "Tanjor",
+        "role": "SCPF Cooperative Coordinator",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.4,
+            "stakeholder_engagement": 3.1,
+            "financial_management": 3.1,
+            "team_leadership": 2.6,
+            "data_use": 2,
+            "adaptive_management": 2.5
+          },
+          "month5": {
+            "strategic_planning": 3,
+            "stakeholder_engagement": 3.6,
+            "financial_management": 3.2,
+            "team_leadership": 3.1,
+            "data_use": 2.9,
+            "adaptive_management": 2.9
+          },
+          "month9": {
+            "strategic_planning": 3.8,
+            "stakeholder_engagement": 4.3,
+            "financial_management": 2.7,
+            "team_leadership": 3.9,
+            "data_use": 3.7,
+            "adaptive_management": 3.6
+          }
+        },
+        "touchpoints": 7,
+        "featured": true
+      },
+      {
+        "id": "fel-06",
+        "name": "Joam Estrilla",
+        "province": "Tanjor",
+        "role": "SCPF Cooperative Coordinator",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.7,
+            "stakeholder_engagement": 2.9,
+            "financial_management": 2.2,
+            "team_leadership": 2.5,
+            "data_use": 2.8,
+            "adaptive_management": 3.2
+          },
+          "month5": {
+            "strategic_planning": 3.3,
+            "stakeholder_engagement": 3.9,
+            "financial_management": 2.9,
+            "team_leadership": 3.4,
+            "data_use": 3,
+            "adaptive_management": 3.8
+          },
+          "month9": {
+            "strategic_planning": 3.9,
+            "stakeholder_engagement": 4.5,
+            "financial_management": 3.5,
+            "team_leadership": 3.9,
+            "data_use": 4,
+            "adaptive_management": 4.3
+          }
+        },
+        "touchpoints": 7
+      },
+      {
+        "id": "fel-07",
+        "name": "Riva Montane",
+        "province": "Tanjor",
+        "role": "TidePoint Field Program Lead",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.7,
+            "stakeholder_engagement": 2.6,
+            "financial_management": 3.2,
+            "team_leadership": 3.1,
+            "data_use": 2.4,
+            "adaptive_management": 2.3
+          },
+          "month5": {
+            "strategic_planning": 3.3,
+            "stakeholder_engagement": 3.2,
+            "financial_management": 3.3,
+            "team_leadership": 3.5,
+            "data_use": 2.7,
+            "adaptive_management": 2.9
+          },
+          "month9": {
+            "strategic_planning": 3.8,
+            "stakeholder_engagement": 3.6,
+            "financial_management": 3.8,
+            "team_leadership": 3.8,
+            "data_use": 3,
+            "adaptive_management": 3.4
+          }
+        },
+        "touchpoints": 6
+      },
+      {
+        "id": "fel-08",
+        "name": "Chessa Lindo",
+        "province": "Tanjor",
+        "role": "Cooperative Enterprise Manager",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.9,
+            "stakeholder_engagement": 2.8,
+            "financial_management": 2.1,
+            "team_leadership": 2.8,
+            "data_use": 2.6,
+            "adaptive_management": 2.2
+          },
+          "month5": {
+            "strategic_planning": 3.5,
+            "stakeholder_engagement": 3,
+            "financial_management": 2.2,
+            "team_leadership": 3.3,
+            "data_use": 2.7,
+            "adaptive_management": 2.7
+          },
+          "month9": {
+            "strategic_planning": 3.9,
+            "stakeholder_engagement": 3.9,
+            "financial_management": 2.8,
+            "team_leadership": 3.9,
+            "data_use": 3.2,
+            "adaptive_management": 3.1
+          }
+        },
+        "touchpoints": 5
+      },
+      {
+        "id": "fel-09",
+        "name": "Tomas Reyla",
+        "province": "Ostara",
+        "role": "MFCE Provincial Fisheries Officer",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.3,
+            "stakeholder_engagement": 2.4,
+            "financial_management": 2.2,
+            "team_leadership": 3.2,
+            "data_use": 2.7,
+            "adaptive_management": 2.2
+          },
+          "month5": {
+            "strategic_planning": 2.6,
+            "stakeholder_engagement": 2.8,
+            "financial_management": 2.7,
+            "team_leadership": 3.6,
+            "data_use": 2.8,
+            "adaptive_management": 2.3
+          },
+          "month9": {
+            "strategic_planning": 2.8,
+            "stakeholder_engagement": 3,
+            "financial_management": 3,
+            "team_leadership": 4,
+            "data_use": 3.5,
+            "adaptive_management": 2.6
+          }
+        },
+        "touchpoints": 4
+      },
+      {
+        "id": "fel-10",
+        "name": "Ilena Vosca",
+        "province": "Ostara",
+        "role": "SCPF Cooperative Coordinator",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.7,
+            "stakeholder_engagement": 2.8,
+            "financial_management": 2.4,
+            "team_leadership": 2.7,
+            "data_use": 2.1,
+            "adaptive_management": 2.1
+          },
+          "month5": {
+            "strategic_planning": 3.3,
+            "stakeholder_engagement": 3,
+            "financial_management": 2.6,
+            "team_leadership": 3.5,
+            "data_use": 3,
+            "adaptive_management": 2.3
+          },
+          "month9": {
+            "strategic_planning": 3.9,
+            "stakeholder_engagement": 4.3,
+            "financial_management": 3.6,
+            "team_leadership": 4,
+            "data_use": 3.6,
+            "adaptive_management": 3.5
+          }
+        },
+        "touchpoints": 6
+      },
+      {
+        "id": "fel-11",
+        "name": "Marek Sundo",
+        "province": "Ostara",
+        "role": "TidePoint Field Program Lead",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.7,
+            "stakeholder_engagement": 2.3,
+            "financial_management": 2.6,
+            "team_leadership": 2.7,
+            "data_use": 2.8,
+            "adaptive_management": 2.6
+          },
+          "month5": {
+            "strategic_planning": 3.2,
+            "stakeholder_engagement": 3.1,
+            "financial_management": 3.3,
+            "team_leadership": 3.2,
+            "data_use": 3,
+            "adaptive_management": 3.2
+          },
+          "month9": {
+            "strategic_planning": 3.6,
+            "stakeholder_engagement": 3.6,
+            "financial_management": 4,
+            "team_leadership": 3.7,
+            "data_use": 3.9,
+            "adaptive_management": 3.6
+          }
+        },
+        "touchpoints": 6
+      },
+      {
+        "id": "fel-12",
+        "name": "Ana Belquin",
+        "province": "Ostara",
+        "role": "Cooperative Enterprise Manager",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.6,
+            "stakeholder_engagement": 2.4,
+            "financial_management": 3.1,
+            "team_leadership": 2.6,
+            "data_use": 2.4,
+            "adaptive_management": 2.9
+          },
+          "month5": {
+            "strategic_planning": 3.4,
+            "stakeholder_engagement": 3.1,
+            "financial_management": 3.7,
+            "team_leadership": 3.2,
+            "data_use": 2.9,
+            "adaptive_management": 3.6
+          },
+          "month9": {
+            "strategic_planning": 3.9,
+            "stakeholder_engagement": 3.7,
+            "financial_management": 4.1,
+            "team_leadership": 3.8,
+            "data_use": 3.4,
+            "adaptive_management": 4.2
+          }
+        },
+        "touchpoints": 6
+      },
+      {
+        "id": "fel-13",
+        "name": "Sori Anteva",
+        "province": "Kepu",
+        "role": "MFCE Provincial Fisheries Officer",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.4,
+            "stakeholder_engagement": 2.1,
+            "financial_management": 2.7,
+            "team_leadership": 2.7,
+            "data_use": 2.9,
+            "adaptive_management": 2.8
+          },
+          "month5": {
+            "strategic_planning": 2.6,
+            "stakeholder_engagement": 2.7,
+            "financial_management": 3.2,
+            "team_leadership": 3.3,
+            "data_use": 3.5,
+            "adaptive_management": 3.3
+          },
+          "month9": {
+            "strategic_planning": 3.4,
+            "stakeholder_engagement": 3.1,
+            "financial_management": 3.7,
+            "team_leadership": 3.7,
+            "data_use": 3.8,
+            "adaptive_management": 3.7
+          }
+        },
+        "touchpoints": 7
+      },
+      {
+        "id": "fel-14",
+        "name": "Kalen Muri",
+        "province": "Kepu",
+        "role": "SCPF Cooperative Coordinator",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.9,
+            "stakeholder_engagement": 2.4,
+            "financial_management": 2.3,
+            "team_leadership": 2.9,
+            "data_use": 3,
+            "adaptive_management": 2.9
+          },
+          "month5": {
+            "strategic_planning": 3.6,
+            "stakeholder_engagement": 3.1,
+            "financial_management": 3.1,
+            "team_leadership": 3.1,
+            "data_use": 3.6,
+            "adaptive_management": 3.7
+          },
+          "month9": {
+            "strategic_planning": 4.3,
+            "stakeholder_engagement": 3.8,
+            "financial_management": 3.8,
+            "team_leadership": 4.4,
+            "data_use": 4.3,
+            "adaptive_management": 4.5
+          }
+        },
+        "touchpoints": 5
+      },
+      {
+        "id": "fel-15",
+        "name": "Delia Prenta",
+        "province": "Kepu",
+        "role": "TidePoint Field Program Lead",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.7,
+            "stakeholder_engagement": 2,
+            "financial_management": 1.9,
+            "team_leadership": 2.8,
+            "data_use": 2.7,
+            "adaptive_management": 1.9
+          },
+          "month5": {
+            "strategic_planning": 2.8,
+            "stakeholder_engagement": 2.6,
+            "financial_management": 2.2,
+            "team_leadership": 3.2,
+            "data_use": 3.1,
+            "adaptive_management": 2.5
+          },
+          "month9": {
+            "strategic_planning": 3.5,
+            "stakeholder_engagement": 3,
+            "financial_management": 2.4,
+            "team_leadership": 3.5,
+            "data_use": 3.3,
+            "adaptive_management": 2.8
+          }
+        },
+        "touchpoints": 7
+      },
+      {
+        "id": "fel-16",
+        "name": "Owen Talvis",
+        "province": "Kepu",
+        "role": "Cooperative Enterprise Manager",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.3,
+            "stakeholder_engagement": 2.6,
+            "financial_management": 2.7,
+            "team_leadership": 3,
+            "data_use": 2.1,
+            "adaptive_management": 2.2
+          },
+          "month5": {
+            "strategic_planning": 2.5,
+            "stakeholder_engagement": 3.3,
+            "financial_management": 3.7,
+            "team_leadership": 3.9,
+            "data_use": 2.3,
+            "adaptive_management": 3.2
+          },
+          "month9": {
+            "strategic_planning": 3.5,
+            "stakeholder_engagement": 4.1,
+            "financial_management": 4.2,
+            "team_leadership": 4.5,
+            "data_use": 3.5,
+            "adaptive_management": 3.8
+          }
+        },
+        "touchpoints": 7
+      },
+      {
+        "id": "fel-17",
+        "name": "Fara Odim",
+        "province": "Lindan",
+        "role": "MFCE Provincial Fisheries Officer",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.2,
+            "stakeholder_engagement": 2.8,
+            "financial_management": 2.5,
+            "team_leadership": 2.9,
+            "data_use": 2.4,
+            "adaptive_management": 2.1
+          },
+          "month5": {
+            "strategic_planning": 2.9,
+            "stakeholder_engagement": 3.4,
+            "financial_management": 3.2,
+            "team_leadership": 3.1,
+            "data_use": 3,
+            "adaptive_management": 2.8
+          },
+          "month9": {
+            "strategic_planning": 3.6,
+            "stakeholder_engagement": 3.8,
+            "financial_management": 3.8,
+            "team_leadership": 4.2,
+            "data_use": 3.5,
+            "adaptive_management": 3.2
+          }
+        },
+        "touchpoints": 3
+      },
+      {
+        "id": "fel-18",
+        "name": "Ruel Cantara",
+        "province": "Lindan",
+        "role": "SCPF Cooperative Coordinator",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 3,
+            "stakeholder_engagement": 2.2,
+            "financial_management": 2.9,
+            "team_leadership": 2.2,
+            "data_use": 2,
+            "adaptive_management": 2.3
+          },
+          "month5": {
+            "strategic_planning": 3.4,
+            "stakeholder_engagement": 2.9,
+            "financial_management": 3.3,
+            "team_leadership": 2.6,
+            "data_use": 2.6,
+            "adaptive_management": 2.9
+          },
+          "month9": {
+            "strategic_planning": 3.9,
+            "stakeholder_engagement": 3.5,
+            "financial_management": 3.7,
+            "team_leadership": 3.1,
+            "data_use": 3.3,
+            "adaptive_management": 3.4
+          }
+        },
+        "touchpoints": 6
+      },
+      {
+        "id": "fel-19",
+        "name": "Mirelle Joss",
+        "province": "Lindan",
+        "role": "TidePoint Field Program Lead",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.7,
+            "stakeholder_engagement": 2.7,
+            "financial_management": 2.1,
+            "team_leadership": 2.9,
+            "data_use": 2.4,
+            "adaptive_management": 2.2
+          },
+          "month5": {
+            "strategic_planning": 3.3,
+            "stakeholder_engagement": 3.3,
+            "financial_management": 2.8,
+            "team_leadership": 3.5,
+            "data_use": 3,
+            "adaptive_management": 3
+          },
+          "month9": {
+            "strategic_planning": 3.8,
+            "stakeholder_engagement": 4.1,
+            "financial_management": 3.3,
+            "team_leadership": 4,
+            "data_use": 3.6,
+            "adaptive_management": 3.6
+          }
+        },
+        "touchpoints": 5
+      },
+      {
+        "id": "fel-20",
+        "name": "Benak Oru",
+        "province": "Lindan",
+        "role": "Cooperative Enterprise Manager",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.2,
+            "stakeholder_engagement": 1.9,
+            "financial_management": 2.9,
+            "team_leadership": 3,
+            "data_use": 2.8,
+            "adaptive_management": 2.6
+          },
+          "month5": {
+            "strategic_planning": 2.4,
+            "stakeholder_engagement": 2.3,
+            "financial_management": 3.3,
+            "team_leadership": 3.4,
+            "data_use": 3.1,
+            "adaptive_management": 3.2
+          },
+          "month9": {
+            "strategic_planning": 3.2,
+            "stakeholder_engagement": 2.7,
+            "financial_management": 3.7,
+            "team_leadership": 3.7,
+            "data_use": 3.3,
+            "adaptive_management": 3.6
+          }
+        },
+        "touchpoints": 4
+      },
+      {
+        "id": "fel-21",
+        "name": "Tessa Marin",
+        "province": "Varo",
+        "role": "MFCE Provincial Fisheries Officer",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.4,
+            "stakeholder_engagement": 2,
+            "financial_management": 2,
+            "team_leadership": 2,
+            "data_use": 2.2,
+            "adaptive_management": 1.9
+          },
+          "month5": {
+            "strategic_planning": 3.1,
+            "stakeholder_engagement": 2.2,
+            "financial_management": 2.6,
+            "team_leadership": 2.6,
+            "data_use": 2.4,
+            "adaptive_management": 2.1
+          },
+          "month9": {
+            "strategic_planning": 3.8,
+            "stakeholder_engagement": 3.4,
+            "financial_management": 3.1,
+            "team_leadership": 3.1,
+            "data_use": 3.5,
+            "adaptive_management": 3.4
+          }
+        },
+        "touchpoints": 4
+      },
+      {
+        "id": "fel-22",
+        "name": "Colvin Ashe",
+        "province": "Varo",
+        "role": "SCPF Cooperative Coordinator",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 1.6,
+            "stakeholder_engagement": 1.8,
+            "financial_management": 2.4,
+            "team_leadership": 2.1,
+            "data_use": 2.2,
+            "adaptive_management": 2.6
+          },
+          "month5": {
+            "strategic_planning": 2.2,
+            "stakeholder_engagement": 2.6,
+            "financial_management": 3.1,
+            "team_leadership": 2.9,
+            "data_use": 2.7,
+            "adaptive_management": 3.1
+          },
+          "month9": {
+            "strategic_planning": 2.8,
+            "stakeholder_engagement": 3.3,
+            "financial_management": 3.5,
+            "team_leadership": 3.6,
+            "data_use": 3.2,
+            "adaptive_management": 3.7
+          }
+        },
+        "touchpoints": 6
+      },
+      {
+        "id": "fel-23",
+        "name": "Yuna Pelor",
+        "province": "Varo",
+        "role": "TidePoint Field Program Lead",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.4,
+            "stakeholder_engagement": 1.8,
+            "financial_management": 1.7,
+            "team_leadership": 2.4,
+            "data_use": 2.4,
+            "adaptive_management": 2
+          },
+          "month5": {
+            "strategic_planning": 2.8,
+            "stakeholder_engagement": 2.5,
+            "financial_management": 2.5,
+            "team_leadership": 2.6,
+            "data_use": 2.9,
+            "adaptive_management": 2.2
+          },
+          "month9": {
+            "strategic_planning": 3.3,
+            "stakeholder_engagement": 3.2,
+            "financial_management": 3,
+            "team_leadership": 3.8,
+            "data_use": 3.6,
+            "adaptive_management": 3
+          }
+        },
+        "touchpoints": 4
+      },
+      {
+        "id": "fel-24",
+        "name": "Rimon Salda",
+        "province": "Varo",
+        "role": "Cooperative Enterprise Manager",
+        "assessments": {
+          "month1": {
+            "strategic_planning": 2.2,
+            "stakeholder_engagement": 2.3,
+            "financial_management": 2.7,
+            "team_leadership": 2.7,
+            "data_use": 2.1,
+            "adaptive_management": 2
+          },
+          "month5": {
+            "strategic_planning": 2.5,
+            "stakeholder_engagement": 2.4,
+            "financial_management": 3.1,
+            "team_leadership": 3.2,
+            "data_use": 2.6,
+            "adaptive_management": 2.3
+          },
+          "month9": {
+            "strategic_planning": 2.8,
+            "stakeholder_engagement": 3.3,
+            "financial_management": 3.6,
+            "team_leadership": 3.6,
+            "data_use": 3,
+            "adaptive_management": 2.5
+          }
+        },
+        "touchpoints": 6
+      }
+    ],
+    "coachingLog": {
+      "fellow": "Nadia Kerel",
+      "entries": [
+        {
+          "month": 2,
+          "type": "Peer circle",
+          "text": "Cohort session on stakeholder mapping; Nadia presents the Tanjor landing-site conflict."
+        },
+        {
+          "month": 3,
+          "type": "Virtual coach",
+          "text": "Works through a negotiation scenario with the PartnerAI coach before the port authority meeting."
+        },
+        {
+          "month": 4,
+          "type": "Peer circle",
+          "text": "Brings co-op pricing dispute to the group; leaves with a mediation plan."
+        },
+        {
+          "month": 6,
+          "type": "Advisor session",
+          "advisor": true,
+          "text": "MarketEdge advisor session: month-5 data flags the financial management dip after she takes on the federation treasurer role. They rebuild her monthly close routine and set a 90-day plan."
+        },
+        {
+          "month": 7,
+          "type": "Virtual coach",
+          "text": "Practices the budget presentation for the federation board twice; second run scores cleaner on structure."
+        },
+        {
+          "month": 8,
+          "type": "Advisor check-in",
+          "text": "Close routine holding. Board presentation lands; treasurer transition on track."
+        }
+      ]
+    }
+  },
+  "partnerships": {
+    "partners": [
+      {
+        "id": "par-01",
+        "name": "Pelagia Foods International",
+        "type": "Regional seafood buyer",
+        "commercial": 8.6,
+        "development": 8.2,
+        "rank": 1,
+        "sub": {
+          "commercial": {
+            "Offtake volume": 9,
+            "Price stability": 8,
+            "Balance sheet": 9
+          },
+          "development": {
+            "Smallholder terms": 8,
+            "Traceability": 9,
+            "Local jobs": 8
+          }
+        },
+        "reason": "Committed offtake with a traceability premium paid at the cooperative gate. The commercial case and the development case are the same case."
+      },
+      {
+        "id": "par-02",
+        "name": "Coral Capital Partners",
+        "type": "Impact investor",
+        "commercial": 7.8,
+        "development": 8.4,
+        "rank": 2,
+        "sub": {
+          "commercial": {
+            "Capital ready": 9,
+            "Return discipline": 8,
+            "Sector track record": 6
+          },
+          "development": {
+            "Smallholder terms": 8,
+            "Traceability": 8,
+            "Local jobs": 9
+          }
+        },
+        "reason": "Patient capital with a mandate that matches BEGP. Needs an operating partner to carry execution."
+      },
+      {
+        "id": "par-03",
+        "name": "Harborline Logistics",
+        "type": "Cold chain and port logistics",
+        "commercial": 7.9,
+        "development": 6.8,
+        "rank": 3,
+        "sub": {
+          "commercial": {
+            "Revenue model": 8,
+            "Asset base": 8,
+            "Utilization risk": 7
+          },
+          "development": {
+            "Smallholder terms": 6,
+            "Traceability": 7,
+            "Local jobs": 7
+          }
+        },
+        "reason": "The infrastructure everyone else depends on. Development scores follow the buyers it serves."
+      },
+      {
+        "id": "par-04",
+        "name": "Corvess Trading Company",
+        "type": "Commodity trader",
+        "commercial": 7.4,
+        "development": 2.9,
+        "rank": 4,
+        "sub": {
+          "commercial": {
+            "Buyer network": 9,
+            "Price stability": 6,
+            "Balance sheet": 7
+          },
+          "development": {
+            "Smallholder terms": 2,
+            "Traceability": 3,
+            "Local jobs": 4
+          }
+        },
+        "reason": "Weak on purpose in this scorecard: strong commercials, extractive terms. No traceability commitment, spot pricing that squeezes smallholders. The chart shows why we walked."
+      },
+      {
+        "id": "par-05",
+        "name": "Selvatier Hospitality Group",
+        "type": "Resort operator",
+        "commercial": 4.2,
+        "development": 4.8,
+        "rank": 5,
+        "sub": {
+          "commercial": {
+            "Capital committed": 3,
+            "Decision speed": 3,
+            "Brand pull": 7
+          },
+          "development": {
+            "Community equity": 5,
+            "Local jobs": 6,
+            "Environmental plan": 4
+          }
+        },
+        "reason": "Brand interest without capital commitment and an 18-month decision cycle. Parked, not pursued."
+      }
+    ],
+    "personaScript": {
+      "persona": "Elena Marsh",
+      "personaRole": "Sustainability Director, Pelagia Foods International",
+      "scenario": "Rehearsal: the traceability premium negotiation, three days before the real meeting.",
+      "violetMoment": "Rehearsed Tuesday. Real meeting Friday. MarketEdge in the room for both.",
+      "messages": [
+        {
+          "from": "client",
+          "name": "SCPF negotiator",
+          "text": "We are proposing a 12% premium on traceable crab, paid at the cooperative gate, not at the port."
+        },
+        {
+          "from": "elena",
+          "text": "Twelve percent is above what we pay anywhere in the region. Help me understand what I am buying for the extra margin."
+        },
+        {
+          "from": "client",
+          "text": "Verified chain of custody from 31 landing sites. Your two retail buyers announced traceable-sourcing commitments starting 2027. We are the only supply that gets you there on time."
+        },
+        {
+          "from": "elena",
+          "text": "Volumes. If I commit to the premium, can the federation guarantee 40 tonnes a month through the closed season?"
+        },
+        {
+          "from": "client",
+          "text": "Thirty-two tonnes guaranteed, with a path to 40 by month six as Kepu comes online. We would rather commit to a number we can hold."
+        },
+        {
+          "from": "elena",
+          "text": "That honesty helps you. Here is my condition: quarterly audits, shared, and the premium steps down if traceability coverage drops below 90%."
+        },
+        {
+          "from": "client",
+          "text": "Agreed on audits. On the step-down: make it symmetric. Coverage above 95% for two straight quarters moves the premium to 13%."
+        },
+        {
+          "from": "elena",
+          "text": "I can take symmetric step-ups to my board. Send the coverage methodology before Friday."
+        }
+      ],
+      "coachNote": "What worked: leading with the buyer’s own 2027 commitments, conceding volume honestly, and converting her audit condition into a symmetric incentive. Practice the methodology answer next; she will ask how coverage is measured."
+    }
+  }
+}
