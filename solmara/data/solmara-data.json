@@ -805,7 +805,7 @@
           "month5": {
             "strategic_planning": 3,
             "stakeholder_engagement": 3.6,
-            "financial_management": 3.2,
+            "financial_management": 2.7,
             "team_leadership": 3.1,
             "data_use": 2.9,
             "adaptive_management": 2.9
@@ -813,7 +813,7 @@
           "month9": {
             "strategic_planning": 3.8,
             "stakeholder_engagement": 4.3,
-            "financial_management": 2.7,
+            "financial_management": 3.8,
             "team_leadership": 3.9,
             "data_use": 3.7,
             "adaptive_management": 3.6
@@ -1525,7 +1525,7 @@
         {
           "month": 5,
           "pillar": "mentorship",
-          "text": "Mid-point review against the dashboard. Financial management dip surfaces; mentor and fellow set the 90-day close routine.",
+          "text": "Mid-point review against the dashboard. The financial management dip surfaces; she and her mentor adopt new financial and operational systems and set a 90-day plan.",
           "advisor": true
         },
         {
@@ -1536,7 +1536,7 @@
         {
           "month": 9,
           "pillar": "mentorship",
-          "text": "Grant approved. Board presentation lands. The dashboard shows five competencies up, one recovering, and a written plan she owns.",
+          "text": "Grant approved. Board presentation lands. The dashboard shows all six competencies up, with financial management climbing fastest since month six.",
           "advisor": true
         }
       ]
