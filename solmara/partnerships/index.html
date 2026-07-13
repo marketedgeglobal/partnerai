@@ -16,7 +16,7 @@
   <div class="photo" style="background-image:url('../../shared/img/solmara-coast.jpg');background-position:center 45%"></div>
   <div class="scrim"></div>
   <div class="wrap">
-    <div class="eyebrow">Chapter 3 · Shared Value Partnerships · Solmara Blue Economy Growth Programme</div>
+    <div class="eyebrow">Section 3 · Shared Value Partnerships · Solmara Blue Economy Growth Programme</div>
     <h1>Structuring the partnership is the beginning. Running it is the work.</h1>
     <p class="lede">MarketEdge works the gap between the two: score candidates on capital and trust together, map what flows between partners, rehearse the conversation that decides it, and build the governance that keeps it alive. Strategy to action.</p>
     <p class="posline">MarketEdge at work, in a fictional setting. Solmara is a fictional country with fictional data. Section 3 of 3 · <a href="../../">Overview</a> · <a href="../analytics/">Section 1</a> · <a href="../leaders/">Section 2</a></p>
@@ -32,7 +32,17 @@
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">01 · The scorecard: one chart, both cases</div>
+    <div class="beat-label">01 · Readiness first: score the partnership before the term sheet</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:22px" id="ready-intro"></p>
+    <div class="ready-grid reveal-stagger" id="ready-grid"></div>
+    <div class="foot-note" id="ready-note"></div>
+  </div>
+</section>
+
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">02 · The scorecard: one chart, both cases</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:22px">The weekly operating view the partnership team reads: five candidates scored on commercial fit and development outcomes together.</p>
     <div class="scatter-wrap reveal" id="scatter"></div>
     <div class="foot-note">Figures are illustrative.</div>
   </div>
@@ -40,14 +50,14 @@
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">02 · Why the ranking holds</div>
+    <div class="beat-label">03 · Why the ranking holds</div>
     <div class="partner-list reveal-stagger" id="partner-list"></div>
   </div>
 </section>
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">03 · The value-flow map: what moves between partners</div>
+    <div class="beat-label">04 · The value-flow map: what moves between partners</div>
     <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:22px">Capital, goods, services, data, and governance move in different directions at once. Drawing the flows makes each partner's stake legible, and shows where the partnership breaks if one flow stops.</p>
     <div class="flow-wrap reveal" id="flow-diagram"></div>
   </div>
@@ -55,14 +65,14 @@
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">04 · From strategy to operation: what MarketEdge builds after the handshake</div>
+    <div class="beat-label">05 · From strategy to operation: what MarketEdge builds after the handshake</div>
     <div class="ops-grid reveal-stagger" id="ops-grid"></div>
   </div>
 </section>
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">05 · The rehearsal: scripted replay</div>
+    <div class="beat-label">06 · The rehearsal: scripted replay</div>
     <div class="panel">
       <div class="tag" id="scenario"></div>
       <div class="replay-controls" style="margin-top:12px">
@@ -184,6 +194,18 @@
     var script = data.partnerships.personaScript;
     var vf = data.partnerships.valueFlows;
 
+    // Beat 01: partnership readiness
+    var ready = data.partnerships.readiness;
+    document.getElementById('ready-intro').textContent = ready.intro;
+    document.getElementById('ready-grid').innerHTML = ready.dimensions.map(function (d) {
+      var pct = (d.score / 5) * 100;
+      return '<div class="ready"><b>' + d.label + '</b>' +
+        '<div class="track bar-anim"><i data-w="' + pct + '%" style="width:0" class="' + (d.score < 3 ? 'low' : '') + '"></i></div>' +
+        '<span class="score">' + d.score.toFixed(1) + ' / 5</span>' +
+        '<p>' + d.action + '</p></div>';
+    }).join('');
+    document.getElementById('ready-note').textContent = ready.note;
+
     document.getElementById('scatter').innerHTML = scatterSVG(partners);
 
     document.getElementById('partner-list').innerHTML = partners.map(function (p) {
@@ -224,7 +246,8 @@
     }).join('');
 
     document.getElementById('scenario').textContent = script.scenario;
-    document.getElementById('persona-line').textContent = script.persona + ', ' + script.personaRole + '. Scripted replay, not a live model.';
+    document.getElementById('persona-line').innerHTML = script.persona + ', ' + script.personaRole + '. Scripted replay, not a live model.' +
+      '<span style="display:block;margin-top:6px"><span class="chip-meta">Also in the live catalog: provincial licensing officer</span> <span class="chip-meta">impact investor</span> <span class="chip-meta">port authority</span></span>';
     document.getElementById('violet-moment').textContent = script.violetMoment;
     document.getElementById('coach-note').textContent = script.coachNote;
 

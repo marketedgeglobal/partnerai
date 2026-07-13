@@ -625,6 +625,40 @@
         "translation": "“Grade A and grade B dry the same in the sun. The difference is the price sheet nobody shows us.”",
         "reviewer": "Verified against the recording by a bilingual reviewer, week 9.",
         "note": "The model drafts in the respondent’s language; a person signs off. Detail survives translation instead of dying in a summary row."
+      },
+      "byTheNumbers": [
+        {
+          "stat": "Catch lost on hot days without cold chain",
+          "value": "Up to 1/3",
+          "source": "Mirna Talos · Tanjor Crab Producers Cooperative"
+        },
+        {
+          "stat": "Cold storage utilization needed to break even",
+          "value": "60%",
+          "source": "Harel Domas · Harborline Logistics"
+        },
+        {
+          "stat": "Monthly supply the federation can guarantee today",
+          "value": "32 tonnes",
+          "source": "SCPF negotiation brief, week 10"
+        },
+        {
+          "stat": "Household savings rate with monthly settlement",
+          "value": "2x",
+          "source": "Wera Salin · Lindan Women’s Savings Circle"
+        }
+      ],
+      "askDataset": {
+        "suggestions": [
+          "What are the top three constraints on the crab value chain?",
+          "Which prospects are strongest for early follow-up?",
+          "What does the data say about payment cadence and household savings?"
+        ],
+        "exchange": {
+          "q": "What are the top three constraints on the crab value chain?",
+          "a": "First, cold chain at the Tanjor and Kepu landing sites: it gates buyer volumes, beach-side pricing power, and the Harborline investment case at once. Second, spot pricing reflects spoilage risk, so storage capacity shifts the negotiation more than regulation does. Third, a Varo seasonal closure needs an income bridge before enforcement can hold. Sources: four interviews across three provinces, traceable above."
+        },
+        "note": "Scripted exchange so the demo always works. The live Ask-the-Dataset assistant ships inside engagements."
       }
     }
   },
@@ -1510,7 +1544,7 @@
         {
           "month": 1,
           "pillar": "self-led",
-          "text": "Baseline self-assessment sets her learning path: finance fundamentals and negotiation modules first."
+          "text": "Baseline self-assessment across four skill themes sets her learning path: finance fundamentals and negotiation modules first."
         },
         {
           "month": 2,
@@ -1523,10 +1557,20 @@
           "text": "Uses the proposal agent to draft the co-op’s first cold-storage grant application. Mentor reviews the draft, not the blank page."
         },
         {
+          "month": 4,
+          "pillar": "classroom",
+          "text": "Provincial peer exchange. Fellows working the same value chain form a crab cluster and split the problem by scale: landing site, province, market."
+        },
+        {
           "month": 5,
           "pillar": "mentorship",
           "text": "Mid-point review against the dashboard. The financial management dip surfaces; she and her mentor adopt new financial and operational systems and set a 90-day plan.",
           "advisor": true
+        },
+        {
+          "month": 6,
+          "pillar": "classroom",
+          "text": "Negotiation module. Rehearses the buyer conversation against the Elena Marsh persona twice before the real meeting."
         },
         {
           "month": 7,
@@ -1536,7 +1580,7 @@
         {
           "month": 9,
           "pillar": "mentorship",
-          "text": "Grant approved. Board presentation lands. The dashboard shows all six competencies up, with financial management climbing fastest since month six.",
+          "text": "Endline assessment. Grant approved, board presentation lands, and she leaves with a 120-day action plan she owns.",
           "advisor": true
         }
       ]
@@ -1583,6 +1627,178 @@
         "label": "Grant proposals submitted",
         "value": "11",
         "detail": "Seven approved by month 9, all drafted fellow-first."
+      }
+    ],
+    "pathways": [
+      {
+        "key": "story",
+        "label": "Storytelling & advocacy",
+        "color": "#4a5a78"
+      },
+      {
+        "key": "enterprise",
+        "label": "Enterprise & finance",
+        "color": "#2c5e34"
+      },
+      {
+        "key": "policy",
+        "label": "Stakeholder & policy engagement",
+        "color": "#242337"
+      }
+    ],
+    "profiles": [
+      {
+        "name": "Nadia Kerel",
+        "province": "Tanjor",
+        "role": "SCPF Cooperative Coordinator",
+        "pathway": "enterprise",
+        "baseline": 3,
+        "endline": 4.1,
+        "headline": "Cold-storage grant approved; federation treasurer systems rebuilt",
+        "quote": "The dashboard showed me the dip before I felt it. My mentor and I fixed the system, not the symptom."
+      },
+      {
+        "name": "Tessa Marin",
+        "province": "Varo",
+        "role": "MFCE Provincial Fisheries Officer",
+        "pathway": "story",
+        "baseline": 2.4,
+        "endline": 4,
+        "headline": "Standout growth: presented the Varo closure case to the national fisheries forum",
+        "quote": "I stopped reporting data and started telling the story the data proves."
+      },
+      {
+        "name": "Tomas Reyla",
+        "province": "Ostara",
+        "role": "TidePoint Field Program Lead",
+        "pathway": "policy",
+        "baseline": 3.4,
+        "endline": 4.3,
+        "headline": "Now coordinates the co-management comment process with MFCE",
+        "quote": "I knew the stakeholders. The program taught me to sequence them."
+      },
+      {
+        "name": "Kalen Muri",
+        "province": "Kepu",
+        "role": "Cooperative Enterprise Manager",
+        "pathway": "enterprise",
+        "baseline": 3.1,
+        "endline": 3.9,
+        "headline": "First co-op financial statements produced with the agent, audited clean",
+        "quote": "The agent drafts, I decide. My board finally sees the numbers monthly."
+      },
+      {
+        "name": "Mirelle Joss",
+        "province": "Lindan",
+        "role": "SCPF Cooperative Coordinator",
+        "pathway": "story",
+        "baseline": 2.9,
+        "endline": 4.2,
+        "headline": "Led the seaweed grading campaign that reached 600 producers",
+        "quote": "Six hundred producers now ask for the price sheet by name."
+      },
+      {
+        "name": "Dario Ventane",
+        "province": "Marell",
+        "role": "MFCE Provincial Fisheries Officer",
+        "pathway": "policy",
+        "baseline": 3.6,
+        "endline": 4.1,
+        "headline": "Started highest; now mentors two younger fellows in the next cohort",
+        "quote": "The peer exchange was the multiplier. We solve across provinces now."
+      }
+    ],
+    "themeGrowth": [
+      {
+        "theme": "Communication & storytelling",
+        "from": 3.1,
+        "to": 4.2
+      },
+      {
+        "theme": "Enterprise & financial management",
+        "from": 3,
+        "to": 4
+      },
+      {
+        "theme": "Stakeholder & policy engagement",
+        "from": 3.4,
+        "to": 4.2
+      },
+      {
+        "theme": "Turning plans into action",
+        "from": 3,
+        "to": 4.1
+      }
+    ],
+    "cohortStats": [
+      {
+        "label": "Average confidence, baseline to endline",
+        "value": "3.2 → 4.1",
+        "detail": "Across 21 self-rated skills, matched cohort of six."
+      },
+      {
+        "label": "Measures that increased",
+        "value": "21 of 21",
+        "detail": "Every skill rose from baseline to endline."
+      },
+      {
+        "label": "Standout gain",
+        "value": "+1.6",
+        "detail": "Tessa Marin, from 2.4 to 4.0 average confidence."
+      }
+    ],
+    "dashboard": [
+      {
+        "n": 1,
+        "title": "Assess your readiness",
+        "text": "Run the self-assessment or chat with the AI diagnostic for a gap analysis and roadmap.",
+        "tools": [
+          "Solmara Leaders Self-Assessment",
+          "Enterprise Diagnostic Coach"
+        ]
+      },
+      {
+        "n": 2,
+        "title": "Research key stakeholders",
+        "text": "Map the buyers, financiers, and ministry actors to engage this quarter.",
+        "tools": [
+          "PartnerNavigator",
+          "BEGP Stakeholder Research"
+        ]
+      },
+      {
+        "n": 3,
+        "title": "Tell your story",
+        "text": "Draft outreach, narrative angles, and audience-ready messaging in Solmaran or English.",
+        "tools": [
+          "Copy and Design Studio"
+        ]
+      },
+      {
+        "n": 4,
+        "title": "Shape your proposal",
+        "text": "Build the grant application or buyer proposal with structure, evidence, and citations.",
+        "tools": [
+          "Proposal Studio",
+          "Compliance Desk"
+        ]
+      },
+      {
+        "n": 5,
+        "title": "Practice a conversation",
+        "text": "Run a safe simulation with AI personas before the meeting that counts.",
+        "tools": [
+          "Elena Marsh · buyer",
+          "Provincial licensing officer"
+        ]
+      },
+      {
+        "n": 6,
+        "title": "Track sector signals",
+        "text": "Curated news, prices, and policy movement across the blue economy.",
+        "tools": [
+          "Market Scout"
+        ]
       }
     ]
   },
@@ -1831,6 +2047,32 @@
         "step": "Relationships",
         "text": "A relationship map with a named MarketEdge integrator watching the seams between organizations, where partnerships actually fail."
       }
-    ]
+    ],
+    "readiness": {
+      "intro": "Before any term sheet, MarketEdge scores the partnership itself. A structured self-assessment plus an AI diagnostic surfaces the gaps; senior review sets the roadmap.",
+      "dimensions": [
+        {
+          "label": "Governance readiness",
+          "score": 3.2,
+          "action": "Stand up the steering group with named seats and a decision log."
+        },
+        {
+          "label": "Value alignment",
+          "score": 4.1,
+          "action": "Commercial and development cases documented and shared. Keep them current."
+        },
+        {
+          "label": "Internal capacity",
+          "score": 2.6,
+          "action": "SCPF needs a grade-data reporting routine before volumes scale."
+        },
+        {
+          "label": "Financing structure",
+          "score": 3.5,
+          "action": "Blend Coral Capital’s patient tranche with the Pelagia offtake premium."
+        }
+      ],
+      "note": "Scores are 1 to 5, assessed jointly with both partners in week one."
+    }
   }
 }

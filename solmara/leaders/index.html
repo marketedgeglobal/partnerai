@@ -16,7 +16,7 @@
   <div class="photo" style="background-image:url('../../shared/img/solmara-coast.jpg');background-position:center 30%"></div>
   <div class="scrim"></div>
   <div class="wrap">
-    <div class="eyebrow">Chapter 2 · Organizational Development · Solmara Blue Economy Growth Programme</div>
+    <div class="eyebrow">Section 2 · Organizational Development · Solmara Blue Economy Growth Programme</div>
     <h1>Teams change institutions. Here is one changing.</h1>
     <p class="lede">Twenty-four leaders from social enterprises and community organizations, four from each coastal province, building the capability to grow their organizations and sustain the impact. PartnerAI runs through all three pillars of MarketEdge's organizational development model: self-led learning, classroom training, and AI agents backed by in-person mentorship from senior practitioners. The dashboard below tracks all of it.</p>
     <p class="posline">MarketEdge at work, in a fictional setting. Solmara is a fictional country with fictional data. Section 2 of 3 · <a href="../../">Overview</a> · <a href="../analytics/">Section 1</a> · <a href="../partnerships/">Section 3</a></p>
@@ -32,40 +32,37 @@
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">01 · The cohort at month 1: wide variance, honest baseline</div>
-    <div class="radar-grid reveal-stagger" id="cohort-grid"></div>
-    <div class="foot-note">Each radar: six competencies, self-assessed 1 to 5. Figures are illustrative.</div>
+    <div class="beat-label">01 · Six journeys, three learning pathways</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:14px">Six fellows completed both the baseline and endline assessments. Each followed a learning pathway set by their own starting point, and each left with something running that was not running before.</p>
+    <div class="ev-legend" id="pathway-legend"></div>
+    <div class="profile-grid reveal-stagger" id="profiles"></div>
+    <div class="foot-note">Confidence bars: self-rated baseline (light) to endline (dark), 1 to 5 scale. Figures are illustrative.</div>
   </div>
 </section>
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">02 · One fellow, months 1 to 9</div>
-    <div class="panel reveal" style="display:flex;flex-wrap:wrap;gap:28px;align-items:center">
-      <div id="featured-radar" style="flex:none"></div>
-      <div style="flex:1;min-width:260px">
-        <div class="tag" id="featured-role"></div>
-        <h2 id="featured-name" style="margin:6px 0 10px"></h2>
-        <p style="font-size:15px;color:var(--olive);max-width:36em" id="featured-story"></p>
-        <div class="legend" id="featured-legend"></div>
-      </div>
+    <div class="beat-label">02 · Growth by theme: baseline to endline</div>
+    <div class="split">
+      <div class="theme-grow reveal" id="theme-grow"></div>
+      <div class="stat-tiles reveal-stagger" id="cohort-stats" style="grid-template-columns:1fr"></div>
     </div>
   </div>
 </section>
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">03 · The mentorship thread: tracked across the whole engagement</div>
-    <p style="font-size:15.5px;color:var(--olive);max-width:40em;margin-bottom:24px">Every fellow carries a one-on-one mentorship record. The three pillars show up in it: modules set the base, the classroom builds the reflex, the agents carry the daily work, and the mentor coaches where the data points.</p>
+    <div class="beat-label">03 · One journey, month by month: the pillars woven together</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:40em;margin-bottom:24px">Mentorship is not a phase; it runs through everything. Self-led modules set the base, the classroom builds the reflex, agents carry the daily work, and the mentor coaches where the dashboard points. Nadia Kerel's nine months:</p>
     <div class="timeline" id="mentorship"></div>
   </div>
 </section>
 
 <section class="beat dark">
   <div class="wrap">
-    <div class="beat-label">04 · The agents behind the fellows: built for social enterprises</div>
-    <div class="agent-grid reveal-stagger" id="agents"></div>
-    <div class="stat-tiles reveal-stagger" id="pillar-stats" style="margin-top:26px"></div>
+    <div class="beat-label">04 · The Solmara Leaders Dashboard, powered by PartnerAI</div>
+    <p style="font-size:15.5px;color:#c9c7d8;max-width:42em;margin-bottom:26px">Every fellow works from one hub. Pick a task, and the right tool or agent is already there, from diagnostics to personas to proposal support.</p>
+    <div class="task-grid reveal-stagger" id="dashboard"></div>
   </div>
 </section>
 
@@ -93,83 +90,60 @@
 
 <script>
 (function () {
-  var NS = 'http://www.w3.org/2000/svg';
-
-  function radar(size, keys, layers, labels) {
-    var c = size / 2, rMax = c - (labels ? 60 : 8), n = keys.length;
-    function pt(i, v) {
-      var a = (Math.PI * 2 * i) / n - Math.PI / 2;
-      var r = (v / 5) * rMax;
-      return [c + r * Math.cos(a), c + r * Math.sin(a)];
-    }
-    var svg = '<svg xmlns="' + NS + '" width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '" role="img">';
-    [1, 2, 3, 4, 5].forEach(function (ring) {
-      svg += '<polygon points="' + keys.map(function (_, i) { return pt(i, ring).join(','); }).join(' ') + '" fill="none" stroke="#e0e2da" stroke-width="1"/>';
-    });
-    keys.forEach(function (_, i) {
-      var p = pt(i, 5);
-      svg += '<line x1="' + c + '" y1="' + c + '" x2="' + p[0] + '" y2="' + p[1] + '" stroke="#e0e2da" stroke-width="1"/>';
-    });
-    layers.forEach(function (L) {
-      svg += '<polygon points="' + L.values.map(function (v, i) { return pt(i, v).join(','); }).join(' ') + '" fill="' + L.fill + '" stroke="' + L.stroke + '" stroke-width="2" stroke-linejoin="round"/>';
-    });
-    if (labels) {
-      keys.forEach(function (k, i) {
-        var p = pt(i, 6.35);
-        svg += '<text x="' + p[0] + '" y="' + p[1] + '" text-anchor="middle" font-size="11" font-family="Josefin Sans,sans-serif" letter-spacing="1" fill="#6a6e64">' + labels[i].toUpperCase() + '</text>';
-      });
-    }
-    return svg + '</svg>';
-  }
-
   fetch('../data/solmara-data.json').then(function (r) { return r.json(); }).then(function (data) {
-    var comps = data.leaders.competencies;
-    var keys = comps.map(function (c) { return c.key; });
-    var fellows = data.leaders.fellows;
+    var L = data.leaders;
+    var pathById = {};
+    L.pathways.forEach(function (p) { pathById[p.key] = p; });
 
-    document.getElementById('pillars').innerHTML = data.leaders.pillars.map(function (p, i) {
+    document.getElementById('pillars').innerHTML = L.pillars.map(function (p, i) {
       return '<div class="pillar"><div class="num">0' + (i + 1) + '</div><b>' + p.title + '</b><p>' + p.text + '</p></div>';
     }).join('');
 
-    document.getElementById('cohort-grid').innerHTML = fellows.map(function (f) {
-      var vals = keys.map(function (k) { return f.assessments.month1[k]; });
-      return '<div class="radar-cell' + (f.featured ? ' featured' : '') + '">' +
-        radar(120, keys, [{ values: vals, stroke: '#393d32', fill: 'rgba(57,61,50,.16)' }]) +
-        '<b>' + f.name + '</b><span>' + f.province + '</span></div>';
+    document.getElementById('pathway-legend').innerHTML = L.pathways.map(function (p) {
+      return '<span><span class="k" style="background:' + p.color + '"></span>' + p.label + '</span>';
     }).join('');
 
-    var f = fellows.filter(function (x) { return x.featured; })[0];
-    var m1 = keys.map(function (k) { return f.assessments.month1[k]; });
-    var m9 = keys.map(function (k) { return f.assessments.month9[k]; });
-    var shortLabels = ['Strategy', 'Stakeholders', 'Finance', 'Leadership', 'Data', 'Adaptive'];
-    document.getElementById('featured-radar').innerHTML = radar(340, keys, [
-      { values: m1, stroke: '#aab0a4', fill: 'rgba(170,176,164,.28)' },
-      { values: m9, stroke: '#242337', fill: 'rgba(36,35,55,.20)' }
-    ], shortLabels);
-    document.getElementById('featured-name').textContent = f.name;
-    document.getElementById('featured-role').textContent = f.role + ' · ' + f.province + ' Province';
-    document.getElementById('featured-story').textContent =
-      'Five competencies climb over nine months. Financial management dips until month six, when she adopts new financial and operational systems with her mentor. Then it climbs fastest of all.';
-    document.getElementById('featured-legend').innerHTML =
-      '<span><span class="k" style="background:#aab0a4"></span>Month 1</span>' +
-      '<span><span class="k" style="background:#242337"></span>Month 9</span>';
+    document.getElementById('profiles').innerHTML = L.profiles.map(function (f) {
+      var p = pathById[f.pathway];
+      var initials = f.name.split(' ').map(function (w) { return w[0]; }).join('');
+      var basePct = (f.baseline / 5) * 100;
+      var endPct = (f.endline / 5) * 100;
+      return '<div class="profile">' +
+        '<div class="top"><span class="avatar" style="background:' + p.color + '">' + initials + '</span>' +
+        '<span><b>' + f.name + '</b><span>' + f.role + ' · ' + f.province + ' Province</span></span></div>' +
+        '<div class="path"><span class="chip-theme" style="background:' + p.color + '">' + p.label + '</span></div>' +
+        '<div class="conf"><span class="track"><em style="width:' + endPct + '%"></em><i style="width:' + basePct + '%"></i></span>' +
+        '<span class="lbl">' + f.baseline.toFixed(1) + ' &rarr; ' + f.endline.toFixed(1) + '</span></div>' +
+        '<div class="headline">' + f.headline + '</div>' +
+        '<div class="quote">“' + f.quote + '”</div>' +
+        '</div>';
+    }).join('');
 
-    var pillarNames = { 'self-led': 'Self-led learning', classroom: 'Classroom training', agents: 'AI agents', mentorship: 'Mentorship' };
-    document.getElementById('mentorship').innerHTML = data.leaders.mentorship.entries.map(function (e) {
+    document.getElementById('theme-grow').innerHTML = L.themeGrowth.map(function (t) {
+      return '<div class="tg-row"><div class="lbl"><span>' + t.theme + '</span><em>' + t.from.toFixed(1) + ' &rarr; ' + t.to.toFixed(1) + '</em></div>' +
+        '<div class="track bar-anim"><em style="width:' + (t.from / 5) * 100 + '%;background:var(--olive-soft)"></em>' +
+        '<i data-w="' + (t.to / 5) * 100 + '%" style="width:0;background:var(--indigo)"></i></div></div>';
+    }).join('') + '<div class="foot-note">Cohort average per theme, 1 to 5 scale, matched cohort of six.</div>';
+
+    document.getElementById('cohort-stats').innerHTML = L.cohortStats.map(function (s) {
+      return '<div class="tile"><b>' + s.value + '</b><span><strong style="display:block;color:inherit">' + s.label + '</strong>' + s.detail + '</span></div>';
+    }).join('');
+
+    var pillarNames = { 'self-led': 'Self-led learning', classroom: 'Classroom & peer practice', agents: 'AI agents at work', mentorship: 'Mentorship' };
+    document.getElementById('mentorship').innerHTML = L.mentorship.entries.map(function (e) {
       return '<div class="tl-entry reveal' + (e.advisor ? ' advisor' : '') + '">' +
         '<div class="m">Month ' + e.month + ' · ' + pillarNames[e.pillar] + (e.advisor ? ' · Human in the loop' : '') + '</div>' +
         '<p>' + e.text + '</p></div>';
     }).join('');
 
-    document.getElementById('agents').innerHTML = data.leaders.agents.map(function (a) {
-      return '<div class="agent"><span class="tag" style="color:#a5a3bd">' + a.focus + '</span><b>' + a.name + '</b><p style="color:#c9c7d8">' + a.text + '</p></div>';
-    }).join('');
-    document.getElementById('pillar-stats').innerHTML = data.leaders.pillarStats.map(function (s) {
-      return '<div class="tile"><b>' + s.value + '</b><span><strong style="display:block;color:inherit">' + s.label + '</strong>' + s.detail + '</span></div>';
+    document.getElementById('dashboard').innerHTML = L.dashboard.map(function (t) {
+      return '<div class="task"><span class="n">' + t.n + '</span><b>' + t.title + '</b><p>' + t.text + '</p>' +
+        '<div class="pills">' + t.tools.map(function (x) { return '<span class="pill">' + x + '</span>'; }).join('') + '</div></div>';
     }).join('');
 
+    var keys = L.competencies.map(function (c) { return c.key; });
     var byProv = {};
-    fellows.forEach(function (fl) {
+    L.fellows.forEach(function (fl) {
       var p = (byProv[fl.province] = byProv[fl.province] || { m1: 0, m9: 0, n: 0 });
       keys.forEach(function (k) { p.m1 += fl.assessments.month1[k]; p.m9 += fl.assessments.month9[k]; });
       p.n += keys.length;

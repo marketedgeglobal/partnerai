@@ -16,7 +16,7 @@
   <div class="photo" style="background-image:url('../../shared/img/solmara-coast.jpg');background-position:center 70%"></div>
   <div class="scrim"></div>
   <div class="wrap">
-    <div class="eyebrow">Chapter 1 · Advanced Analytics · Solmara Blue Economy Growth Programme</div>
+    <div class="eyebrow">Section 1 · Advanced Analytics · Solmara Blue Economy Growth Programme</div>
     <h1>Every finding traces back to the person who said it.</h1>
     <p class="lede">Field research in Solmara, synthesized as it arrives. Findings update live across the team, every statement links to its source, and the bias checks run in the open. No black box.</p>
     <p class="posline">MarketEdge at work, in a fictional setting. Solmara is a fictional country with fictional data. Section 1 of 3 · <a href="../../">Overview</a> · <a href="../leaders/">Section 2</a> · <a href="../partnerships/">Section 3</a></p>
@@ -48,7 +48,9 @@
       </div>
       <div>
         <div class="live-chip"><i></i>Live capture · six provinces · verified by the field team</div>
+        <div class="ev-legend" id="ev-legend"></div>
         <div id="interview-stream" class="reveal-stagger"></div>
+        <div class="foot-note">Four of thirty-one captures shown. Every capture carries the same tags.</div>
       </div>
     </div>
   </div>
@@ -65,7 +67,19 @@
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">03 · Language is data: nothing dies in translation</div>
+    <div class="beat-label">03 · What the stream becomes: the analysis view</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:22px">The same evidence base rolls up into the working analysis the program reads every week: findings on the left, the numbers behind them on the right, each with its source attached.</p>
+    <div class="analysis">
+      <div class="reveal-stagger" id="analysis-findings"></div>
+      <div class="numbers-rail reveal" id="numbers-rail"></div>
+    </div>
+    <div class="ask-box reveal" id="ask-box"></div>
+  </div>
+</section>
+
+<section class="beat">
+  <div class="wrap">
+    <div class="beat-label">04 · Language is data: nothing dies in translation</div>
     <div class="split">
       <div class="panel reveal">
         <div class="tag">Captured in Solmaran</div>
@@ -83,14 +97,14 @@
 
 <section class="beat dark">
   <div class="wrap">
-    <div class="beat-label">04 · The audit trail runs while the research runs</div>
+    <div class="beat-label">05 · The audit trail runs while the research runs</div>
     <div class="stat-tiles reveal-stagger" id="audit-tiles"></div>
   </div>
 </section>
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">05 · Findings land in decisions: the scored pipeline</div>
+    <div class="beat-label">06 · Findings land in decisions: the scored pipeline</div>
     <p style="font-size:15.5px;color:var(--olive);max-width:42em;margin-bottom:22px">Verified findings feed the investment pipeline the program runs. Fourteen prospects, five explicit criteria, one comparable score. Move a weight and the ranking answers.</p>
     <div class="panel" style="overflow-x:auto;margin-bottom:18px">
       <table class="pipeline" aria-live="polite">
@@ -181,15 +195,48 @@
   fetch('../data/solmara-data.json').then(function (r) { return r.json(); }).then(function (data) {
     var research = data.analytics.research;
 
-    // Beat 01: interview stream (latest first, capped for pace)
-    var interviews = research.interviews.slice().reverse();
-    document.getElementById('interview-stream').innerHTML = interviews.map(function (iv) {
-      return '<div class="interview-card">' +
-        '<div class="meta"><span>' + iv.date + ' · ' + iv.province + ' · ' + iv.method + '</span><span class="lang">' + iv.language + '</span></div>' +
-        '<b>' + iv.respondent + ' · ' + iv.role + ', ' + iv.org + '</b>' +
-        iv.excerpts.map(function (x) { return '<div class="quote">“' + x.quote.replace(/^“|”$/g, '') + '”</div>'; }).join('') +
+    // Beat 01: evidence stream, four recent captures, color-coded by theme
+    var THEME_COLORS = {
+      'cold-chain': '#242337', 'pricing': '#393d32', 'traceability': '#2c5e34',
+      'finance': '#4a5a78', 'stock-health': '#b4540a',
+    };
+    var THEME_LABELS = {
+      'cold-chain': 'Cold chain', 'pricing': 'Pricing', 'traceability': 'Traceability',
+      'finance': 'Finance', 'stock-health': 'Stock health',
+    };
+    document.getElementById('ev-legend').innerHTML = Object.keys(THEME_COLORS).map(function (t) {
+      return '<span><span class="k" style="background:' + THEME_COLORS[t] + '"></span>' + THEME_LABELS[t] + '</span>';
+    }).join('');
+    var recent = research.interviews.slice(-4).reverse();
+    document.getElementById('interview-stream').innerHTML = recent.map(function (iv, i) {
+      var x = iv.excerpts[0];
+      return '<div class="ev-row" style="border-left-color:' + THEME_COLORS[x.theme] + '">' +
+        '<span class="key">SOL-' + (31 - i * 3) + '</span>' +
+        '<span class="mid"><b>' + iv.respondent + ' · ' + iv.role + ', ' + iv.org + '</b>' +
+        '<span class="quote">“' + x.quote.replace(/^“|”$/g, '') + '”</span></span>' +
+        '<span class="chips"><span class="chip-theme" style="background:' + THEME_COLORS[x.theme] + '">' + THEME_LABELS[x.theme] + '</span>' +
+        '<span class="chip-meta">' + iv.method.replace(' interview', '').replace('Semi-structured', 'Interview') + '</span>' +
+        '<span class="chip-meta">' + iv.language + ' · ' + iv.province + '</span></span>' +
         '</div>';
     }).join('');
+
+    // Beat 03: the analysis view (findings summary + numbers rail + ask the dataset)
+    document.getElementById('analysis-findings').innerHTML = research.findings.slice(0, 2).map(function (f, i) {
+      return '<div class="finding-sum"><span class="n">0' + (i + 1) + '</span><b>' + THEME_LABELS[f.theme] + '</b>' +
+        '<p>' + f.statement + '</p></div>';
+    }).join('') +
+      '<div class="foot-note">Two of five findings shown. The full board sits one beat above, sources attached.</div>';
+    document.getElementById('numbers-rail').innerHTML = '<h3>By the numbers</h3>' +
+      research.byTheNumbers.map(function (n) {
+        return '<div class="num"><b>' + n.value + '</b><span>' + n.stat + '</span><i>' + n.source + '</i></div>';
+      }).join('');
+    document.getElementById('ask-box').innerHTML =
+      '<div class="tag">Ask the dataset</div>' +
+      '<div class="sugs">' + research.askDataset.suggestions.map(function (s, i) {
+        return '<span class="sug' + (i === 0 ? ' active' : '') + '">' + s + '</span>';
+      }).join('') + '</div>' +
+      '<div class="answer">' + research.askDataset.exchange.a + '</div>' +
+      '<div class="foot-note">' + research.askDataset.note + '</div>';
 
     // Beat 02: findings board with click-through traceability
     var byId = {};
