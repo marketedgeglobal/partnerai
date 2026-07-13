@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solmara Investment Pipeline — PartnerAI demo by MarketEdge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/demo.css">
+</head>
+<body>
+<script src="../../shared/banner.js" data-demo="Solmara Investment Pipeline" defer></script>
+
+<div class="demo-head wrap">
+  <div class="eyebrow">Chapter 1 · Advanced Analytics · Solmara Blue Economy Growth Programme</div>
+  <h1>Fourteen prospects, one comparable score.</h1>
+  <p class="lede">The BEGP investment pipeline, scored on five explicit criteria. Change a weight and watch the ranking answer. The criteria are on the table, so the conclusions are checkable.</p>
+</div>
+
+<section class="beat wrap" id="pipeline-beat">
+  <div class="beat-label">01 · The pipeline, scored and sorted</div>
+  <div class="panel" style="overflow-x:auto">
+    <table class="pipeline" aria-live="polite">
+      <thead>
+        <tr><th>Rank</th><th>Prospect</th><th>Stage</th><th>Sectors</th><th style="text-align:right">Fit score</th></tr>
+      </thead>
+      <tbody id="pipeline-body"></tbody>
+    </table>
+  </div>
+  <div class="foot-note">Figures are illustrative.</div>
+</section>
+
+<section class="beat wrap" id="weights-beat">
+  <div class="beat-label">02 · Your criteria, your weights — the one live control</div>
+  <div class="panel">
+    <div class="weights" id="weights"></div>
+    <div class="weights-note">Weights renormalize to 100%. Try market access at 35%: watch who rises. The trader with the deep buyer network climbs, and the scorecard shows exactly why your team would still say no.</div>
+  </div>
+</section>
+
+<section class="beat wrap" id="review-beat">
+  <div class="beat-label">03 · What the numbers miss</div>
+  <div class="violet-card">
+    <div class="who">MarketEdge senior review · Human in the loop</div>
+    <p id="review-text"></p>
+  </div>
+</section>
+
+<section class="beat wrap" id="signals-beat">
+  <div class="beat-label">04 · Sector signals, scanned continuously</div>
+  <div class="signals" id="signals"></div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#9fc0af">See it on your pipeline</div>
+    <h2>Walk through this on your own workflow. 30 minutes.</h2>
+    <p>Bring the investor list you track today. MarketEdge shows you what explicit criteria and senior review change about the next decision.</p>
+    <a class="btn" href="mailto:info@marketedgeglobal.com?subject=Demo%20request%3A%20Solmara%20Investment%20Pipeline&body=Organization%3A%0ARole%3A%0AThe%20workflow%20we%20want%20to%20improve%3A%0A">Book the walkthrough</a>
+    <div class="email">info@marketedgeglobal.com</div>
+  </div>
+</div>
+
+<footer class="demo-foot">
+  <div class="wrap">Demo environment. Fictional country, fictional data. Figures are illustrative. · PartnerAI by MarketEdge</div>
+</footer>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var state = { criteria: [], investors: [], review: null };
+
+  function score(inv, weights, total) {
+    var s = 0;
+    state.criteria.forEach(function (c) { s += inv.scores[c.key] * (weights[c.key] / total); });
+    return s;
+  }
+
+  function currentWeights() {
+    var w = {}, total = 0;
+    state.criteria.forEach(function (c) {
+      var el = document.getElementById('w-' + c.key);
+      w[c.key] = parseInt(el.value, 10);
+      total += w[c.key];
+    });
+    return { w: w, total: total || 1 };
+  }
+
+  function render(first) {
+    var cw = currentWeights();
+    var ranked = state.investors.slice().sort(function (a, b) {
+      return score(b, cw.w, cw.total) - score(a, cw.w, cw.total);
+    });
+
+    // update normalized weight readouts
+    state.criteria.forEach(function (c) {
+      var out = document.getElementById('o-' + c.key);
+      out.textContent = Math.round((cw.w[c.key] / cw.total) * 100) + '%';
+    });
+
+    var tbody = document.getElementById('pipeline-body');
+    var prev = {};
+    if (!first && !reduced) {
+      Array.prototype.forEach.call(tbody.children, function (tr) {
+        prev[tr.dataset.id] = tr.getBoundingClientRect().top;
+      });
+    }
+
+    tbody.innerHTML = ranked.map(function (inv, i) {
+      var hot = inv.stage === 'Term sheet' || inv.stage === 'Due diligence';
+      return '<tr data-id="' + inv.id + '"' + (inv.name === state.review.target ? ' class="reviewed"' : '') + '>' +
+        '<td class="rank">' + (i + 1) + '</td>' +
+        '<td class="name"><b>' + inv.name + '</b><span>' + inv.type + ' · ' + inv.note + '</span></td>' +
+        '<td><span class="stage-pill' + (hot ? ' hot' : '') + '">' + inv.stage + '</span></td>' +
+        '<td style="font-size:12.5px;color:var(--muted)">' + inv.sectors.join(', ') + '</td>' +
+        '<td class="score">' + score(inv, cw.w, cw.total).toFixed(2) + '</td>' +
+        '</tr>';
+    }).join('');
+
+    if (!first && !reduced) {
+      Array.prototype.forEach.call(tbody.children, function (tr) {
+        var before = prev[tr.dataset.id];
+        if (before === undefined) return;
+        var delta = before - tr.getBoundingClientRect().top;
+        if (!delta) return;
+        tr.style.transition = 'none';
+        tr.style.transform = 'translateY(' + delta + 'px)';
+        requestAnimationFrame(function () {
+          tr.style.transition = '';
+          tr.style.transform = '';
+        });
+      });
+    }
+  }
+
+  fetch('../data/solmara-data.json').then(function (r) { return r.json(); }).then(function (data) {
+    state.criteria = data.analytics.criteria;
+    state.investors = data.analytics.investors;
+    state.review = data.analytics.seniorReview;
+
+    document.getElementById('weights').innerHTML = state.criteria.map(function (c) {
+      return '<div class="weight">' +
+        '<label for="w-' + c.key + '">' + c.label + ' <output id="o-' + c.key + '">' + c.weight + '%</output></label>' +
+        '<input type="range" id="w-' + c.key + '" min="0" max="50" step="5" value="' + c.weight + '">' +
+        '</div>';
+    }).join('');
+    state.criteria.forEach(function (c) {
+      document.getElementById('w-' + c.key).addEventListener('input', function () { render(false); });
+    });
+
+    document.getElementById('review-text').textContent = state.review.text;
+
+    document.getElementById('signals').innerHTML = data.analytics.signals.map(function (s) {
+      return '<div class="signal"><span class="d mono">' + s.date + '</span>' +
+        '<span class="t"><span class="tag">' + s.tag + '</span></span><span>' + s.text + '</span></div>';
+    }).join('');
+
+    render(true);
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+/* Shared stylesheet for the Solmara demos. One product line, one look. */
+:root{
+  --ever:#0e3b2c;
+  --ever-dark:#0a2b20;
+  --ever-mid:#1c5a44;
+  --mint:#dff0e6;
+  --paper:#f7f5ef;
+  --ink:#15201b;
+  --muted:#5c6b63;
+  --line:#d8ded9;
+  --violet:#6d5ae0;          /* reserved for human-in-the-loop moments */
+  --violet-soft:#eceaff;
+  --amber:#b4540a;
+  --amber-soft:#fbeadb;
+  --card:#ffffff;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{
+  font-family:'Space Grotesk',system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);
+  line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+.mono{font-family:'IBM Plex Mono',monospace}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ---------- demo banner (injected by banner.js) ---------- */
+.demo-banner{
+  position:sticky;top:0;z-index:60;
+  background:var(--ever-dark);color:#cfe0d6;
+  font-family:'IBM Plex Mono',monospace;font-size:12px;
+}
+.demo-banner .wrap{
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+  padding-top:8px;padding-bottom:8px;
+}
+.demo-banner .dot{width:8px;height:8px;border-radius:50%;background:var(--amber);flex:none}
+.demo-banner .txt{flex:1;min-width:220px}
+.demo-banner a{color:#fff;text-decoration:none;white-space:nowrap}
+.demo-banner a:hover{text-decoration:underline}
+.demo-banner .req{
+  border:1px solid #fff;border-radius:999px;padding:4px 12px;font-weight:500;
+}
+.demo-banner .req:hover{background:#fff;color:var(--ever);text-decoration:none}
+
+/* ---------- page scaffold ---------- */
+.demo-head{padding:56px 0 8px}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--ever-mid);margin-bottom:14px;
+}
+h1{font-size:clamp(30px,4.5vw,46px);line-height:1.1;font-weight:700;max-width:18em}
+h2{font-size:clamp(22px,3vw,30px);font-weight:700;line-height:1.2}
+.lede{max-width:44em;margin-top:16px;font-size:17px;color:var(--muted)}
+section.beat{padding:48px 0;border-top:1px solid var(--line)}
+section.beat:first-of-type{border-top:0}
+.beat-label{
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+}
+.foot-note{font-size:12px;color:var(--muted);margin-top:12px}
+
+/* ---------- cards, chips, panels ---------- */
+.panel{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:20px;
+}
+.chip{
+  display:inline-block;background:var(--card);border:1px solid var(--line);
+  border-radius:10px;padding:8px 14px;font-size:13px;color:var(--muted);
+}
+.chip b{color:var(--ink)}
+.tag{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.5px;
+  color:var(--ever-mid);text-transform:uppercase;
+}
+
+/* ---------- violet: human-in-the-loop ---------- */
+.violet-card{
+  background:var(--violet-soft);border:1.5px solid var(--violet);
+  border-radius:var(--radius);padding:20px 22px;max-width:46em;
+}
+.violet-card .who{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.6px;
+  text-transform:uppercase;color:var(--violet);margin-bottom:8px;
+}
+.violet-card p{font-size:15px;color:var(--ink)}
+
+/* ---------- pipeline table (chapter 1) ---------- */
+.pipeline{width:100%;border-collapse:collapse;font-size:14px}
+.pipeline th{
+  font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.4px;
+  text-transform:uppercase;color:var(--muted);text-align:left;
+  padding:10px 12px;border-bottom:2px solid var(--line);
+}
+.pipeline td{padding:12px;border-bottom:1px solid var(--line);background:var(--card)}
+.pipeline tr{transition:transform .5s ease}
+@media (prefers-reduced-motion: reduce){ .pipeline tr{transition:none} }
+.pipeline .rank{font-weight:700;color:var(--ever-mid);width:44px}
+.pipeline .score{font-weight:700;font-size:16px;text-align:right;width:80px}
+.pipeline .name b{display:block}
+.pipeline .name span{font-size:12px;color:var(--muted)}
+.pipeline tr.reviewed td{background:var(--violet-soft)}
+.stage-pill{
+  display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+  letter-spacing:1px;text-transform:uppercase;border:1px solid var(--line);
+  border-radius:999px;padding:3px 10px;color:var(--muted);white-space:nowrap;
+}
+.stage-pill.hot{border-color:var(--ever-mid);color:var(--ever-mid);background:var(--mint)}
+
+/* ---------- weight sliders ---------- */
+.weights{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px}
+.weight label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:6px}
+.weight label output{font-family:'IBM Plex Mono',monospace;color:var(--ever-mid)}
+.weight input[type=range]{width:100%;accent-color:var(--ever-mid)}
+.weights-note{font-size:12px;color:var(--muted);margin-top:10px}
+
+/* ---------- signals feed ---------- */
+.signals{display:flex;flex-direction:column;gap:10px}
+.signal{display:flex;gap:14px;align-items:baseline;background:var(--card);
+  border:1px solid var(--line);border-radius:10px;padding:12px 16px;font-size:14px}
+.signal .d{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);flex:none}
+.signal .t{flex:none;width:110px}
+
+/* ---------- radar + rollup (chapter 2) ---------- */
+.radar-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.radar-cell{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+.radar-cell b{font-size:13px;display:block}
+.radar-cell span{font-size:11px;color:var(--muted)}
+.radar-cell.featured{border-color:var(--ever-mid);background:var(--mint)}
+.legend{display:flex;gap:18px;font-size:13px;color:var(--muted);margin-top:10px;flex-wrap:wrap}
+.legend .k{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
+.rollup{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
+.rollup .prov{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.rollup .prov b{display:block;font-size:14px}
+.rollup .bar{height:8px;background:#eceae2;border-radius:4px;margin:8px 0 4px;overflow:hidden}
+.rollup .bar i{display:block;height:100%;background:var(--ever-mid);border-radius:4px}
+.rollup .bar i.base{background:#b9cfc2}
+.rollup span{font-size:11px;color:var(--muted)}
+
+/* ---------- coaching log ---------- */
+.log{display:flex;flex-direction:column;gap:0;max-width:46em}
+.log-entry{display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.log-entry .m{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);flex:none;width:70px;padding-top:2px}
+.log-entry .body b{display:block;font-size:13px}
+.log-entry .body p{font-size:13.5px;color:var(--muted)}
+.log-entry.advisor{background:var(--violet-soft);border:1.5px solid var(--violet);
+  border-radius:12px;padding:14px 16px;margin:6px 0}
+.log-entry.advisor .m,.log-entry.advisor .body b{color:var(--violet)}
+.log-entry.advisor .body p{color:var(--ink)}
+
+/* ---------- scorecard scatter (chapter 3) ---------- */
+.scatter-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.partner-list{display:flex;flex-direction:column;gap:10px}
+.partner-row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.partner-row.lead{border-color:var(--ever-mid);background:var(--mint)}
+.partner-row .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap}
+.partner-row .top b{font-size:15px}
+.partner-row .nums{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted)}
+.partner-row p{font-size:13.5px;color:var(--muted);margin-top:6px}
+
+/* ---------- chat replay ---------- */
+.chat{display:flex;flex-direction:column;gap:12px;max-width:44em}
+.msg{max-width:75%;padding:12px 16px;border-radius:14px;font-size:14.5px;
+  opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
+.msg.shown{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){ .msg{transition:none;transform:none} }
+.msg.client{align-self:flex-end;background:var(--ever);color:#fff;border-bottom-right-radius:4px}
+.msg.elena{align-self:flex-start;background:var(--card);border:1px solid var(--line);border-bottom-left-radius:4px}
+.msg .who{display:block;font-family:'IBM Plex Mono',monospace;font-size:9px;
+  letter-spacing:1.2px;text-transform:uppercase;margin-bottom:5px;opacity:.75}
+.replay-controls{display:flex;gap:12px;align-items:center;margin-bottom:18px}
+
+/* ---------- buttons + CTA band ---------- */
+.btn{
+  display:inline-block;text-decoration:none;font-weight:600;font-size:14px;
+  padding:10px 18px;border-radius:999px;border:1.5px solid var(--ever);
+  color:var(--ever);transition:background .2s,color .2s;white-space:nowrap;
+  background:transparent;cursor:pointer;font-family:inherit;
+}
+.btn:hover{background:var(--ever);color:#fff}
+.btn.solid{background:var(--ever);color:#fff}
+.btn.solid:hover{background:var(--ever-dark)}
+.cta-band{background:var(--ever);color:#fff;padding:56px 0;margin-top:56px}
+.cta-band h2{color:#fff;max-width:20em}
+.cta-band p{color:#cfe0d6;max-width:40em;margin:12px 0 22px}
+.cta-band .btn{border-color:#fff;color:#fff}
+.cta-band .btn:hover{background:#fff;color:var(--ever)}
+.cta-band .email{font-size:14px;color:#9fc0af;margin-top:12px}
+.cta-band .email a{color:#fff}
+
+footer.demo-foot{padding:32px 0 48px;font-size:12.5px;color:var(--muted)}

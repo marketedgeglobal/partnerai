@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Partnership Structuring Suite — PartnerAI demo by MarketEdge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../shared/demo.css">
+</head>
+<body>
+<script src="../../shared/banner.js" data-demo="Partnership Structuring Suite" defer></script>
+
+<div class="demo-head wrap">
+  <div class="eyebrow">Chapter 3 · Shared Value Partnerships · Solmara Blue Economy Growth Programme</div>
+  <h1>Capital and trust move together. Score both. Rehearse both.</h1>
+  <p class="lede">Five partnership candidates for the crab and reef fish value chains, scored on commercial fit and development outcomes on one chart. Then the conversation that decides it, rehearsed before it counts.</p>
+</div>
+
+<section class="beat wrap">
+  <div class="beat-label">01 · The scorecard — one chart, both cases</div>
+  <div class="scatter-wrap" id="scatter"></div>
+  <div class="foot-note">Figures are illustrative.</div>
+</section>
+
+<section class="beat wrap">
+  <div class="beat-label">02 · Why the ranking holds</div>
+  <div class="partner-list" id="partner-list"></div>
+</section>
+
+<section class="beat wrap">
+  <div class="beat-label">03 · The rehearsal — scripted replay, 30 seconds</div>
+  <div class="panel">
+    <div class="tag" id="scenario"></div>
+    <div class="replay-controls" style="margin-top:12px">
+      <button class="btn solid" id="play">Play the rehearsal</button>
+      <span style="font-size:13px;color:var(--muted)" id="persona-line"></span>
+    </div>
+    <div class="chat" id="chat" aria-live="polite"></div>
+    <div class="violet-card" id="coach-card" style="margin-top:22px;display:none">
+      <div class="who">MarketEdge coach note · Human in the loop</div>
+      <p id="coach-note"></p>
+    </div>
+  </div>
+</section>
+
+<section class="beat wrap">
+  <div class="violet-card">
+    <div class="who">How this lands in an engagement</div>
+    <p id="violet-moment"></p>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#9fc0af">See it on your partnership</div>
+    <h2>Walk through this on your own workflow. 30 minutes.</h2>
+    <p>Bring the partnership you are structuring now. MarketEdge scores it with you, then puts your team in the rehearsal seat before the real meeting.</p>
+    <a class="btn" href="mailto:info@marketedgeglobal.com?subject=Demo%20request%3A%20Partnership%20Structuring%20Suite&body=Organization%3A%0ARole%3A%0AThe%20workflow%20we%20want%20to%20improve%3A%0A">Book the walkthrough</a>
+    <div class="email">info@marketedgeglobal.com</div>
+  </div>
+</div>
+
+<footer class="demo-foot">
+  <div class="wrap">Demo environment. Fictional country, fictional data. Figures are illustrative. · PartnerAI by MarketEdge · The live persona catalog ships inside engagements; this replay is scripted.</div>
+</footer>
+
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var NS = 'http://www.w3.org/2000/svg';
+
+  function scatterSVG(partners) {
+    var W = 720, H = 440, pad = { l: 56, r: 24, t: 24, b: 52 };
+    function x(v) { return pad.l + (v / 10) * (W - pad.l - pad.r); }
+    function y(v) { return H - pad.b - (v / 10) * (H - pad.t - pad.b); }
+    var s = '<svg xmlns="' + NS + '" viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:auto" role="img" aria-label="Partner fit scorecard">';
+    // quadrant shading: top-right is the target zone
+    s += '<rect x="' + x(6) + '" y="' + y(10) + '" width="' + (x(10) - x(6)) + '" height="' + (y(6) - y(10)) + '" fill="rgba(28,90,68,.07)"/>';
+    [2, 4, 6, 8, 10].forEach(function (v) {
+      s += '<line x1="' + x(v) + '" y1="' + y(0) + '" x2="' + x(v) + '" y2="' + y(10) + '" stroke="#e3e8e3"/>';
+      s += '<line x1="' + x(0) + '" y1="' + y(v) + '" x2="' + x(10) + '" y2="' + y(v) + '" stroke="#e3e8e3"/>';
+      s += '<text x="' + x(v) + '" y="' + (H - pad.b + 18) + '" text-anchor="middle" font-size="10" font-family="IBM Plex Mono,monospace" fill="#5c6b63">' + v + '</text>';
+      s += '<text x="' + (pad.l - 10) + '" y="' + (y(v) + 3) + '" text-anchor="end" font-size="10" font-family="IBM Plex Mono,monospace" fill="#5c6b63">' + v + '</text>';
+    });
+    s += '<text x="' + (W / 2) + '" y="' + (H - 8) + '" text-anchor="middle" font-size="11" font-family="IBM Plex Mono,monospace" fill="#5c6b63" letter-spacing="1.5">COMMERCIAL FIT &rarr;</text>';
+    s += '<text x="14" y="' + (H / 2) + '" text-anchor="middle" font-size="11" font-family="IBM Plex Mono,monospace" fill="#5c6b63" letter-spacing="1.5" transform="rotate(-90 14 ' + (H / 2) + ')">DEVELOPMENT OUTCOMES &rarr;</text>';
+    partners.forEach(function (p) {
+      var cx = x(p.commercial), cy = y(p.development);
+      var lead = p.rank === 1;
+      s += '<circle cx="' + cx + '" cy="' + cy + '" r="' + (lead ? 11 : 8) + '" fill="' + (lead ? '#1c5a44' : (p.rank <= 3 ? 'rgba(28,90,68,.55)' : '#b4540a')) + '"/>';
+      var anchor = p.commercial > 7.5 ? 'end' : 'start';
+      var dx = p.commercial > 7.5 ? -16 : 16;
+      s += '<text x="' + (cx + dx) + '" y="' + (cy + 4) + '" text-anchor="' + anchor + '" font-size="13" font-weight="' + (lead ? '700' : '500') + '" font-family="Space Grotesk,sans-serif" fill="#15201b">' + p.name + '</text>';
+    });
+    return s + '</svg>';
+  }
+
+  fetch('../data/solmara-data.json').then(function (r) { return r.json(); }).then(function (data) {
+    var partners = data.partnerships.partners;
+    var script = data.partnerships.personaScript;
+
+    document.getElementById('scatter').innerHTML = scatterSVG(partners);
+
+    document.getElementById('partner-list').innerHTML = partners.map(function (p) {
+      return '<div class="partner-row' + (p.rank === 1 ? ' lead' : '') + '">' +
+        '<div class="top"><b>' + p.rank + '. ' + p.name + '</b>' +
+        '<span class="nums">commercial ' + p.commercial.toFixed(1) + ' · development ' + p.development.toFixed(1) + '</span></div>' +
+        '<p>' + p.reason + '</p></div>';
+    }).join('');
+
+    document.getElementById('scenario').textContent = script.scenario;
+    document.getElementById('persona-line').textContent = script.persona + ' — ' + script.personaRole + '. Scripted replay, not a live model.';
+    document.getElementById('violet-moment').textContent = script.violetMoment;
+    document.getElementById('coach-note').textContent = script.coachNote;
+
+    var chat = document.getElementById('chat');
+    var playBtn = document.getElementById('play');
+    var playing = false;
+
+    function playReplay() {
+      if (playing) return;
+      playing = true;
+      playBtn.disabled = true;
+      playBtn.textContent = 'Rehearsal running…';
+      chat.innerHTML = '';
+      document.getElementById('coach-card').style.display = 'none';
+      var delay = reduced ? 0 : 2600;
+      script.messages.forEach(function (m, i) {
+        setTimeout(function () {
+          var div = document.createElement('div');
+          div.className = 'msg ' + (m.from === 'elena' ? 'elena' : 'client');
+          div.innerHTML = '<span class="who">' + (m.from === 'elena' ? script.persona : (m.name || 'Your negotiator')) + '</span>' + m.text;
+          chat.appendChild(div);
+          requestAnimationFrame(function () { div.classList.add('shown'); });
+          if (i === script.messages.length - 1) {
+            setTimeout(function () {
+              document.getElementById('coach-card').style.display = 'block';
+              playBtn.disabled = false;
+              playBtn.textContent = 'Play it again';
+              playing = false;
+            }, reduced ? 0 : 1400);
+          }
+        }, i * delay);
+      });
+    }
+    playBtn.addEventListener('click', playReplay);
+  });
+})();
+</script>
+</body>
+</html>
