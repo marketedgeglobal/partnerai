@@ -3,190 +3,88 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PartnerAI by MarketEdge — Bridging Insight to Action</title>
+<title>PartnerAI by MarketEdge · Bridging Insight to Action</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared/demo.css">
 <style>
-  :root{
-    --ever:#0e3b2c;          /* deep evergreen */
-    --ever-dark:#0a2b20;
-    --ever-mid:#1c5a44;
-    --mint:#dff0e6;
-    --paper:#f7f5ef;
-    --ink:#15201b;
-    --muted:#5c6b63;
-    --line:#d8ded9;
-    --violet:#6d5ae0;        /* human-in-the-loop */
-    --violet-soft:#eceaff;
-    --amber:#b4540a;         /* "now" state accent */
-    --amber-soft:#fbeadb;
-    --card:#ffffff;
-    --radius:14px;
+  /* index-only additions */
+  header.site{
+    position:sticky;top:0;z-index:70;background:rgba(241,243,238,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-  body{
-    font-family:'Space Grotesk',system-ui,sans-serif;
-    background:var(--paper); color:var(--ink);
-    line-height:1.55; -webkit-font-smoothing:antialiased;
-  }
-  .mono{font-family:'IBM Plex Mono',monospace}
-  a{color:inherit}
-  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
-
-  /* ---------- header ---------- */
-  header{
-    position:sticky;top:0;z-index:50;
-    background:rgba(247,245,239,.92);backdrop-filter:blur(8px);
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex;align-items:center;gap:28px;height:64px}
-  .brand{font-weight:700;font-size:17px;letter-spacing:.2px}
-  .brand .tm{font-size:10px;vertical-align:super}
-  .brand small{display:block;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.6px}
+  .nav{display:flex;align-items:center;gap:26px;height:72px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand img{width:44px;height:44px;border-radius:6px}
+  .brand .t{font-family:var(--display);font-weight:400;font-size:19px;letter-spacing:.4px}
+  .brand .t small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:2.4px;color:var(--olive)}
   .nav-links{display:flex;gap:22px;margin-left:auto;font-size:14px}
-  .nav-links a{text-decoration:none;color:var(--muted)}
-  .nav-links a:hover{color:var(--ever)}
-  .btn{
-    display:inline-block;text-decoration:none;font-weight:600;font-size:14px;
-    padding:10px 18px;border-radius:999px;border:1.5px solid var(--ever);
-    color:var(--ever);transition:background .2s,color .2s;white-space:nowrap;
-  }
-  .btn:hover{background:var(--ever);color:#fff}
-  .btn.solid{background:var(--ever);color:#fff}
-  .btn.solid:hover{background:var(--ever-dark)}
-  @media (max-width:820px){ .nav-links{display:none} }
+  .nav-links a{text-decoration:none;color:var(--olive)}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+  .nav-cta .em{font-size:11px;color:var(--olive);letter-spacing:.8px}
+  @media (max-width:920px){ .nav-links{display:none} }
 
-  /* ---------- hero ---------- */
-  .hero{padding:72px 0 24px}
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2.5px;
-    text-transform:uppercase;color:var(--ever-mid);margin-bottom:16px;
-  }
-  h1{font-size:clamp(34px,5vw,56px);line-height:1.08;font-weight:700;max-width:15em}
-  .hero p.lede{max-width:44em;margin-top:20px;font-size:18px;color:var(--muted)}
+  .hero{position:relative;color:#fff;padding:150px 0 130px;overflow:hidden}
+  .hero .photo{position:absolute;inset:0;background:url('shared/img/solmara-coast.jpg') center 55%/cover}
+  .hero .scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(36,35,55,.93) 25%,rgba(36,35,55,.62) 70%,rgba(36,35,55,.40))}
+  .hero .wrap{position:relative}
+  .posline{font-family:var(--serif);font-style:italic;font-size:18px;color:#c9c7d8;margin-top:22px}
 
-  /* ---------- compare block ---------- */
-  .compare{margin:48px 0 8px}
-  .seg{
-    display:inline-flex;background:#eceae2;border-radius:999px;padding:4px;gap:4px;
-    margin-bottom:22px;
+  /* bias chain diagram */
+  .chain{display:flex;flex-wrap:wrap;align-items:stretch;gap:12px;margin-top:36px}
+  .chain .node{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:12px;
+    padding:16px 18px;min-width:170px;flex:1;
   }
-  .seg button{
-    font-family:inherit;font-size:14px;font-weight:600;border:0;cursor:pointer;
-    padding:9px 20px;border-radius:999px;background:transparent;color:var(--muted);
-    transition:background .25s,color .25s;
-  }
-  .seg button[aria-pressed="true"]{background:var(--ever);color:#fff}
-  .seg button.now-btn[aria-pressed="true"]{background:var(--amber)}
+  .chain .node b{display:block;font-size:15px;font-weight:600;color:#fff}
+  .chain .node span{font-size:13px;color:#a5a3bd;margin-top:4px;display:block}
+  .chain .node.pain{border-color:#c98f56;background:rgba(180,84,10,.14)}
+  .chain .node.pain b{color:#e8b37e}
+  .chain .arrow{align-self:center;color:#6f6d8c;font-size:20px;flex:none}
 
-  .stage{position:relative;min-height:280px}
-  .flow{
-    position:absolute;inset:0;
-    display:flex;flex-direction:column;justify-content:flex-start;gap:26px;
-    opacity:0;transform:translateY(10px);pointer-events:none;
-    transition:opacity .45s ease,transform .45s ease;
-  }
-  .compare[data-state="now"]  .flow.f-now,
-  .compare[data-state="with"] .flow.f-with{
-    opacity:1;transform:none;pointer-events:auto;
-  }
-  @media (prefers-reduced-motion: reduce){
-    .flow{transition:none}
-  }
+  /* mechanics cards */
+  .mech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .mech{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
+  .mech .num{font-family:var(--serif);font-size:26px;color:var(--olive-soft)}
+  .mech b{display:block;font-family:var(--display);font-weight:400;font-size:20px;margin:8px 0 8px}
+  .mech p{font-size:14px;color:var(--olive)}
+  .mech.violet{background:var(--violet-soft);border-color:var(--violet)}
+  .mech.violet .num{color:var(--violet)}
 
-  .chain{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
-  .node{
-    background:var(--card);border:1.5px solid var(--line);border-radius:12px;
-    padding:12px 16px;min-width:130px;
-  }
-  .node b{display:block;font-size:14px}
-  .node span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
-  .node.pain{border-color:#e5c8ae;background:var(--amber-soft)}
-  .node.auto{border-color:var(--ever-mid);background:var(--mint)}
-  .node.human{border-color:var(--violet);background:var(--violet-soft)}
-  .node.human b::after{
-    content:"HUMAN-IN-THE-LOOP";display:block;font-family:'IBM Plex Mono',monospace;
-    font-size:9px;letter-spacing:1.4px;color:var(--violet);margin-top:3px;
-  }
-  .arrow{color:#a9b4ac;font-size:18px;flex:none}
-  .tangle{
-    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--amber);
-    border:1px dashed #e0b98f;border-radius:8px;padding:6px 10px;
-  }
-
-  .stats{display:flex;flex-wrap:wrap;gap:12px}
-  .chip{
-    background:var(--card);border:1px solid var(--line);border-radius:10px;
-    padding:10px 16px;min-width:150px;
-  }
-  .chip b{display:block;font-size:20px;line-height:1.1}
-  .chip span{font-size:12px;color:var(--muted)}
-  .f-now .chip b{color:var(--amber)}
-  .f-with .chip b{color:var(--ever-mid)}
-
-  .claim{
-    margin-top:14px;font-size:15px;font-weight:600;color:var(--ever);
-    border-left:3px solid var(--ever);padding-left:12px;
-  }
-  .foot-note{font-size:12px;color:var(--muted);margin-top:10px}
-
-  /* ---------- sections ---------- */
-  section.area{padding:72px 0;border-top:1px solid var(--line)}
-  section.area:nth-of-type(even){background:#f1efe7}
-  h2{font-size:clamp(26px,3.4vw,38px);font-weight:700;line-height:1.15}
-  .outcome{font-size:18px;color:var(--ever-mid);font-weight:600;margin-top:8px}
-  .area p.body{max-width:46em;margin-top:16px;color:var(--muted);font-size:16px}
-
-  .examples{margin-top:40px}
-  .examples h3{
-    font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:2px;
-    text-transform:uppercase;color:var(--muted);margin-bottom:16px;
-  }
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media (max-width:820px){ .cards{grid-template-columns:1fr} }
+  /* chapter cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:860px){ .cards{grid-template-columns:1fr} }
   .card{
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:20px;display:flex;flex-direction:column;gap:8px;
+    padding:20px;display:flex;flex-direction:column;gap:9px;
     transition:transform .2s,box-shadow .2s;
   }
-  .card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(14,59,44,.10)}
-  .card .tag{
-    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.5px;
-    color:var(--ever-mid);text-transform:uppercase;
-  }
-  .card b{font-size:16px}
-  .card p{font-size:13.5px;color:var(--muted);flex:1}
-  .card a{font-size:14px;font-weight:600;color:var(--ever);text-decoration:none}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(36,35,55,.12)}
+  .card .poster{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#e6e8e0}
+  .card b{font-size:17px;font-weight:600}
+  .card p{font-size:13.5px;color:var(--olive);flex:1}
+  .card a{font-size:14px;font-weight:600;color:var(--indigo);text-decoration:none}
   .card a:hover{text-decoration:underline}
-  .card .poster{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:var(--mint)}
   .card .links{display:flex;flex-direction:column;gap:6px;margin-top:2px}
-  .posline{
-    font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:1px;
-    color:var(--ever-mid);margin-top:14px;
-  }
-  .nav-cta{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
-  .nav-cta .em{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--muted)}
+  .card .links .sec{font-weight:400;color:var(--olive)}
 
-  /* ---------- request band ---------- */
-  .band{background:var(--ever);color:#fff;padding:72px 0}
-  .band h2{color:#fff;max-width:18em}
-  .band p{color:#cfe0d6;max-width:40em;margin:14px 0 26px}
-  .band .btn{border-color:#fff;color:#fff}
-  .band .btn:hover{background:#fff;color:var(--ever)}
-  .band .alt{font-size:14px;color:#9fc0af;margin-top:14px}
-  .band .alt a{color:#fff}
-
-  footer{padding:40px 0 60px;font-size:13px;color:var(--muted)}
-  footer .cols{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between}
+  section.area{padding:76px 0;border-top:1px solid var(--line)}
+  .outcome{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--ink);margin-top:10px}
+  .area p.body{max-width:46em;margin-top:16px;color:var(--olive);font-size:15.5px}
+  .examples{margin-top:36px}
+  .examples h3{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--olive);margin-bottom:16px;font-weight:400}
 </style>
 </head>
 <body>
+<script src="shared/reveal.js" defer></script>
 
-<header>
+<header class="site">
   <div class="wrap nav">
-    <div class="brand">PartnerAI<span class="tm">™</span><small>BY MARKETEDGE</small></div>
+    <a class="brand" href="#">
+      <img src="shared/img/marketedge-logo.png" alt="MarketEdge logo">
+      <span class="t">PartnerAI<small>BY MARKETEDGE</small></span>
+    </a>
     <nav class="nav-links">
       <a href="#solmara">Solmara demos</a>
       <a href="#analytics">Advanced Analytics</a>
@@ -201,101 +99,104 @@
 </header>
 
 <!-- ================= HERO ================= -->
-<div class="hero wrap">
-  <div class="eyebrow">PartnerAI · Bridging insight to action</div>
-  <h1>Insight only matters when it lands.</h1>
-  <p class="lede">Most organizations analyze more than they act. PartnerAI closes that gap: MarketEdge senior practitioners embed AI inside your existing workflows, so evidence reaches the people who decide while your team keeps ownership of the content.</p>
-  <div class="posline">These tools ship inside MarketEdge engagements.</div>
-
-  <div class="compare" data-state="now" data-autoplay>
-    <div class="seg" role="group" aria-label="Workflow comparison">
-      <button class="now-btn" aria-pressed="true">How this works now</button>
-      <button class="with-btn" aria-pressed="false">With MarketEdge + PartnerAI</button>
-    </div>
-    <div class="stage" style="min-height:300px">
-      <!-- BEFORE -->
-      <div class="flow f-now">
-        <div class="chain">
-          <div class="node"><b>Field teams</b><span>collect the data</span></div>
-          <div class="arrow">→</div>
-          <div class="node pain"><b>v7_final_FINAL.xlsx</b><span>emailed around</span></div>
-          <div class="arrow">→</div>
-          <div class="node"><b>Analyst</b><span>rebuilds the numbers</span></div>
-          <div class="arrow">→</div>
-          <div class="tangle">M&amp;E lead ⇄ Comms ⇄ IT ⇄ Analyst<br>email loops, version conflicts</div>
-          <div class="arrow">→</div>
-          <div class="node"><b>Director</b><span>reviews late</span></div>
-          <div class="arrow">→</div>
-          <div class="node pain"><b>Static PDF</b><span>out of date at send</span></div>
-        </div>
-        <div class="stats">
-          <div class="chip"><b>9</b><span>handoffs per update</span></div>
-          <div class="chip"><b>3 weeks</b><span>from data to sharing</span></div>
-          <div class="chip"><b>1</b><span>format, already stale</span></div>
-        </div>
-      </div>
-      <!-- AFTER -->
-      <div class="flow f-with">
-        <div class="chain">
-          <div class="node"><b>Master file</b><span>your team edits, once</span></div>
-          <div class="arrow">→</div>
-          <div class="node auto"><b>PartnerAI pipeline</b><span>updates deploy automatically</span></div>
-          <div class="arrow">→</div>
-          <div class="node human"><b>Review and approve</b><span>your lead + MarketEdge</span></div>
-          <div class="arrow">→</div>
-          <div class="node auto"><b>Live site</b><span>plus Excel and PDF export</span></div>
-        </div>
-        <div class="stats">
-          <div class="chip"><b>2</b><span>handoffs per update</span></div>
-          <div class="chip"><b>Same day</b><span>from data to sharing</span></div>
-          <div class="chip"><b>Every</b><span>format, always current</span></div>
-        </div>
-        <div class="claim">Your team still owns the content. PartnerAI removes the copying.</div>
-      </div>
-    </div>
-    <div class="foot-note">Figures are illustrative, drawn from typical engagements.</div>
+<div class="hero">
+  <div class="photo"></div>
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="eyebrow">PartnerAI · Bridging insight to action</div>
+    <h1>Insight only matters when it lands.</h1>
+    <p class="lede">Most organizations analyze more than they act. PartnerAI closes that gap: MarketEdge senior practitioners embed AI inside your existing workflows, so evidence reaches the people who decide while your team keeps ownership of the content.</p>
+    <div class="posline">These tools ship inside MarketEdge engagements.</div>
   </div>
 </div>
 
-<!-- ================= ONE ENGAGEMENT, THREE SERVICE AREAS ================= -->
-<section class="area" id="solmara">
+<!-- ================= PROBLEM ================= -->
+<section class="beat dark" id="problem">
   <div class="wrap">
-    <div class="eyebrow">One engagement, three service areas</div>
-    <h2>One programme. Three chapters. Same team.</h2>
-    <p class="body">Three guided demos follow a single ten-year blue economy programme in the fictional Republic of Solmara, one chapter per MarketEdge service area. Same data, same cast, one story: that is what working across all three service areas looks like in practice. Fictional country, fictional data.</p>
-    <div class="cards" style="margin-top:32px">
+    <div class="beat-label">The problem · How field research breaks before it reaches a decision</div>
+    <p class="serif-pull reveal">A field team runs one strong meeting, forms a strong impression, and mistakes enthusiasm for evidence. That is researcher bias at work, and it compounds: the impression becomes the slide, the slide becomes the narrative, and the contradicting interview sits untranscribed in someone else's notebook.</p>
+    <div class="chain reveal-stagger" aria-label="How bias compounds">
+      <div class="node"><b>Meeting one</b><span>a vivid story, a strong impression</span></div>
+      <div class="arrow">&rarr;</div>
+      <div class="node pain"><b>The impression hardens</b><span>enthusiasm read as evidence</span></div>
+      <div class="arrow">&rarr;</div>
+      <div class="node pain"><b>Six disconnected notebooks</b><span>raw data unreadable against the framework</span></div>
+      <div class="arrow">&rarr;</div>
+      <div class="node pain"><b>No live picture</b><span>emerging patterns invisible across teams</span></div>
+      <div class="arrow">&rarr;</div>
+      <div class="node"><b>Write-up week</b><span>bias surfaces when correcting it costs the most</span></div>
+    </div>
+    <div class="stat-tiles reveal-stagger" style="margin-top:30px">
+      <div class="tile"><b>1</b><span>strong meeting is enough to set a team's narrative</span></div>
+      <div class="tile"><b>Weeks</b><span>between an interview and anyone else reading it</span></div>
+      <div class="tile"><b>0</b><span>real-time visibility into what other teams are hearing</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MECHANICS ================= -->
+<section class="beat" id="how">
+  <div class="wrap">
+    <div class="beat-label">How PartnerAI works · No black box, no replacement of judgment</div>
+    <h2 style="max-width:22em">Expert-led. AI-assisted. Traceable end to end.</h2>
+    <div class="mech-grid reveal-stagger" style="margin-top:36px">
+      <div class="mech"><div class="num">01</div><b>Real-time ingestion and synthesis</b>
+        <p>Primary and secondary data lands, findings update live across every team. Everyone sees what is emerging while there is still time to act on it.</p></div>
+      <div class="mech"><div class="num">02</div><b>Transparency and traceability</b>
+        <p>Every finding links to its source: who said it, where it came from, which interview or document. Follow the thread from final report back to original statement, and forward again.</p></div>
+      <div class="mech violet"><div class="num">03</div><b>Experts lead, AI supports</b>
+        <p>The people who conduct the interviews and write the reports review and react to incoming data in real time. AI never leads. Accuracy is checked by the people accountable for it.</p></div>
+      <div class="mech"><div class="num">04</div><b>Language and localization</b>
+        <p>Models capture rich detail in local languages; bilingual speakers verify the record. Data quality widens across geographies instead of narrowing to English.</p></div>
+      <div class="mech"><div class="num">05</div><b>Secondary research, accelerated</b>
+        <p>PartnerAI curates and indexes a source library per project, then builds rapid evidence databases with exact page references, attribution, and relevance to your question.</p></div>
+      <div class="mech"><div class="num">06</div><b>Quality and bias audits</b>
+        <p>Sub-agents audit the research as it runs, flagging compliance gaps and bias risks with the corrective action attached, while correction is still cheap.</p></div>
+      <div class="mech"><div class="num">07</div><b>Secure, purpose-limited use</b>
+        <p>All data follows strict protocols and serves only its assigned project. Nothing trains anything. Nothing leaves the engagement.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOLMARA CHAPTERS ================= -->
+<section class="beat dark" id="solmara">
+  <div class="wrap">
+    <div class="beat-label">One engagement, three service areas</div>
+    <h2 style="color:#fff">One programme. Three chapters. Same team.</h2>
+    <p style="color:#c9c7d8;max-width:46em;margin-top:14px;font-size:15.5px">Three guided demos follow a single ten-year blue economy programme in the fictional Republic of Solmara, one chapter per MarketEdge service area. Same data, same cast, one story: that is what working across all three service areas looks like in practice. Fictional country, fictional data.</p>
+    <div class="cards reveal-stagger" style="margin-top:34px">
       <article class="card">
-        <img class="poster" src="videos/chapter1-poster.png" alt="Chapter 1 walkthrough: Solmara investment pipeline" loading="lazy">
+        <img class="poster" src="videos/chapter1-poster.png" alt="Chapter 1 walkthrough: research and synthesis" loading="lazy">
         <span class="tag">Chapter 1 · Advanced Analytics</span>
-        <b>Solmara Investment Pipeline</b>
-        <p>Turn program data into decisions. Fourteen prospects, one comparable score, and a senior analyst's judgment on what the numbers miss.</p>
+        <b>Research &amp; Synthesis</b>
+        <p>Turn field research into decisions. Live findings, open bias checks, and every statement traceable to the person who said it.</p>
         <span class="links">
-          <a href="videos/chapter1.mp4">Watch the 90-second walkthrough →</a>
-          <a href="solmara/analytics/">Open the demo →</a>
+          <a href="solmara/analytics/">Open the demo &rarr;</a>
+          <a class="sec" href="videos/chapter1.mp4">Or watch the 90-second walkthrough</a>
         </span>
       </article>
       <article class="card">
         <img class="poster" src="videos/chapter2-poster.png" alt="Chapter 2 walkthrough: coastal leaders cohort" loading="lazy">
         <span class="tag">Chapter 2 · Organizational Development</span>
         <b>Coastal Leaders Cohort</b>
-        <p>Teams change institutions. Watch one cohort's capability move over nine months, and see where coaching made the difference.</p>
+        <p>Teams change institutions. Watch one cohort's capability move over nine months across three pillars of support.</p>
         <span class="links">
-          <a href="videos/chapter2.mp4">Watch the 90-second walkthrough →</a>
-          <a href="solmara/leaders/">Open the demo →</a>
+          <a href="solmara/leaders/">Open the demo &rarr;</a>
+          <a class="sec" href="videos/chapter2.mp4">Or watch the 90-second walkthrough</a>
         </span>
       </article>
       <article class="card">
         <img class="poster" src="videos/chapter3-poster.png" alt="Chapter 3 walkthrough: partnership structuring suite" loading="lazy">
         <span class="tag">Chapter 3 · Shared Value Partnerships</span>
         <b>Partnership Structuring Suite</b>
-        <p>Capital and trust move together. Score the partnership on both, then rehearse the conversation before it counts.</p>
+        <p>Capital and trust move together. Score the partnership on both, map the value flows, and rehearse the conversation before it counts.</p>
         <span class="links">
-          <a href="videos/chapter3.mp4">Watch the 90-second walkthrough →</a>
-          <a href="solmara/partnerships/">Open the demo →</a>
+          <a href="solmara/partnerships/">Open the demo &rarr;</a>
+          <a class="sec" href="videos/chapter3.mp4">Or watch the 90-second walkthrough</a>
         </span>
       </article>
     </div>
-    <div class="foot-note" style="margin-top:18px">Every demo page carries the line: Demo environment. Fictional country, fictional data.</div>
+    <div class="foot-note" style="color:#a5a3bd;margin-top:18px">Every demo page carries the line: Demo environment. Fictional country, fictional data.</div>
   </div>
 </section>
 
@@ -305,71 +206,27 @@
     <div class="eyebrow">Service area 01</div>
     <h2>Advanced Analytics</h2>
     <div class="outcome">Turn program data into decisions.</div>
-    <p class="body">Analysis usually arrives after the decision it was meant to inform. PartnerAI keeps the scanning, scoring, and summarizing running continuously; MarketEdge senior practitioners review every output before it reaches you. Evidence shows up inside the decision window, not after it closes.</p>
-
-    <div class="compare" data-state="now" data-autoplay>
-      <div class="seg" role="group" aria-label="Analytics workflow comparison">
-        <button class="now-btn" aria-pressed="true">How this works now</button>
-        <button class="with-btn" aria-pressed="false">With MarketEdge + PartnerAI</button>
-      </div>
-      <div class="stage" style="min-height:260px">
-        <div class="flow f-now">
-          <div class="chain">
-            <div class="node"><b>Leadership question</b><span>"is this worth pursuing?"</span></div>
-            <div class="arrow">→</div>
-            <div class="node pain"><b>Scattered sources</b><span>reports, datasets, tabs</span></div>
-            <div class="arrow">→</div>
-            <div class="node"><b>Weeks of compiling</b><span>manual, one analyst</span></div>
-            <div class="arrow">→</div>
-            <div class="node pain"><b>Findings land late</b><span>decision already made</span></div>
-          </div>
-          <div class="stats">
-            <div class="chip"><b>4–6 weeks</b><span>per analysis</span></div>
-            <div class="chip"><b>After</b><span>the decision window</span></div>
-            <div class="chip"><b>Once</b><span>evidence used, then filed</span></div>
-          </div>
-        </div>
-        <div class="flow f-with">
-          <div class="chain">
-            <div class="node auto"><b>Continuous scanning</b><span>markets, news, funding calls</span></div>
-            <div class="arrow">→</div>
-            <div class="node auto"><b>Structured scoring</b><span>weighted, comparable criteria</span></div>
-            <div class="arrow">→</div>
-            <div class="node human"><b>Senior review</b><span>MarketEdge interprets and challenges</span></div>
-            <div class="arrow">→</div>
-            <div class="node"><b>Decision-ready brief</b><span>inside the window</span></div>
-          </div>
-          <div class="stats">
-            <div class="chip"><b>Days</b><span>not weeks</span></div>
-            <div class="chip"><b>Inside</b><span>the decision window</span></div>
-            <div class="chip"><b>Reusable</b><span>scoring and sources persist</span></div>
-          </div>
-          <div class="claim">The tools do the gathering. Senior practitioners do the judging.</div>
-        </div>
-      </div>
-    </div>
-
+    <p class="body">Analysis usually arrives after the decision it was meant to inform, and field research arrives biased in ways nobody can see. PartnerAI keeps ingestion, synthesis, and audit running continuously; MarketEdge senior practitioners review every output before it reaches you. Evidence shows up inside the decision window, traceable to its source.</p>
     <div class="examples">
       <h3>Analyze and decide</h3>
-      <div class="cards">
+      <div class="cards reveal-stagger">
         <article class="card">
           <span class="tag">Sample tool</span>
           <b>Ranking Tool</b>
           <p>Score and compare partners, sectors, or proposals using weighted criteria your team sets.</p>
-          <!-- Swap href for the direct tool URL -->
-          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample →</a>
+          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample &rarr;</a>
         </article>
         <article class="card">
           <span class="tag">Sample tool</span>
           <b>Market Intelligence</b>
           <p>Scan sectors and regions continuously. Spot trends, risks, and opportunity signals early.</p>
-          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample →</a>
+          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample &rarr;</a>
         </article>
         <article class="card">
           <span class="tag">Sample tool</span>
           <b>RFP Intelligence</b>
           <p>Extract requirements, deadlines, and compliance gaps from funding calls in minutes.</p>
-          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample →</a>
+          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample &rarr;</a>
         </article>
       </div>
     </div>
@@ -377,75 +234,32 @@
 </section>
 
 <!-- ================= ORGANIZATIONAL DEVELOPMENT ================= -->
-<section class="area" id="orgdev">
+<section class="area" id="orgdev" style="background:#eaece4">
   <div class="wrap">
     <div class="eyebrow">Service area 02</div>
     <h2>Organizational Development</h2>
     <div class="outcome">Teams change institutions. Build teams that carry the work after we leave.</div>
-    <p class="body">The standard model sends a consultant, produces a long report, and takes the capability home when the engagement ends. PartnerAI turns assessment into a system your staff run themselves, with MarketEdge advisors reviewing results and targeting support where the data says it matters.</p>
-
-    <div class="compare" data-state="now" data-autoplay>
-      <div class="seg" role="group" aria-label="Organizational development workflow comparison">
-        <button class="now-btn" aria-pressed="true">How this works now</button>
-        <button class="with-btn" aria-pressed="false">With MarketEdge + PartnerAI</button>
-      </div>
-      <div class="stage" style="min-height:260px">
-        <div class="flow f-now">
-          <div class="chain">
-            <div class="node"><b>Consultant visit</b><span>every few years</span></div>
-            <div class="arrow">→</div>
-            <div class="node pain"><b>80-page report</b><span>read once</span></div>
-            <div class="arrow">→</div>
-            <div class="node pain"><b>Recommendations shelved</b><span>no follow-through owner</span></div>
-            <div class="arrow">→</div>
-            <div class="node"><b>Capability leaves</b><span>with the consultant</span></div>
-          </div>
-          <div class="stats">
-            <div class="chip"><b>1</b><span>snapshot every 2–3 years</span></div>
-            <div class="chip"><b>External</b><span>knowledge, rented</span></div>
-            <div class="chip"><b>Static</b><span>findings age immediately</span></div>
-          </div>
-        </div>
-        <div class="flow f-with">
-          <div class="chain">
-            <div class="node"><b>Staff self-assess</b><span>structured, scored, repeatable</span></div>
-            <div class="arrow">→</div>
-            <div class="node auto"><b>Virtual coach</b><span>guides improvement between check-ins</span></div>
-            <div class="arrow">→</div>
-            <div class="node human"><b>Advisor review</b><span>MarketEdge targets the real gaps</span></div>
-            <div class="arrow">→</div>
-            <div class="node"><b>Capability stays</b><span>in-house, improving</span></div>
-          </div>
-          <div class="stats">
-            <div class="chip"><b>Continuous</b><span>assessment, not episodic</span></div>
-            <div class="chip"><b>Internal</b><span>your team runs it</span></div>
-            <div class="chip"><b>Tracked</b><span>progress visible over time</span></div>
-          </div>
-          <div class="claim">Assessment becomes a habit your team owns, not an event you commission.</div>
-        </div>
-      </div>
-    </div>
-
+    <p class="body">AI complements human expertise here; it never replaces it. Three pillars carry every cohort: self-led learning tailored to each participant, participatory classroom training with AI-generated stakeholder personas, and tailored agents plus one-on-one mentorship tracked across the whole engagement. Advanced analytics watch participant progress, tool effectiveness, and outcomes over time.</p>
     <div class="examples">
       <h3>Strengthen your organization · Assess where you stand</h3>
-      <div class="cards">
+      <div class="cards reveal-stagger">
         <article class="card">
           <span class="tag">Sample diagnostic</span>
           <b>Organization Self-Assessment</b>
           <p>Structured capacity assessment with scoring and gap analysis your staff complete themselves.</p>
-          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample →</a>
+          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample &rarr;</a>
         </article>
         <article class="card">
           <span class="tag">Sample assistant</span>
           <b>Diagnostic Virtual Coach</b>
           <p>AI-guided diagnostic that turns assessment results into a concrete improvement roadmap.</p>
-          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Start sample →</a>
+          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Start sample &rarr;</a>
         </article>
         <article class="card">
           <span class="tag">Sample assistant</span>
           <b>Operations Systems Support</b>
           <p>Improve SOPs, process maps, and coordination systems with a helper built for your workflows.</p>
-          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Start sample →</a>
+          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Start sample &rarr;</a>
         </article>
       </div>
     </div>
@@ -457,71 +271,28 @@
   <div class="wrap">
     <div class="eyebrow">Service area 03</div>
     <h2>Shared Value Partnerships</h2>
-    <div class="outcome">Capital and trust move together. Structure partnerships that move both.</div>
-    <p class="body">Partnership work stalls on unpracticed conversations and pipelines that live in one inbox. PartnerAI lets your team rehearse the hard meeting before it happens, frame collaborator fit with evidence, and track every prospect in one shared view. MarketEdge stays in the room for the conversations that count.</p>
-
-    <div class="compare" data-state="now" data-autoplay>
-      <div class="seg" role="group" aria-label="Partnerships workflow comparison">
-        <button class="now-btn" aria-pressed="true">How this works now</button>
-        <button class="with-btn" aria-pressed="false">With MarketEdge + PartnerAI</button>
-      </div>
-      <div class="stage" style="min-height:260px">
-        <div class="flow f-now">
-          <div class="chain">
-            <div class="node"><b>Cold outreach</b><span>static deck attached</span></div>
-            <div class="arrow">→</div>
-            <div class="node pain"><b>High-stakes meeting</b><span>rehearsed the night before</span></div>
-            <div class="arrow">→</div>
-            <div class="node pain"><b>Pipeline in one inbox</b><span>nobody else can see it</span></div>
-            <div class="arrow">→</div>
-            <div class="node"><b>Deals stall</b><span>momentum lost between meetings</span></div>
-          </div>
-          <div class="stats">
-            <div class="chip"><b>1st take</b><span>happens in the real meeting</span></div>
-            <div class="chip"><b>1 person</b><span>holds the pipeline</span></div>
-            <div class="chip"><b>Months</b><span>between touchpoints</span></div>
-          </div>
-        </div>
-        <div class="flow f-with">
-          <div class="chain">
-            <div class="node auto"><b>Practice personas</b><span>rehearse the donor, the developer, the exporter</span></div>
-            <div class="arrow">→</div>
-            <div class="node auto"><b>Fit and framing</b><span>Partnership Assistant preps the case</span></div>
-            <div class="arrow">→</div>
-            <div class="node human"><b>The real conversation</b><span>your team + MarketEdge, prepared</span></div>
-            <div class="arrow">→</div>
-            <div class="node"><b>Shared pipeline</b><span>every prospect, one view</span></div>
-          </div>
-          <div class="stats">
-            <div class="chip"><b>Rehearsed</b><span>before it counts</span></div>
-            <div class="chip"><b>Whole team</b><span>sees the pipeline</span></div>
-            <div class="chip"><b>Days</b><span>between touchpoints</span></div>
-          </div>
-          <div class="claim">Practice the conversation in simulation. Win it in person.</div>
-        </div>
-      </div>
-    </div>
-
+    <div class="outcome">Capital and trust move together. Most partnerships get identified; few get operationalized.</div>
+    <p class="body">MarketEdge works as the strategic integrator: we synthesize the research that reveals aligned interests, frame the value propositions, and then build what most partnerships never get: governance structures, internal change management, check-in cadences, and relationship management. A library of partnership models built over years accelerates the timeline instead of reinventing it. Nontraditional pairings welcome: NGOs with commercial players, governments with social enterprises.</p>
     <div class="examples">
       <h3>Practice the conversation</h3>
-      <div class="cards">
+      <div class="cards reveal-stagger">
         <article class="card">
           <span class="tag">Sample simulation</span>
           <b>Stakeholder Personas</b>
           <p>Practice engagement with realistic donor, developer, community, and exporter personas in a safe simulation.</p>
-          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Start practice →</a>
+          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Start practice &rarr;</a>
         </article>
         <article class="card">
           <span class="tag">Sample assistant</span>
           <b>Partnership Assistant</b>
           <p>Frame partnership opportunities, assess collaborator fit, and strengthen outreach with evidence.</p>
-          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Start sample →</a>
+          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Start sample &rarr;</a>
         </article>
         <article class="card">
           <span class="tag">Sample tool</span>
           <b>Investor Pipeline Tracker</b>
           <p>One shared, always-current view of every investor prospect, from first contact to commitment.</p>
-          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample →</a>
+          <a href="https://marketedgeglobal.github.io/marketedgeglobal/">Open sample &rarr;</a>
         </article>
       </div>
     </div>
@@ -529,66 +300,29 @@
 </section>
 
 <!-- ================= REQUEST BAND ================= -->
-<div class="band" id="demo">
+<div class="cta-band" id="demo" style="margin-top:0">
   <div class="wrap">
-    <div class="eyebrow" style="color:#9fc0af">See it on your workflow</div>
+    <div class="eyebrow">See it on your workflow</div>
     <h2>Pick one real process. We will show you what changes.</h2>
     <p>Bring a reporting cycle, an assessment, or a partnership pipeline you run today. Walk through this on your own workflow. 30 minutes, your team keeping ownership at every step.</p>
     <a class="btn" href="mailto:info@marketedgeglobal.com?subject=Walkthrough%20request%3A%20PartnerAI&body=Organization%3A%0ARole%3A%0AThe%20workflow%20we%20want%20to%20improve%3A%0A">Book a 30-minute walkthrough</a>
-    <div class="alt">Or write to us directly: <a href="mailto:info@marketedgeglobal.com">info@marketedgeglobal.com</a></div>
+    <div class="email">Or write to us directly: <a href="mailto:info@marketedgeglobal.com">info@marketedgeglobal.com</a></div>
   </div>
 </div>
 
-<footer>
-  <div class="wrap cols">
+<footer class="demo-foot">
+  <div class="wrap" style="display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between">
     <div>
-      <b>PartnerAI™ by MarketEdge</b><br>
+      <b>PartnerAI by MarketEdge</b><br>
       Advanced Analytics · Organizational Development · Shared Value Partnerships
     </div>
     <div>
       Sample tools use fictional data. Client deployments remain private.<br>
-      Workflow figures are illustrative, drawn from typical engagements.
+      Figures are illustrative, drawn from typical engagements.
     </div>
   </div>
 </footer>
 
 <!-- Analytics: add one lightweight script (GoatCounter or Plausible) before launch so demo views per chapter are visible. -->
-<script>
-(function(){
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function setState(block, state){
-    block.dataset.state = state;
-    var nowBtn  = block.querySelector('.now-btn');
-    var withBtn = block.querySelector('.with-btn');
-    nowBtn.setAttribute('aria-pressed',  state === 'now'  ? 'true' : 'false');
-    withBtn.setAttribute('aria-pressed', state === 'with' ? 'true' : 'false');
-  }
-
-  var blocks = document.querySelectorAll('.compare');
-  blocks.forEach(function(block){
-    block.querySelector('.now-btn').addEventListener('click',  function(){ setState(block,'now');  block.dataset.touched = '1'; });
-    block.querySelector('.with-btn').addEventListener('click', function(){ setState(block,'with'); block.dataset.touched = '1'; });
-  });
-
-  /* Autoplay the now -> with transition once, when the block scrolls into view. */
-  if (!reduced && 'IntersectionObserver' in window) {
-    var seen = new WeakSet();
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if (entry.isIntersecting && !seen.has(entry.target)) {
-          seen.add(entry.target);
-          var block = entry.target;
-          setTimeout(function(){
-            if (!block.dataset.touched) setState(block, 'with');
-          }, 1400);
-          io.unobserve(block);
-        }
-      });
-    }, { threshold: 0.6 });
-    blocks.forEach(function(b){ if (b.hasAttribute('data-autoplay')) io.observe(b); });
-  }
-})();
-</script>
 </body>
 </html>
