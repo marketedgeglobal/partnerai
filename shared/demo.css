@@ -94,14 +94,14 @@ h2{font-family:var(--display);font-weight:300;font-size:clamp(27px,3.4vw,40px);l
 section.beat{padding:64px 0}
 section.beat + section.beat{border-top:1px solid var(--line)}
 section.beat.dark{background:var(--indigo);color:#e8e7ef;border-top:0}
-section.beat.dark .beat-label{color:#a5a3bd}
+section.beat.dark .beat-label{color:#cbc9dd}
 .beat-label{
-  font-family:var(--sans);font-size:13px;letter-spacing:3px;
-  text-transform:uppercase;color:var(--olive);margin-bottom:26px;
+  font-family:var(--sans);font-weight:600;font-size:15.5px;letter-spacing:2px;
+  text-transform:uppercase;color:var(--indigo);margin-bottom:26px;
 }
 .beat-label::after{
-  content:"";display:block;width:44px;height:1px;background:currentColor;opacity:.4;
-  margin-top:10px;transform:scaleX(0);transform-origin:left;transition:transform .7s ease .2s;
+  content:"";display:block;width:60px;height:2px;background:currentColor;opacity:.55;
+  margin-top:12px;transform:scaleX(0);transform-origin:left;transition:transform .7s ease .2s;
 }
 section.beat:has(.reveal.in) .beat-label::after,
 section.beat:has(.reveal-stagger.in) .beat-label::after,
