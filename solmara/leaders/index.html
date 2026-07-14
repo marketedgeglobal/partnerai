@@ -68,9 +68,12 @@
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">05 · Province rollup at month 9</div>
-    <div class="rollup reveal-stagger" id="rollup"></div>
-    <div class="legend"><span><span class="k" style="background:var(--olive-soft)"></span>Month 1 average</span><span><span class="k" style="background:var(--indigo)"></span>Month 9 average</span></div>
+    <div class="beat-label">05 · Capability scorecards by province</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:46em;margin-bottom:22px">Each province scored across the six capability measures at endline. Baseline sits behind every bar, so the nine-month gain reads at a glance.</p>
+    <div class="score-summary" id="score-summary"></div>
+    <div class="score-row" id="score-row"></div>
+    <div class="pscore-grid reveal-stagger" id="rollup"></div>
+    <div class="legend" style="margin-top:16px"><span><span class="k" style="background:var(--olive-soft)"></span>Month 1 baseline</span><span><span class="k" style="background:var(--indigo)"></span>Month 9 endline</span></div>
   </div>
 </section>
 
@@ -139,19 +142,58 @@
     }).join('');
 
     var keys = L.competencies.map(function (c) { return c.key; });
-    var byProv = {};
+    var lab = {}; L.competencies.forEach(function (c) { lab[c.key] = c.label; });
+
+    // per-province, per-measure baseline (m1) and endline (m9) averages
+    var P = {};
     L.fellows.forEach(function (fl) {
-      var p = (byProv[fl.province] = byProv[fl.province] || { m1: 0, m9: 0, n: 0 });
-      keys.forEach(function (k) { p.m1 += fl.assessments.month1[k]; p.m9 += fl.assessments.month9[k]; });
-      p.n += keys.length;
+      var pr = (P[fl.province] = P[fl.province] || {});
+      keys.forEach(function (k) {
+        var c = (pr[k] = pr[k] || { m1: 0, m9: 0, n: 0 });
+        c.m1 += fl.assessments.month1[k]; c.m9 += fl.assessments.month9[k]; c.n++;
+      });
     });
-    document.getElementById('rollup').innerHTML = data.meta.provinces.map(function (prov) {
-      var p = byProv[prov];
-      var a1 = p.m1 / p.n, a9 = p.m9 / p.n;
-      return '<div class="prov"><b>' + prov + '</b>' +
-        '<div class="bar bar-anim"><i class="base" data-w="' + (a1 / 5) * 100 + '%" style="width:0"></i></div>' +
-        '<div class="bar bar-anim"><i data-w="' + (a9 / 5) * 100 + '%" style="width:0"></i></div>' +
-        '<span>' + a1.toFixed(1) + ' &rarr; ' + a9.toFixed(1) + ' / 5</span></div>';
+
+    // cohort per-measure endline averages, for strongest and weakest
+    var comp = {}; keys.forEach(function (k) { comp[k] = { s: 0, n: 0 }; });
+    L.fellows.forEach(function (fl) { keys.forEach(function (k) { comp[k].s += fl.assessments.month9[k]; comp[k].n++; }); });
+    var ranked = keys.map(function (k) { return { k: k, v: comp[k].s / comp[k].n }; }).sort(function (a, b) { return b.v - a.v; });
+    var best = ranked[0], worst = ranked[ranked.length - 1];
+
+    // province averages (mean of the six measure means)
+    var provs = data.meta.provinces.map(function (pr) {
+      var a9 = 0, a1 = 0;
+      keys.forEach(function (k) { a9 += P[pr][k].m9 / P[pr][k].n; a1 += P[pr][k].m1 / P[pr][k].n; });
+      return { pr: pr, avg9: a9 / keys.length, avg1: a1 / keys.length };
+    });
+    var cAvg9 = provs.reduce(function (s, p) { return s + p.avg9; }, 0) / provs.length;
+    var cAvg1 = provs.reduce(function (s, p) { return s + p.avg1; }, 0) / provs.length;
+
+    function scard(l, v, sub, green) {
+      return '<div class="sc"><div class="lab">' + l + '</div><div class="val' + (green ? ' green' : '') + '">' + v + '</div><div class="sub">' + sub + '</div></div>';
+    }
+    document.getElementById('score-summary').innerHTML =
+      scard('Provinces', '6', 'coastal zones, 24 fellows') +
+      scard('Cohort average, month 9', cAvg9.toFixed(1), 'of 5, up from ' + cAvg1.toFixed(1), true) +
+      scard('Average gain', '+' + (cAvg9 - cAvg1).toFixed(1), 'across every measure');
+    document.getElementById('score-row').innerHTML =
+      '<div class="half"><div class="lab">Strongest measure</div><div class="txt">' + lab[best.k] + ' · ' + best.v.toFixed(1) + ' / 5</div></div>' +
+      '<div class="half"><div class="lab">Weakest measure</div><div class="txt">' + lab[worst.k] + ' · ' + worst.v.toFixed(1) + ' / 5</div></div>';
+
+    document.getElementById('rollup').innerHTML = provs.map(function (p) {
+      var b = p.avg9 >= 3.85 ? ['strong', 'Strong'] : p.avg9 >= 3.6 ? ['building', 'Building'] : ['emerging', 'Emerging'];
+      var crits = keys.map(function (k) {
+        var m9 = P[p.pr][k].m9 / P[p.pr][k].n, m1 = P[p.pr][k].m1 / P[p.pr][k].n;
+        return '<div class="crit"><span class="cl">' + lab[k] + '</span>' +
+          '<span class="cbar"><i class="m9" style="width:' + (m9 / 5 * 100).toFixed(1) + '%"></i><i class="m1" style="width:' + (m1 / 5 * 100).toFixed(1) + '%"></i></span>' +
+          '<span class="cv">' + m9.toFixed(1) + '</span></div>';
+      }).join('');
+      return '<div class="pscore">' +
+        '<div class="ph"><div><div class="pn">' + p.pr + '</div><span class="badge ' + b[0] + '">' + b[1] + '</span></div>' +
+        '<div class="big">' + p.avg9.toFixed(1) + '<small> /5</small></div></div>' +
+        crits +
+        '<div class="foot">+' + (p.avg9 - p.avg1).toFixed(1) + ' from month 1 baseline</div>' +
+        '</div>';
     }).join('');
   });
 })();

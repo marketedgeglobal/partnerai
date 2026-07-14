@@ -325,13 +325,34 @@ section.beat:has(.in) .beat-label::after{transform:scaleX(1)}
 .radar-cell.featured{border-color:var(--indigo);background:#ecedf3}
 .legend{display:flex;gap:18px;font-size:15.5px;color:var(--olive);margin-top:10px;flex-wrap:wrap}
 .legend .k{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-1px;margin-right:6px}
-.rollup{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px}
-.rollup .prov{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
-.rollup .prov b{display:block;font-size:14.5px}
-.rollup .bar{height:8px;background:#e4e6de;border-radius:4px;margin:8px 0 4px;overflow:hidden}
-.rollup .bar i{display:block;height:100%;background:var(--indigo);border-radius:4px}
-.rollup .bar i.base{background:var(--olive-soft)}
-.rollup span{font-size:11.5px;color:var(--olive)}
+/* province capability scorecards (value-chain-scorecard style) */
+.score-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:14px}
+.score-summary .sc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+.score-summary .sc .lab{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--olive)}
+.score-summary .sc .val{font-family:var(--display);font-weight:300;font-size:40px;line-height:1.05;color:var(--indigo);margin-top:6px}
+.score-summary .sc .val.green{color:#2c5e34}
+.score-summary .sc .sub{font-size:13.5px;color:var(--olive);margin-top:3px}
+.score-row{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 20px;display:flex;flex-wrap:wrap;gap:26px;margin-bottom:22px}
+.score-row .half .lab{font-family:var(--sans);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--olive)}
+.score-row .half .txt{font-family:var(--sans);font-weight:600;font-size:17px;color:var(--ink);margin-top:3px}
+.pscore-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px}
+.pscore{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.pscore .ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px}
+.pscore .pn{font-family:var(--sans);font-weight:600;font-size:19px;color:var(--ink)}
+.pscore .badge{display:inline-block;font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:999px;padding:4px 12px;margin-top:8px}
+.pscore .badge.strong{background:#e4efe4;color:#2c5e34;border:1px solid #9dc2a1}
+.pscore .badge.building{background:#eceef3;color:var(--indigo);border:1px solid #c3c4d4}
+.pscore .badge.emerging{background:var(--amber-soft);color:var(--amber);border:1px solid #e6c3a0}
+.pscore .big{font-family:var(--display);font-weight:300;font-size:36px;color:var(--indigo);line-height:1;white-space:nowrap}
+.pscore .big small{font-size:15px;color:var(--olive)}
+.pscore .crit{display:grid;grid-template-columns:132px 1fr 40px;align-items:center;gap:10px;margin-bottom:9px}
+.pscore .crit .cl{font-size:13px;color:var(--olive);line-height:1.2}
+.pscore .crit .cbar{height:9px;background:#e4e6de;border-radius:5px;position:relative;overflow:hidden}
+.pscore .crit .cbar i{position:absolute;top:0;left:0;bottom:0;border-radius:5px}
+.pscore .crit .cbar i.m9{background:var(--indigo)}
+.pscore .crit .cbar i.m1{background:var(--olive-soft)}
+.pscore .crit .cv{font-family:var(--display);font-size:15px;color:var(--ink);text-align:right}
+.pscore .foot{font-size:13px;color:var(--olive);margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
 
 /* ---------- pillars, mentorship, agents (chapter 2) ---------- */
 .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
