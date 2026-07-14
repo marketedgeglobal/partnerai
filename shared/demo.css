@@ -339,20 +339,33 @@ section.beat:has(.in) .beat-label::after{transform:scaleX(1)}
 .pscore{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
 .pscore .ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:12px}
 .pscore .pn{font-family:var(--sans);font-weight:600;font-size:19px;color:var(--ink)}
-.pscore .badge{display:inline-block;font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:999px;padding:4px 12px;margin-top:8px}
-.pscore .badge.strong{background:#e4efe4;color:#2c5e34;border:1px solid #9dc2a1}
-.pscore .badge.building{background:#eceef3;color:var(--indigo);border:1px solid #c3c4d4}
-.pscore .badge.emerging{background:var(--amber-soft);color:var(--amber);border:1px solid #e6c3a0}
+.badge{display:inline-block;font-family:var(--sans);font-size:11.5px;font-weight:600;letter-spacing:1px;text-transform:uppercase;border-radius:999px;padding:4px 12px}
+.badge.strong{background:#e4efe4;color:#2c5e34;border:1px solid #9dc2a1}
+.badge.building{background:#eceef3;color:var(--indigo);border:1px solid #c3c4d4}
+.badge.emerging{background:var(--amber-soft);color:var(--amber);border:1px solid #e6c3a0}
+.pscore .badge{margin-top:8px}
+.pscore .osub{font-size:13px;color:var(--olive);margin-top:3px}
 .pscore .big{font-family:var(--display);font-weight:300;font-size:36px;color:var(--indigo);line-height:1;white-space:nowrap}
 .pscore .big small{font-size:15px;color:var(--olive)}
-.pscore .crit{display:grid;grid-template-columns:132px 1fr 40px;align-items:center;gap:10px;margin-bottom:9px}
-.pscore .crit .cl{font-size:13px;color:var(--olive);line-height:1.2}
-.pscore .crit .cbar{height:9px;background:#e4e6de;border-radius:5px;position:relative;overflow:hidden}
-.pscore .crit .cbar i{position:absolute;top:0;left:0;bottom:0;border-radius:5px}
-.pscore .crit .cbar i.m9{background:var(--indigo)}
-.pscore .crit .cbar i.m1{background:var(--olive-soft)}
-.pscore .crit .cv{font-family:var(--display);font-size:15px;color:var(--ink);text-align:right}
+.crit{display:grid;grid-template-columns:132px 1fr 40px;align-items:center;gap:10px;margin-bottom:9px}
+.crit .cl{font-size:13px;color:var(--olive);line-height:1.2}
+.crit .cbar{height:9px;background:#e4e6de;border-radius:5px;position:relative;overflow:hidden}
+.crit .cbar i{position:absolute;top:0;left:0;bottom:0;border-radius:5px}
+.crit .cbar i.m9{background:var(--indigo)}
+.crit .cbar i.m1{background:var(--olive-soft)}
+.crit .cv{font-family:var(--display);font-size:15px;color:var(--ink);text-align:right}
 .pscore .foot{font-size:13px;color:var(--olive);margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
+/* overall portfolio hero scorecard */
+.overall{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--indigo);border-radius:14px;padding:24px 28px;margin-bottom:16px}
+.overall .ov-inner{display:grid;grid-template-columns:210px 1fr;gap:36px;align-items:center}
+@media (max-width:760px){ .overall .ov-inner{grid-template-columns:1fr;gap:22px;justify-items:center} }
+.overall .ov-left{text-align:center}
+.overall .ov-left .pn{font-family:var(--sans);font-weight:600;font-size:20px;color:var(--ink);margin-top:8px}
+.overall .ov-left .sub{font-size:13px;color:var(--olive);margin-top:3px}
+.overall .ov-left .badge{margin-top:12px}
+.overall .ov-left .gain{font-size:13px;color:var(--olive);margin-top:12px}
+.overall .ov-bars{display:grid;grid-template-columns:1fr 1fr;gap:2px 34px}
+@media (max-width:600px){ .overall .ov-bars{grid-template-columns:1fr} }
 
 /* ---------- pillars, mentorship, agents (chapter 2) ---------- */
 .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}

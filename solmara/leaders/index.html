@@ -68,10 +68,11 @@
 
 <section class="beat">
   <div class="wrap">
-    <div class="beat-label">05 · Capability scorecards by province</div>
-    <p style="font-size:15.5px;color:var(--olive);max-width:46em;margin-bottom:22px">Each province scored across the six capability measures at endline. Baseline sits behind every bar, so the nine-month gain reads at a glance.</p>
+    <div class="beat-label">05 · Portfolio review: capability scorecards, overall and by organization</div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:46em;margin-bottom:22px">A portfolio view of the organizations in the cohort, each scored across the six capability measures at endline. The overall profile first, then organization by organization, with the month-1 baseline behind every bar.</p>
     <div class="score-summary" id="score-summary"></div>
     <div class="score-row" id="score-row"></div>
+    <div id="overall" class="reveal"></div>
     <div class="pscore-grid reveal-stagger" id="rollup"></div>
     <div class="legend" style="margin-top:16px"><span><span class="k" style="background:var(--olive-soft)"></span>Month 1 baseline</span><span><span class="k" style="background:var(--indigo)"></span>Month 9 endline</span></div>
   </div>
@@ -144,55 +145,88 @@
     var keys = L.competencies.map(function (c) { return c.key; });
     var lab = {}; L.competencies.forEach(function (c) { lab[c.key] = c.label; });
 
-    // per-province, per-measure baseline (m1) and endline (m9) averages
-    var P = {};
+    function orgOf(role) {
+      if (role.indexOf('MFCE') === 0) return { name: 'MFCE', type: 'Government, provincial fisheries' };
+      if (role.indexOf('SCPF') === 0) return { name: 'SCPF', type: 'Producer federation' };
+      if (role.indexOf('TidePoint') === 0) return { name: 'TidePoint Alliance', type: 'NGO delivery partner' };
+      return { name: 'Coastal Cooperatives', type: 'Community enterprises' };
+    }
+
+    // aggregate per organization and overall, per measure (baseline m1, endline m9)
+    var ORG = {}, overall = {};
+    keys.forEach(function (k) { overall[k] = { m1: 0, m9: 0, n: 0 }; });
     L.fellows.forEach(function (fl) {
-      var pr = (P[fl.province] = P[fl.province] || {});
+      var o = orgOf(fl.role);
+      var g = (ORG[o.name] = ORG[o.name] || { name: o.name, type: o.type, members: 0, m: {} });
+      g.members++;
       keys.forEach(function (k) {
-        var c = (pr[k] = pr[k] || { m1: 0, m9: 0, n: 0 });
+        var c = (g.m[k] = g.m[k] || { m1: 0, m9: 0, n: 0 });
         c.m1 += fl.assessments.month1[k]; c.m9 += fl.assessments.month9[k]; c.n++;
+        overall[k].m1 += fl.assessments.month1[k]; overall[k].m9 += fl.assessments.month9[k]; overall[k].n++;
       });
     });
 
-    // cohort per-measure endline averages, for strongest and weakest
-    var comp = {}; keys.forEach(function (k) { comp[k] = { s: 0, n: 0 }; });
-    L.fellows.forEach(function (fl) { keys.forEach(function (k) { comp[k].s += fl.assessments.month9[k]; comp[k].n++; }); });
-    var ranked = keys.map(function (k) { return { k: k, v: comp[k].s / comp[k].n }; }).sort(function (a, b) { return b.v - a.v; });
-    var best = ranked[0], worst = ranked[ranked.length - 1];
-
-    // province averages (mean of the six measure means)
-    var provs = data.meta.provinces.map(function (pr) {
+    function measureAvg(m) {
       var a9 = 0, a1 = 0;
-      keys.forEach(function (k) { a9 += P[pr][k].m9 / P[pr][k].n; a1 += P[pr][k].m1 / P[pr][k].n; });
-      return { pr: pr, avg9: a9 / keys.length, avg1: a1 / keys.length };
-    });
-    var cAvg9 = provs.reduce(function (s, p) { return s + p.avg9; }, 0) / provs.length;
-    var cAvg1 = provs.reduce(function (s, p) { return s + p.avg1; }, 0) / provs.length;
+      keys.forEach(function (k) { a9 += m[k].m9 / m[k].n; a1 += m[k].m1 / m[k].n; });
+      return { avg9: a9 / keys.length, avg1: a1 / keys.length };
+    }
+    function badge(v) { return v >= 3.75 ? ['strong', 'Strong'] : v >= 3.55 ? ['building', 'Building'] : ['emerging', 'Emerging']; }
+    function bars(m) {
+      return keys.map(function (k) {
+        var m9 = m[k].m9 / m[k].n, m1 = m[k].m1 / m[k].n;
+        return '<div class="crit"><span class="cl">' + lab[k] + '</span>' +
+          '<span class="cbar"><i class="m9" style="width:' + (m9 / 5 * 100).toFixed(1) + '%"></i><i class="m1" style="width:' + (m1 / 5 * 100).toFixed(1) + '%"></i></span>' +
+          '<span class="cv">' + m9.toFixed(1) + '</span></div>';
+      }).join('');
+    }
+
+    var ranked = keys.map(function (k) { return { k: k, v: overall[k].m9 / overall[k].n }; }).sort(function (a, b) { return b.v - a.v; });
+    var best = ranked[0], worst = ranked[ranked.length - 1];
+    var ov = measureAvg(overall);
+    var orgList = Object.keys(ORG).map(function (name) {
+      var g = ORG[name]; var a = measureAvg(g.m);
+      return { name: g.name, type: g.type, members: g.members, avg9: a.avg9, avg1: a.avg1, m: g.m };
+    }).sort(function (a, b) { return b.avg9 - a.avg9; });
 
     function scard(l, v, sub, green) {
       return '<div class="sc"><div class="lab">' + l + '</div><div class="val' + (green ? ' green' : '') + '">' + v + '</div><div class="sub">' + sub + '</div></div>';
     }
     document.getElementById('score-summary').innerHTML =
-      scard('Provinces', '6', 'coastal zones, 24 fellows') +
-      scard('Cohort average, month 9', cAvg9.toFixed(1), 'of 5, up from ' + cAvg1.toFixed(1), true) +
-      scard('Average gain', '+' + (cAvg9 - cAvg1).toFixed(1), 'across every measure');
+      scard('Organizations', orgList.length, '24 fellows in the portfolio') +
+      scard('Portfolio average, month 9', ov.avg9.toFixed(1), 'of 5, up from ' + ov.avg1.toFixed(1), true) +
+      scard('Average gain', '+' + (ov.avg9 - ov.avg1).toFixed(1), 'across every measure');
     document.getElementById('score-row').innerHTML =
       '<div class="half"><div class="lab">Strongest measure</div><div class="txt">' + lab[best.k] + ' · ' + best.v.toFixed(1) + ' / 5</div></div>' +
       '<div class="half"><div class="lab">Weakest measure</div><div class="txt">' + lab[worst.k] + ' · ' + worst.v.toFixed(1) + ' / 5</div></div>';
 
-    document.getElementById('rollup').innerHTML = provs.map(function (p) {
-      var b = p.avg9 >= 3.85 ? ['strong', 'Strong'] : p.avg9 >= 3.6 ? ['building', 'Building'] : ['emerging', 'Emerging'];
-      var crits = keys.map(function (k) {
-        var m9 = P[p.pr][k].m9 / P[p.pr][k].n, m1 = P[p.pr][k].m1 / P[p.pr][k].n;
-        return '<div class="crit"><span class="cl">' + lab[k] + '</span>' +
-          '<span class="cbar"><i class="m9" style="width:' + (m9 / 5 * 100).toFixed(1) + '%"></i><i class="m1" style="width:' + (m1 / 5 * 100).toFixed(1) + '%"></i></span>' +
-          '<span class="cv">' + m9.toFixed(1) + '</span></div>';
-      }).join('');
+    function ring(score) {
+      var r = 52, c = 2 * Math.PI * r, off = c * (1 - Math.min(score, 5) / 5);
+      return '<svg width="128" height="128" viewBox="0 0 128 128" aria-hidden="true">' +
+        '<circle cx="64" cy="64" r="' + r + '" fill="none" stroke="#e4e6de" stroke-width="11"/>' +
+        '<circle cx="64" cy="64" r="' + r + '" fill="none" stroke="#242337" stroke-width="11" stroke-linecap="round" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + off.toFixed(1) + '" transform="rotate(-90 64 64)"/>' +
+        '<text x="64" y="60" text-anchor="middle" font-family="Roboto,system-ui,sans-serif" font-weight="300" font-size="34" fill="#242337">' + score.toFixed(1) + '</text>' +
+        '<text x="64" y="84" text-anchor="middle" font-family="Josefin Sans,system-ui,sans-serif" font-size="13" fill="#6a6e64">of 5</text></svg>';
+    }
+    var ob = badge(ov.avg9);
+    document.getElementById('overall').innerHTML =
+      '<div class="overall"><div class="ov-inner">' +
+        '<div class="ov-left">' + ring(ov.avg9) +
+          '<div class="pn">Overall portfolio</div><div class="sub">' + orgList.length + ' organizations, 24 fellows</div>' +
+          '<span class="badge ' + ob[0] + '">' + ob[1] + '</span>' +
+          '<div class="gain">+' + (ov.avg9 - ov.avg1).toFixed(1) + ' from month 1 baseline</div></div>' +
+        '<div class="ov-bars">' + bars(overall) + '</div>' +
+      '</div></div>';
+
+    document.getElementById('rollup').innerHTML = orgList.map(function (o) {
+      var b = badge(o.avg9);
       return '<div class="pscore">' +
-        '<div class="ph"><div><div class="pn">' + p.pr + '</div><span class="badge ' + b[0] + '">' + b[1] + '</span></div>' +
-        '<div class="big">' + p.avg9.toFixed(1) + '<small> /5</small></div></div>' +
-        crits +
-        '<div class="foot">+' + (p.avg9 - p.avg1).toFixed(1) + ' from month 1 baseline</div>' +
+        '<div class="ph"><div><div class="pn">' + o.name + '</div>' +
+        '<div class="osub">' + o.type + ' · ' + o.members + ' fellows</div>' +
+        '<span class="badge ' + b[0] + '">' + b[1] + '</span></div>' +
+        '<div class="big">' + o.avg9.toFixed(1) + '<small> /5</small></div></div>' +
+        bars(o.m) +
+        '<div class="foot">+' + (o.avg9 - o.avg1).toFixed(1) + ' from month 1 baseline</div>' +
         '</div>';
     }).join('');
   });
