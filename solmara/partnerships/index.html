@@ -243,7 +243,8 @@
 
     document.getElementById('scenario').textContent = script.scenario;
     document.getElementById('persona-line').innerHTML = script.persona + ', ' + script.personaRole + '. Scripted replay, not a live model.' +
-      '<span style="display:block;margin-top:6px"><span class="chip-meta">Also in the live catalog: provincial licensing officer</span> <span class="chip-meta">impact investor</span> <span class="chip-meta">port authority</span></span>';
+      '<span style="display:block;margin-top:8px;font-size:12px;color:var(--olive)">Also in the live catalog: ' +
+      '<span class="chip-meta">provincial licensing officer</span> <span class="chip-meta">impact investor</span> <span class="chip-meta">port authority</span></span>';
     document.getElementById('violet-moment').textContent = script.violetMoment;
     document.getElementById('coach-note').textContent = script.coachNote;
 
