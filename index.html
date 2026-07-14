@@ -32,13 +32,18 @@
   .posline{font-family:var(--serif);font-style:italic;font-size:18px;color:#c9c7d8;margin-top:22px}
 
   /* contrast section */
-  .contrast-tabs{display:inline-flex;background:rgba(255,255,255,.07);border-radius:999px;padding:4px;gap:4px;margin-bottom:22px}
+  .contrast-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
+  @media (max-width:760px){ .contrast-tabs{grid-template-columns:1fr} }
   .contrast-tabs button{
-    font-family:inherit;font-size:13.5px;font-weight:600;border:0;cursor:pointer;
-    padding:9px 20px;border-radius:999px;background:transparent;color:#c9c7d8;
-    transition:background .25s,color .25s;
+    font-family:inherit;text-align:left;cursor:pointer;
+    border:1px solid rgba(255,255,255,.25);border-radius:12px;
+    background:rgba(255,255,255,.06);color:#c9c7d8;padding:14px 18px;
+    transition:background .25s,color .25s,border-color .25s;
   }
-  .contrast-tabs button[aria-pressed="true"]{background:#f1f3ee;color:#242337}
+  .contrast-tabs button b{display:block;font-size:15px;font-weight:600;color:#fff;margin-bottom:3px}
+  .contrast-tabs button span{font-size:12.5px}
+  .contrast-tabs button[aria-pressed="true"]{background:#f1f3ee;border-color:#f1f3ee;color:#6a6e64}
+  .contrast-tabs button[aria-pressed="true"] b{color:#242337}
   .contrast-video{width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.16);display:block}
   .contrast-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
   @media (max-width:760px){ .contrast-cols{grid-template-columns:1fr} }
@@ -64,7 +69,15 @@
     transition:transform .2s,box-shadow .2s;
   }
   .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(36,35,55,.12)}
-  .card .poster{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#e6e8e0}
+  .card .poster{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#e6e8e0;display:block}
+  .poster-wrap{position:relative}
+  .poster-wrap a{display:block;cursor:pointer}
+  .poster-wrap .expand{
+    position:absolute;right:10px;bottom:10px;width:34px;height:34px;border-radius:8px;
+    border:1px solid rgba(255,255,255,.5);background:rgba(36,35,55,.55);color:#fff;
+    font-size:16px;line-height:1;cursor:pointer;
+  }
+  .poster-wrap .expand:hover{background:rgba(36,35,55,.85)}
   .card b{font-size:17px;font-weight:600}
   .card p{font-size:13.5px;color:var(--olive);flex:1}
   .card a{font-size:14px;font-weight:600;color:var(--indigo);text-decoration:none}
@@ -115,33 +128,45 @@
     <p style="color:var(--olive);max-width:46em;margin-top:12px;font-size:15.5px">One rule runs through all three sections: the ministry keeps the tools. At handover, MFCE owns the dashboards, the agents, and the data.</p>
     <div class="cards reveal-stagger" style="margin-top:34px">
       <article class="card">
-        <img class="poster" src="videos/chapter1-poster.png" alt="Section 1 walkthrough: research and synthesis" loading="lazy">
+        <div class="poster-wrap">
+          <a href="solmara/analytics/" aria-label="Open Section 1: Research and Synthesis">
+            <video class="poster" src="videos/chapter1.mp4" poster="videos/chapter1-poster.png" muted loop playsinline preload="metadata" aria-label="Section 1 walkthrough animation"></video>
+          </a>
+          <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
+        </div>
         <span class="tag">Section 1 · Advanced Analytics</span>
         <b>Research &amp; Synthesis</b>
         <p>Turn program data into decisions. Live findings, open bias checks, and every statement traceable to the person who said it.</p>
         <span class="links">
           <a href="solmara/analytics/">Open Section 1 &rarr;</a>
-          <a class="sec" href="videos/chapter1.mp4">Or watch the 90-second walkthrough</a>
         </span>
       </article>
       <article class="card">
-        <img class="poster" src="videos/chapter2-poster.png" alt="Section 2 walkthrough: coastal leaders cohort" loading="lazy">
+        <div class="poster-wrap">
+          <a href="solmara/leaders/" aria-label="Open Section 2: Coastal Leaders Cohort">
+            <video class="poster" src="videos/chapter2.mp4" poster="videos/chapter2-poster.png" muted loop playsinline preload="metadata" aria-label="Section 2 walkthrough animation"></video>
+          </a>
+          <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
+        </div>
         <span class="tag">Section 2 · Organizational Development</span>
         <b>Coastal Leaders Cohort</b>
         <p>Teams change institutions. Watch one cohort's capability grow over nine months, tracked across three pillars of support.</p>
         <span class="links">
           <a href="solmara/leaders/">Open Section 2 &rarr;</a>
-          <a class="sec" href="videos/chapter2.mp4">Or watch the 90-second walkthrough</a>
         </span>
       </article>
       <article class="card">
-        <img class="poster" src="videos/chapter3-poster.png" alt="Section 3 walkthrough: partnership structuring suite" loading="lazy">
+        <div class="poster-wrap">
+          <a href="solmara/partnerships/" aria-label="Open Section 3: Partnership Structuring Suite">
+            <video class="poster" src="videos/chapter3.mp4" poster="videos/chapter3-poster.png" muted loop playsinline preload="metadata" aria-label="Section 3 walkthrough animation"></video>
+          </a>
+          <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
+        </div>
         <span class="tag">Section 3 · Shared Value Partnerships</span>
         <b>Partnership Structuring Suite</b>
         <p>Capital and trust move together. Score the partnership on both, map the value flows, and rehearse the conversation before it counts.</p>
         <span class="links">
           <a href="solmara/partnerships/">Open Section 3 &rarr;</a>
-          <a class="sec" href="videos/chapter3.mp4">Or watch the 90-second walkthrough</a>
         </span>
       </article>
     </div>
@@ -154,9 +179,9 @@
   <div class="wrap">
     <div class="beat-label">The difference · What most teams experience, and what MarketEdge delivers</div>
     <div class="contrast-tabs" role="group" aria-label="Pick a service area">
-      <button data-c="aa" aria-pressed="true">Advanced Analytics</button>
-      <button data-c="od" aria-pressed="false">Organizational Development</button>
-      <button data-c="svp" aria-pressed="false">Shared Value Partnerships</button>
+      <button data-c="aa" aria-pressed="true"><b>Advanced Analytics</b><span>From scattered notes to traceable findings</span></button>
+      <button data-c="od" aria-pressed="false"><b>Organizational Development</b><span>From shelved reports to capability that stays</span></button>
+      <button data-c="svp" aria-pressed="false"><b>Shared Value Partnerships</b><span>From signed MOU to a partnership that runs</span></button>
     </div>
     <div class="reveal">
       <video class="contrast-video" src="videos/contrast.mp4" poster="videos/contrast-poster.png" autoplay muted loop playsinline preload="metadata" aria-label="Animation contrasting how most teams work with what MarketEdge delivers"></video>
@@ -277,23 +302,66 @@
       link: 'solmara/partnerships/', label: 'See it in Section 3 →',
     },
   };
-  document.querySelectorAll('.contrast-tabs button').forEach(function (btn) {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.contrast-tabs button'));
+  function selectTab(btn) {
+    var c = CONTRASTS[btn.getAttribute('data-c')];
+    if (!c) return;
+    tabs.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+    v.pause();
+    v.setAttribute('poster', c.poster);
+    v.src = c.src;
+    v.load();
+    if (!reduced) { v.play(); }
+    document.getElementById('contrast-left').textContent = c.left;
+    document.getElementById('contrast-right').textContent = c.right;
+    var link = document.getElementById('contrast-link');
+    link.href = c.link;
+    link.textContent = c.label;
+  }
+  // Auto-advance through the three service areas so all three loops get seen.
+  // A manual tab click hands control to the visitor.
+  var rotate = null;
+  if (!reduced) {
+    rotate = setInterval(function () {
+      var current = tabs.findIndex(function (b) { return b.getAttribute('aria-pressed') === 'true'; });
+      selectTab(tabs[(current + 1) % tabs.length]);
+    }, 27000);
+  }
+  tabs.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var c = CONTRASTS[btn.getAttribute('data-c')];
-      if (!c) return;
-      document.querySelectorAll('.contrast-tabs button').forEach(function (b) {
-        b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
+      if (rotate) { clearInterval(rotate); rotate = null; }
+      selectTab(btn);
+    });
+  });
+
+  // Section card walkthroughs: play as inline animations, expand on demand.
+  document.querySelectorAll('.poster-wrap').forEach(function (wrap) {
+    var mini = wrap.querySelector('video');
+    var btn = wrap.querySelector('.expand');
+    if (!mini) return;
+    if (!reduced && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { mini.play(); } else { mini.pause(); }
+        });
+      }, { threshold: 0.3 }).observe(mini);
+    }
+    if (btn) {
+      btn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        if (mini.requestFullscreen) { mini.requestFullscreen(); }
+        else if (mini.webkitEnterFullscreen) { mini.webkitEnterFullscreen(); }
+        mini.play();
       });
-      v.pause();
-      v.setAttribute('poster', c.poster);
-      v.src = c.src;
-      v.load();
-      if (!reduced) { v.play(); }
-      document.getElementById('contrast-left').textContent = c.left;
-      document.getElementById('contrast-right').textContent = c.right;
-      var link = document.getElementById('contrast-link');
-      link.href = c.link;
-      link.textContent = c.label;
+    }
+    mini.addEventListener('fullscreenchange', function () {
+      mini.controls = !!document.fullscreenElement;
+    });
+  });
+  document.addEventListener('fullscreenchange', function () {
+    document.querySelectorAll('.poster-wrap video').forEach(function (m) {
+      m.controls = document.fullscreenElement === m;
     });
   });
 })();
