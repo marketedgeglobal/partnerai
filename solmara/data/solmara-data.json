@@ -26,29 +26,29 @@
   "analytics": {
     "criteria": [
       {
-        "key": "market_access",
-        "label": "Market access",
+        "key": "environment",
+        "label": "Environmental fit",
         "weight": 20
       },
       {
-        "key": "capital_readiness",
-        "label": "Capital readiness",
+        "key": "social",
+        "label": "Social benefit",
+        "weight": 20
+      },
+      {
+        "key": "economic",
+        "label": "Economic viability",
         "weight": 25
       },
       {
-        "key": "smallholder_inclusion",
-        "label": "Smallholder inclusion",
+        "key": "community",
+        "label": "Community ownership",
         "weight": 20
       },
       {
-        "key": "sustainability_alignment",
-        "label": "Sustainability alignment",
+        "key": "execution",
+        "label": "Execution readiness",
         "weight": 15
-      },
-      {
-        "key": "execution_capacity",
-        "label": "Execution capacity",
-        "weight": 20
       }
     ],
     "investors": [
@@ -62,11 +62,11 @@
           "Blue swimming crab"
         ],
         "scores": {
-          "market_access": 9,
-          "capital_readiness": 8,
-          "smallholder_inclusion": 7,
-          "sustainability_alignment": 8,
-          "execution_capacity": 8
+          "economic": 9,
+          "social": 8,
+          "community": 7,
+          "environment": 8,
+          "execution": 8
         },
         "note": "Committed offtake with a traceability premium paid at the cooperative gate."
       },
@@ -80,11 +80,11 @@
           "Coastal eco-tourism"
         ],
         "scores": {
-          "market_access": 7,
-          "capital_readiness": 9,
-          "smallholder_inclusion": 7,
-          "sustainability_alignment": 8,
-          "execution_capacity": 7
+          "economic": 7,
+          "social": 9,
+          "community": 7,
+          "environment": 8,
+          "execution": 7
         },
         "note": "Term sheet on the table for seaweed aggregation infrastructure at the coastal landing sites."
       },
@@ -98,11 +98,11 @@
           "Reef fish"
         ],
         "scores": {
-          "market_access": 8,
-          "capital_readiness": 7,
-          "smallholder_inclusion": 6,
-          "sustainability_alignment": 6,
-          "execution_capacity": 9
+          "economic": 8,
+          "social": 7,
+          "community": 6,
+          "environment": 6,
+          "execution": 9
         },
         "note": "Cold chain proposal covering the coastal landing sites."
       },
@@ -115,11 +115,11 @@
           "Seaweed"
         ],
         "scores": {
-          "market_access": 6,
-          "capital_readiness": 8,
-          "smallholder_inclusion": 8,
-          "sustainability_alignment": 8,
-          "execution_capacity": 5
+          "economic": 6,
+          "social": 8,
+          "community": 8,
+          "environment": 8,
+          "execution": 5
         },
         "note": "Concessional window open for first-loss capital, slow internal clock."
       },
@@ -132,11 +132,11 @@
           "Reef fish"
         ],
         "scores": {
-          "market_access": 6,
-          "capital_readiness": 8,
-          "smallholder_inclusion": 6,
-          "sustainability_alignment": 9,
-          "execution_capacity": 6
+          "economic": 6,
+          "social": 8,
+          "community": 6,
+          "environment": 9,
+          "execution": 6
         },
         "note": "Strong mandate fit; wants a bankable co-management story first."
       },
@@ -149,11 +149,11 @@
           "Seaweed"
         ],
         "scores": {
-          "market_access": 7,
-          "capital_readiness": 6,
-          "smallholder_inclusion": 7,
-          "sustainability_alignment": 7,
-          "execution_capacity": 7
+          "economic": 7,
+          "social": 6,
+          "community": 7,
+          "environment": 7,
+          "execution": 7
         },
         "note": "Processing capacity in place; financing gap on working capital."
       },
@@ -166,11 +166,11 @@
           "Reef fish"
         ],
         "scores": {
-          "market_access": 8,
-          "capital_readiness": 6,
-          "smallholder_inclusion": 5,
-          "sustainability_alignment": 5,
-          "execution_capacity": 7
+          "economic": 8,
+          "social": 6,
+          "community": 5,
+          "environment": 5,
+          "execution": 7
         },
         "note": "Volume appetite is real; sourcing standards still loose."
       },
@@ -183,11 +183,11 @@
           "Seaweed"
         ],
         "scores": {
-          "market_access": 7,
-          "capital_readiness": 5,
-          "smallholder_inclusion": 6,
-          "sustainability_alignment": 8,
-          "execution_capacity": 6
+          "economic": 7,
+          "social": 5,
+          "community": 6,
+          "environment": 8,
+          "execution": 6
         },
         "note": "Carrageenan demand growing; needs consistent grade from West Coast farms."
       },
@@ -200,11 +200,11 @@
           "Coastal eco-tourism"
         ],
         "scores": {
-          "market_access": 6,
-          "capital_readiness": 6,
-          "smallholder_inclusion": 7,
-          "sustainability_alignment": 7,
-          "execution_capacity": 5
+          "economic": 6,
+          "social": 6,
+          "community": 7,
+          "environment": 7,
+          "execution": 5
         },
         "note": "Two-lodge concept with community equity; pre-feasibility stage."
       },
@@ -217,11 +217,11 @@
           "Blue swimming crab"
         ],
         "scores": {
-          "market_access": 6,
-          "capital_readiness": 5,
-          "smallholder_inclusion": 7,
-          "sustainability_alignment": 6,
-          "execution_capacity": 6
+          "economic": 6,
+          "social": 5,
+          "community": 7,
+          "environment": 6,
+          "execution": 6
         },
         "note": "Expansion blocked on cold chain; watch the Harborline dependency."
       },
@@ -235,11 +235,11 @@
           "Reef fish"
         ],
         "scores": {
-          "market_access": 8,
-          "capital_readiness": 7,
-          "smallholder_inclusion": 2,
-          "sustainability_alignment": 3,
-          "execution_capacity": 7
+          "economic": 8,
+          "social": 7,
+          "community": 2,
+          "environment": 3,
+          "execution": 7
         },
         "note": "Deep buyer network, extractive model. Prices out smallholders today."
       },
@@ -252,11 +252,11 @@
           "Reef fish"
         ],
         "scores": {
-          "market_access": 4,
-          "capital_readiness": 5,
-          "smallholder_inclusion": 5,
-          "sustainability_alignment": 7,
-          "execution_capacity": 5
+          "economic": 4,
+          "social": 5,
+          "community": 5,
+          "environment": 7,
+          "execution": 5
         },
         "note": "Hatchery technology promising; team unproven at commercial scale."
       },
@@ -269,11 +269,11 @@
           "Seaweed"
         ],
         "scores": {
-          "market_access": 5,
-          "capital_readiness": 6,
-          "smallholder_inclusion": 4,
-          "sustainability_alignment": 8,
-          "execution_capacity": 5
+          "economic": 5,
+          "social": 6,
+          "community": 4,
+          "environment": 8,
+          "execution": 5
         },
         "note": "High-value extracts angle; three years from offtake volumes."
       },
@@ -286,11 +286,11 @@
           "Coastal eco-tourism"
         ],
         "scores": {
-          "market_access": 7,
-          "capital_readiness": 4,
-          "smallholder_inclusion": 4,
-          "sustainability_alignment": 6,
-          "execution_capacity": 4
+          "economic": 7,
+          "social": 4,
+          "community": 4,
+          "environment": 6,
+          "execution": 4
         },
         "note": "Brand interest without capital commitment; 18-month decision cycle."
       }
@@ -341,7 +341,7 @@
           "role": "Chairwoman",
           "org": "Coastal Crab Producers Cooperative",
           "province": "Harbor Coast",
-          "language": "Local language",
+          "language": "Indonesian",
           "method": "Semi-structured interview",
           "excerpts": [
             {
@@ -363,7 +363,7 @@
           "role": "Buying agent",
           "org": "Independent trader network",
           "province": "Harbor Coast",
-          "language": "Local language",
+          "language": "Indonesian",
           "method": "Key informant interview",
           "excerpts": [
             {
@@ -402,7 +402,7 @@
           "role": "Provincial Fisheries Officer",
           "org": "MFCE",
           "province": "South Coast",
-          "language": "Local language",
+          "language": "Indonesian",
           "method": "Key informant interview",
           "excerpts": [
             {
@@ -419,7 +419,7 @@
           "role": "Treasurer",
           "org": "Women’s Savings Circle",
           "province": "West Coast",
-          "language": "Local language",
+          "language": "Indonesian",
           "method": "Focus group discussion",
           "excerpts": [
             {
@@ -475,7 +475,7 @@
           "role": "Port operations manager",
           "org": "Coastal Port Authority",
           "province": "Harbor Coast",
-          "language": "Local language",
+          "language": "Indonesian",
           "method": "Key informant interview",
           "excerpts": [
             {
@@ -609,7 +609,7 @@
           "detail": "Single-source enthusiasm and program-adjacent sampling, each with a corrective action and an owner."
         },
         {
-          "label": "Local-language excerpts verified",
+          "label": "Indonesian excerpts verified",
           "value": "31 of 31",
           "detail": "Captured in the local language by the model, checked against recordings by bilingual reviewers."
         },
@@ -620,8 +620,8 @@
         }
       ],
       "localization": {
-        "original": "“Kama sel varo, tida es marun. Es presyo-lista ke nadi mostra nos.”",
-        "language": "Local language",
+        "original": "“Grade A dan grade B kering sama saja di bawah matahari. Bedanya hanya daftar harga yang tidak pernah ditunjukkan kepada kami.”",
+        "language": "Indonesian",
         "translation": "“Grade A and grade B dry the same in the sun. The difference is the price sheet nobody shows us.”",
         "reviewer": "Verified against the recording by a bilingual reviewer, week 9.",
         "note": "The model drafts in the respondent’s language; a person signs off. Detail survives translation instead of dying in a summary row."
