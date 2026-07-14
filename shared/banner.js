@@ -1,8 +1,8 @@
-// Injects the persistent demo banner at the top of every Solmara demo page.
+// Injects the persistent demo banner at the top of every demo page.
 // Usage: <script src="../../shared/banner.js" data-demo="Chapter 1: Investment Pipeline" defer></script>
 (function () {
   var script = document.currentScript;
-  var demoName = (script && script.getAttribute('data-demo')) || 'Solmara demo';
+  var demoName = (script && script.getAttribute('data-demo')) || 'PartnerAI demo';
   var subject = encodeURIComponent('Demo request: ' + demoName);
   var body = encodeURIComponent('Organization:\nRole:\nThe workflow we want to improve:\n');
   var banner = document.createElement('div');
@@ -11,7 +11,7 @@
   banner.innerHTML =
     '<div class="wrap">' +
     '<span class="dot" aria-hidden="true"></span>' +
-    '<span class="txt">Demo environment. Fictional country, fictional data. These tools ship inside MarketEdge engagements.</span>' +
+    '<span class="txt">Demo environment. Illustrative example, representative data. These tools ship inside MarketEdge engagements.</span>' +
     '<a href="../../index.html">&larr; Back to PartnerAI</a>' +
     '<a class="req" href="mailto:info@marketedgeglobal.com?subject=' + subject + '&body=' + body + '">Request a walkthrough</a>' +
     '</div>';

@@ -1,20 +1,20 @@
 {
   "meta": {
-    "program": "Solmara Blue Economy Growth Programme (BEGP)",
-    "country": "Republic of Solmara",
+    "program": "Coastal Blue Economy Growth Programme (illustrative)",
+    "country": "Coastal region (illustrative)",
     "donor": "Aldern Development Agency (ADA)",
     "ministry": "Ministry of Fisheries and Coastal Economy (MFCE)",
     "timeframe": "Year 1, Q3 (2026)",
-    "banner": "Demo environment. Fictional country, fictional data. These tools ship inside MarketEdge engagements.",
+    "banner": "Demo environment. Illustrative example, illustrative data. These tools ship inside MarketEdge engagements.",
     "footnote": "Figures are illustrative.",
     "demoEmail": "info@marketedgeglobal.com",
     "provinces": [
-      "Marell",
-      "Tanjor",
-      "Ostara",
-      "Kepu",
-      "Lindan",
-      "Varo"
+      "North Coast",
+      "Harbor Coast",
+      "East Coast",
+      "South Coast",
+      "West Coast",
+      "Central Coast"
     ],
     "valueChains": [
       "Seaweed",
@@ -86,7 +86,7 @@
           "sustainability_alignment": 8,
           "execution_capacity": 7
         },
-        "note": "Term sheet on the table for seaweed aggregation infrastructure in Tanjor."
+        "note": "Term sheet on the table for seaweed aggregation infrastructure at the coastal landing sites."
       },
       {
         "id": "inv-03",
@@ -104,7 +104,7 @@
           "sustainability_alignment": 6,
           "execution_capacity": 9
         },
-        "note": "Cold chain proposal covering Tanjor and Kepu landing sites."
+        "note": "Cold chain proposal covering the coastal landing sites."
       },
       {
         "id": "inv-04",
@@ -189,7 +189,7 @@
           "sustainability_alignment": 8,
           "execution_capacity": 6
         },
-        "note": "Carrageenan demand growing; needs consistent grade from Lindan farms."
+        "note": "Carrageenan demand growing; needs consistent grade from West Coast farms."
       },
       {
         "id": "inv-09",
@@ -298,7 +298,7 @@
     "seniorReview": {
       "target": "Harborline Logistics",
       "author": "MarketEdge senior review",
-      "text": "The score puts Harborline third. We rank it first for sequencing: without cold chain at the Tanjor and Kepu landing sites, neither Pelagia’s volumes nor Quillon Bay’s expansion close. Harborline’s deal unlocks two others. Read the pipeline as a system, not a list."
+      "text": "The score puts Harborline third. We rank it first for sequencing: without cold chain at the coastal landing sites, neither Pelagia’s volumes nor Quillon Bay’s expansion close. Harborline’s deal unlocks two others. Read the pipeline as a system, not a list."
     },
     "signals": [
       {
@@ -319,7 +319,7 @@
       {
         "date": "2026-08-07",
         "tag": "Infrastructure",
-        "text": "Tanjor port authority approves cold storage concession tender; Harborline shortlisted."
+        "text": "The coastal port authority approves cold storage concession tender; Harborline shortlisted."
       },
       {
         "date": "2026-07-30",
@@ -329,7 +329,7 @@
       {
         "date": "2026-07-16",
         "tag": "Risk",
-        "text": "Crab stock assessment in Varo flags juvenile catch rates above threshold; seasonal closure under discussion."
+        "text": "Crab stock assessment on the Central Coast flags juvenile catch rates above threshold; seasonal closure under discussion."
       }
     ],
     "research": {
@@ -337,17 +337,17 @@
         {
           "id": "int-01",
           "date": "2026-08-12",
-          "respondent": "Mirna Talos",
+          "respondent": "Cooperative chair · coastal fisheries",
           "role": "Chairwoman",
-          "org": "Tanjor Crab Producers Cooperative",
-          "province": "Tanjor",
-          "language": "Solmaran",
+          "org": "Coastal Crab Producers Cooperative",
+          "province": "Harbor Coast",
+          "language": "Local language",
           "method": "Semi-structured interview",
           "excerpts": [
             {
               "id": "x-01a",
               "theme": "cold-chain",
-              "quote": "We lose a third of the catch on hot days. The ice comes by truck from Marell, and on market days it does not come at all."
+              "quote": "We lose a third of the catch on hot days. The ice comes by truck from the North Coast, and on market days it does not come at all."
             },
             {
               "id": "x-01b",
@@ -359,11 +359,11 @@
         {
           "id": "int-02",
           "date": "2026-08-13",
-          "respondent": "Deno Vasel",
+          "respondent": "Buying agent · independent trader",
           "role": "Buying agent",
           "org": "Independent trader network",
-          "province": "Tanjor",
-          "language": "Solmaran",
+          "province": "Harbor Coast",
+          "language": "Local language",
           "method": "Key informant interview",
           "excerpts": [
             {
@@ -376,10 +376,10 @@
         {
           "id": "int-03",
           "date": "2026-08-19",
-          "respondent": "Sela Ondrin",
+          "respondent": "Sourcing manager · seafood buyer",
           "role": "Sourcing manager",
           "org": "Pelagia Foods International",
-          "province": "Marell",
+          "province": "North Coast",
           "language": "English",
           "method": "Semi-structured interview",
           "excerpts": [
@@ -391,35 +391,35 @@
             {
               "id": "x-03b",
               "theme": "cold-chain",
-              "quote": "Volume is not the constraint. Consistency is. A cold chain at two landing sites changes our whole Solmara calculus."
+              "quote": "Volume is not the constraint. Consistency is. A cold chain at two landing sites changes our whole calculus."
             }
           ]
         },
         {
           "id": "int-04",
           "date": "2026-08-21",
-          "respondent": "Ansel Kurio",
+          "respondent": "Provincial fisheries officer · ministry",
           "role": "Provincial Fisheries Officer",
           "org": "MFCE",
-          "province": "Kepu",
-          "language": "Solmaran",
+          "province": "South Coast",
+          "language": "Local language",
           "method": "Key informant interview",
           "excerpts": [
             {
               "id": "x-04a",
               "theme": "stock-health",
-              "quote": "Juvenile catch is rising in Varo. If we close the season without an income bridge, enforcement will fail. The fishers know this better than we do."
+              "quote": "Juvenile catch is rising on the Central Coast. If we close the season without an income bridge, enforcement will fail. The fishers know this better than we do."
             }
           ]
         },
         {
           "id": "int-05",
           "date": "2026-08-26",
-          "respondent": "Wera Salin",
+          "respondent": "Savings group treasurer",
           "role": "Treasurer",
-          "org": "Lindan Women’s Savings Circle",
-          "province": "Lindan",
-          "language": "Solmaran",
+          "org": "Women’s Savings Circle",
+          "province": "West Coast",
+          "language": "Local language",
           "method": "Focus group discussion",
           "excerpts": [
             {
@@ -437,10 +437,10 @@
         {
           "id": "int-06",
           "date": "2026-09-02",
-          "respondent": "Harel Domas",
+          "respondent": "Operations lead · cold chain",
           "role": "Operations lead",
           "org": "Harborline Logistics",
-          "province": "Tanjor",
+          "province": "Harbor Coast",
           "language": "English",
           "method": "Site visit interview",
           "excerpts": [
@@ -454,28 +454,28 @@
         {
           "id": "int-07",
           "date": "2026-09-04",
-          "respondent": "Petra Nolim",
+          "respondent": "Field coordinator · NGO",
           "role": "Field coordinator",
           "org": "TidePoint Alliance",
-          "province": "Varo",
+          "province": "Central Coast",
           "language": "English",
           "method": "Debrief interview",
           "excerpts": [
             {
               "id": "x-07a",
               "theme": "stock-health",
-              "quote": "Everyone in Varo tells you the crab is smaller than five years ago. What they disagree on is who should stop fishing first."
+              "quote": "Everyone on the Central Coast tells you the crab is smaller than five years ago. What they disagree on is who should stop fishing first."
             }
           ]
         },
         {
           "id": "int-08",
           "date": "2026-09-09",
-          "respondent": "Kaved Ilsor",
+          "respondent": "Port operations manager",
           "role": "Port operations manager",
-          "org": "Tanjor Port Authority",
-          "province": "Tanjor",
-          "language": "Solmaran",
+          "org": "Coastal Port Authority",
+          "province": "Harbor Coast",
+          "language": "Local language",
           "method": "Key informant interview",
           "excerpts": [
             {
@@ -491,7 +491,7 @@
           "id": "f-01",
           "theme": "cold-chain",
           "confidence": "Verified",
-          "statement": "Cold chain at the Tanjor and Kepu landing sites is the binding constraint on the crab value chain. It gates buyer volumes, producer bargaining power, and the Harborline investment case at once.",
+          "statement": "Cold chain at the coastal landing sites is the binding constraint on the crab value chain. It gates buyer volumes, producer bargaining power, and the Harborline investment case at once.",
           "sources": [
             {
               "interviewId": "int-01",
@@ -570,7 +570,7 @@
           "flags": [
             {
               "type": "translation",
-              "text": "Key excerpt captured in Solmaran and verified by a bilingual reviewer against the recording."
+              "text": "Key excerpt captured in the local language and verified by a bilingual reviewer against the recording."
             }
           ]
         },
@@ -578,7 +578,7 @@
           "id": "f-05",
           "theme": "stock-health",
           "confidence": "Emerging",
-          "statement": "A Varo seasonal closure will fail without an income bridge. Enforcement capacity is not the constraint; household cash flow is.",
+          "statement": "A Central Coast seasonal closure will fail without an income bridge. Enforcement capacity is not the constraint; household cash flow is.",
           "sources": [
             {
               "interviewId": "int-04",
@@ -592,7 +592,7 @@
           "flags": [
             {
               "type": "bias",
-              "text": "Both sources are program-adjacent. The audit agent flagged missing fisher voice; two Varo focus groups scheduled for week 12."
+              "text": "Both sources are program-adjacent. The audit agent flagged missing fisher voice; two Central Coast focus groups scheduled for week 12."
             }
           ]
         }
@@ -611,17 +611,17 @@
         {
           "label": "Local-language excerpts verified",
           "value": "31 of 31",
-          "detail": "Captured in Solmaran by the model, checked against recordings by bilingual reviewers."
+          "detail": "Captured in the local language by the model, checked against recordings by bilingual reviewers."
         },
         {
           "label": "Data use",
           "value": "This project only",
-          "detail": "All interview data sits under the written BEGP protocol and serves this project only. No client data trains models."
+          "detail": "All interview data sits under the written program protocol and serves this project only. No client data trains models."
         }
       ],
       "localization": {
         "original": "“Kama sel varo, tida es marun. Es presyo-lista ke nadi mostra nos.”",
-        "language": "Solmaran (fictional)",
+        "language": "Local language",
         "translation": "“Grade A and grade B dry the same in the sun. The difference is the price sheet nobody shows us.”",
         "reviewer": "Verified against the recording by a bilingual reviewer, week 9.",
         "note": "The model drafts in the respondent’s language; a person signs off. Detail survives translation instead of dying in a summary row."
@@ -630,12 +630,12 @@
         {
           "stat": "Catch lost on hot days without cold chain",
           "value": "Up to 1/3",
-          "source": "Mirna Talos · Tanjor Crab Producers Cooperative"
+          "source": "Cooperative chair · coastal fisheries"
         },
         {
           "stat": "Cold storage utilization needed to break even",
           "value": "60%",
-          "source": "Harel Domas · Harborline Logistics"
+          "source": "Operations lead · cold chain"
         },
         {
           "stat": "Monthly supply the federation can guarantee today",
@@ -645,7 +645,7 @@
         {
           "stat": "Household savings rate with monthly settlement",
           "value": "2x",
-          "source": "Wera Salin · Lindan Women’s Savings Circle"
+          "source": "Savings group treasurer"
         }
       ],
       "askDataset": {
@@ -656,7 +656,7 @@
         ],
         "exchange": {
           "q": "What are the top three constraints on the crab value chain?",
-          "a": "First, cold chain at the Tanjor and Kepu landing sites: it gates buyer volumes, beach-side pricing power, and the Harborline investment case at once. Second, spot pricing reflects spoilage risk, so storage capacity shifts the negotiation more than regulation does. Third, a Varo seasonal closure needs an income bridge before enforcement can hold. Sources: four interviews across three provinces, traceable above."
+          "a": "First, cold chain at the coastal landing sites: it gates buyer volumes, beach-side pricing power, and the Harborline investment case at once. Second, spot pricing reflects spoilage risk, so storage capacity shifts the negotiation more than regulation does. Third, a Central Coast seasonal closure needs an income bridge before enforcement can hold. Sources: four interviews across three provinces, traceable above."
         },
         "note": "Scripted exchange so the demo always works. The live Ask-the-Dataset assistant ships inside engagements."
       }
@@ -692,8 +692,8 @@
     "fellows": [
       {
         "id": "fel-01",
-        "name": "Dario Ventane",
-        "province": "Marell",
+        "name": "Fisheries officer · North Coast",
+        "province": "North Coast",
         "role": "MFCE Provincial Fisheries Officer",
         "assessments": {
           "month1": {
@@ -725,8 +725,8 @@
       },
       {
         "id": "fel-02",
-        "name": "Lys Amaro",
-        "province": "Marell",
+        "name": "Cooperative coordinator · North Coast",
+        "province": "North Coast",
         "role": "SCPF Cooperative Coordinator",
         "assessments": {
           "month1": {
@@ -758,8 +758,8 @@
       },
       {
         "id": "fel-03",
-        "name": "Petra Solin",
-        "province": "Marell",
+        "name": "Field program lead · North Coast",
+        "province": "North Coast",
         "role": "TidePoint Field Program Lead",
         "assessments": {
           "month1": {
@@ -791,8 +791,8 @@
       },
       {
         "id": "fel-04",
-        "name": "Emeric Tavos",
-        "province": "Marell",
+        "name": "Enterprise manager · North Coast",
+        "province": "North Coast",
         "role": "Cooperative Enterprise Manager",
         "assessments": {
           "month1": {
@@ -824,8 +824,8 @@
       },
       {
         "id": "fel-05",
-        "name": "Nadia Kerel",
-        "province": "Tanjor",
+        "name": "Cooperative coordinator · Harbor Coast, crab",
+        "province": "Harbor Coast",
         "role": "SCPF Cooperative Coordinator",
         "assessments": {
           "month1": {
@@ -858,8 +858,8 @@
       },
       {
         "id": "fel-06",
-        "name": "Joam Estrilla",
-        "province": "Tanjor",
+        "name": "Cooperative coordinator · Harbor Coast, seaweed",
+        "province": "Harbor Coast",
         "role": "SCPF Cooperative Coordinator",
         "assessments": {
           "month1": {
@@ -891,8 +891,8 @@
       },
       {
         "id": "fel-07",
-        "name": "Riva Montane",
-        "province": "Tanjor",
+        "name": "Field program lead · Harbor Coast",
+        "province": "Harbor Coast",
         "role": "TidePoint Field Program Lead",
         "assessments": {
           "month1": {
@@ -924,8 +924,8 @@
       },
       {
         "id": "fel-08",
-        "name": "Chessa Lindo",
-        "province": "Tanjor",
+        "name": "Enterprise manager · Harbor Coast",
+        "province": "Harbor Coast",
         "role": "Cooperative Enterprise Manager",
         "assessments": {
           "month1": {
@@ -957,8 +957,8 @@
       },
       {
         "id": "fel-09",
-        "name": "Tomas Reyla",
-        "province": "Ostara",
+        "name": "Fisheries officer · East Coast",
+        "province": "East Coast",
         "role": "MFCE Provincial Fisheries Officer",
         "assessments": {
           "month1": {
@@ -990,8 +990,8 @@
       },
       {
         "id": "fel-10",
-        "name": "Ilena Vosca",
-        "province": "Ostara",
+        "name": "Cooperative coordinator · East Coast",
+        "province": "East Coast",
         "role": "SCPF Cooperative Coordinator",
         "assessments": {
           "month1": {
@@ -1023,8 +1023,8 @@
       },
       {
         "id": "fel-11",
-        "name": "Marek Sundo",
-        "province": "Ostara",
+        "name": "Field program lead · East Coast",
+        "province": "East Coast",
         "role": "TidePoint Field Program Lead",
         "assessments": {
           "month1": {
@@ -1056,8 +1056,8 @@
       },
       {
         "id": "fel-12",
-        "name": "Ana Belquin",
-        "province": "Ostara",
+        "name": "Enterprise manager · East Coast",
+        "province": "East Coast",
         "role": "Cooperative Enterprise Manager",
         "assessments": {
           "month1": {
@@ -1089,8 +1089,8 @@
       },
       {
         "id": "fel-13",
-        "name": "Sori Anteva",
-        "province": "Kepu",
+        "name": "Fisheries officer · South Coast",
+        "province": "South Coast",
         "role": "MFCE Provincial Fisheries Officer",
         "assessments": {
           "month1": {
@@ -1122,8 +1122,8 @@
       },
       {
         "id": "fel-14",
-        "name": "Kalen Muri",
-        "province": "Kepu",
+        "name": "Cooperative coordinator · South Coast",
+        "province": "South Coast",
         "role": "SCPF Cooperative Coordinator",
         "assessments": {
           "month1": {
@@ -1155,8 +1155,8 @@
       },
       {
         "id": "fel-15",
-        "name": "Delia Prenta",
-        "province": "Kepu",
+        "name": "Field program lead · South Coast",
+        "province": "South Coast",
         "role": "TidePoint Field Program Lead",
         "assessments": {
           "month1": {
@@ -1188,8 +1188,8 @@
       },
       {
         "id": "fel-16",
-        "name": "Owen Talvis",
-        "province": "Kepu",
+        "name": "Enterprise manager · South Coast",
+        "province": "South Coast",
         "role": "Cooperative Enterprise Manager",
         "assessments": {
           "month1": {
@@ -1221,8 +1221,8 @@
       },
       {
         "id": "fel-17",
-        "name": "Fara Odim",
-        "province": "Lindan",
+        "name": "Fisheries officer · West Coast",
+        "province": "West Coast",
         "role": "MFCE Provincial Fisheries Officer",
         "assessments": {
           "month1": {
@@ -1254,8 +1254,8 @@
       },
       {
         "id": "fel-18",
-        "name": "Ruel Cantara",
-        "province": "Lindan",
+        "name": "Cooperative coordinator · West Coast",
+        "province": "West Coast",
         "role": "SCPF Cooperative Coordinator",
         "assessments": {
           "month1": {
@@ -1287,8 +1287,8 @@
       },
       {
         "id": "fel-19",
-        "name": "Mirelle Joss",
-        "province": "Lindan",
+        "name": "Field program lead · West Coast",
+        "province": "West Coast",
         "role": "TidePoint Field Program Lead",
         "assessments": {
           "month1": {
@@ -1320,8 +1320,8 @@
       },
       {
         "id": "fel-20",
-        "name": "Benak Oru",
-        "province": "Lindan",
+        "name": "Enterprise manager · West Coast",
+        "province": "West Coast",
         "role": "Cooperative Enterprise Manager",
         "assessments": {
           "month1": {
@@ -1353,8 +1353,8 @@
       },
       {
         "id": "fel-21",
-        "name": "Tessa Marin",
-        "province": "Varo",
+        "name": "Fisheries officer · Central Coast",
+        "province": "Central Coast",
         "role": "MFCE Provincial Fisheries Officer",
         "assessments": {
           "month1": {
@@ -1386,8 +1386,8 @@
       },
       {
         "id": "fel-22",
-        "name": "Colvin Ashe",
-        "province": "Varo",
+        "name": "Cooperative coordinator · Central Coast",
+        "province": "Central Coast",
         "role": "SCPF Cooperative Coordinator",
         "assessments": {
           "month1": {
@@ -1419,8 +1419,8 @@
       },
       {
         "id": "fel-23",
-        "name": "Yuna Pelor",
-        "province": "Varo",
+        "name": "Field program lead · Central Coast",
+        "province": "Central Coast",
         "role": "TidePoint Field Program Lead",
         "assessments": {
           "month1": {
@@ -1452,8 +1452,8 @@
       },
       {
         "id": "fel-24",
-        "name": "Rimon Salda",
-        "province": "Varo",
+        "name": "Enterprise manager · Central Coast",
+        "province": "Central Coast",
         "role": "Cooperative Enterprise Manager",
         "assessments": {
           "month1": {
@@ -1485,12 +1485,12 @@
       }
     ],
     "coachingLog": {
-      "fellow": "Nadia Kerel",
+      "fellow": "Cooperative coordinator · Harbor Coast, crab",
       "entries": [
         {
           "month": 2,
           "type": "Peer circle",
-          "text": "Cohort session on stakeholder mapping; Nadia presents the Tanjor landing-site conflict."
+          "text": "Cohort session on stakeholder mapping; The fellow presents the coastal landing-site conflict."
         },
         {
           "month": 3,
@@ -1538,7 +1538,7 @@
       }
     ],
     "mentorship": {
-      "fellow": "Nadia Kerel",
+      "fellow": "Cooperative coordinator · Harbor Coast, crab",
       "mentor": "MarketEdge senior advisor",
       "entries": [
         {
@@ -1549,7 +1549,7 @@
         {
           "month": 2,
           "pillar": "classroom",
-          "text": "Cohort workshop, Tanjor. Plays the buyer in a persona exercise; reports it changed how she opens real meetings."
+          "text": "Cohort workshop, Harbor Coast. Plays the buyer in a persona exercise; reports it changed how she opens real meetings."
         },
         {
           "month": 3,
@@ -1570,7 +1570,7 @@
         {
           "month": 6,
           "pillar": "classroom",
-          "text": "Negotiation module. Rehearses the buyer conversation against the Elena Marsh persona twice before the real meeting."
+          "text": "Negotiation module. Rehearses the buyer conversation against the buyer persona twice before the real meeting."
         },
         {
           "month": 7,
@@ -1648,8 +1648,8 @@
     ],
     "profiles": [
       {
-        "name": "Nadia Kerel",
-        "province": "Tanjor",
+        "name": "Cooperative coordinator · Harbor Coast, crab",
+        "province": "Harbor Coast",
         "role": "SCPF Cooperative Coordinator",
         "pathway": "enterprise",
         "baseline": 3,
@@ -1658,18 +1658,18 @@
         "quote": "The dashboard showed me the dip before I felt it. My mentor and I fixed the system, not the symptom."
       },
       {
-        "name": "Tessa Marin",
-        "province": "Varo",
+        "name": "Fisheries officer · Central Coast",
+        "province": "Central Coast",
         "role": "MFCE Provincial Fisheries Officer",
         "pathway": "story",
         "baseline": 2.4,
         "endline": 4,
-        "headline": "Standout growth: presented the Varo closure case to the national fisheries forum",
+        "headline": "Standout growth: presented the Central Coast closure case to the national fisheries forum",
         "quote": "I stopped reporting data and started telling the story the data proves."
       },
       {
-        "name": "Tomas Reyla",
-        "province": "Ostara",
+        "name": "Fisheries officer · East Coast",
+        "province": "East Coast",
         "role": "TidePoint Field Program Lead",
         "pathway": "policy",
         "baseline": 3.4,
@@ -1678,8 +1678,8 @@
         "quote": "I knew the stakeholders. The program taught me to sequence them."
       },
       {
-        "name": "Kalen Muri",
-        "province": "Kepu",
+        "name": "Cooperative coordinator · South Coast",
+        "province": "South Coast",
         "role": "Cooperative Enterprise Manager",
         "pathway": "enterprise",
         "baseline": 3.1,
@@ -1688,8 +1688,8 @@
         "quote": "The agent drafts, I decide. My board finally sees the numbers monthly."
       },
       {
-        "name": "Mirelle Joss",
-        "province": "Lindan",
+        "name": "Field program lead · West Coast",
+        "province": "West Coast",
         "role": "SCPF Cooperative Coordinator",
         "pathway": "story",
         "baseline": 2.9,
@@ -1698,8 +1698,8 @@
         "quote": "Six hundred producers now ask for the price sheet by name."
       },
       {
-        "name": "Dario Ventane",
-        "province": "Marell",
+        "name": "Fisheries officer · North Coast",
+        "province": "North Coast",
         "role": "MFCE Provincial Fisheries Officer",
         "pathway": "policy",
         "baseline": 3.6,
@@ -1744,7 +1744,7 @@
       {
         "label": "Standout gain",
         "value": "+1.6",
-        "detail": "Tessa Marin, from 2.4 to 4.0 average confidence."
+        "detail": "Fisheries officer · Central Coast, from 2.4 to 4.0 average confidence."
       }
     ],
     "dashboard": [
@@ -1753,7 +1753,7 @@
         "title": "Assess your readiness",
         "text": "Run the self-assessment or chat with the AI diagnostic for a gap analysis and roadmap.",
         "tools": [
-          "Solmara Leaders Self-Assessment",
+          "Leaders Self-Assessment",
           "Enterprise Diagnostic Coach"
         ]
       },
@@ -1763,13 +1763,13 @@
         "text": "Map the buyers, financiers, and ministry actors to engage this quarter.",
         "tools": [
           "PartnerNavigator",
-          "BEGP Stakeholder Research"
+          "Program Stakeholder Research"
         ]
       },
       {
         "n": 3,
         "title": "Tell your story",
-        "text": "Draft outreach, narrative angles, and audience-ready messaging in Solmaran or English.",
+        "text": "Draft outreach, narrative angles, and audience-ready messaging in the local language or English.",
         "tools": [
           "Copy and Design Studio"
         ]
@@ -1788,7 +1788,7 @@
         "title": "Practice a conversation",
         "text": "Run a safe simulation with AI personas before the meeting that counts.",
         "tools": [
-          "Elena Marsh · buyer",
+          "Buyer persona",
           "Provincial licensing officer"
         ]
       },
@@ -1844,7 +1844,7 @@
             "Local jobs": 9
           }
         },
-        "reason": "Patient capital with a mandate that matches BEGP. Needs an operating partner to carry execution."
+        "reason": "Patient capital with a mandate that matches the program. Needs an operating partner to carry execution."
       },
       {
         "id": "par-03",
@@ -1911,7 +1911,7 @@
       }
     ],
     "personaScript": {
-      "persona": "Elena Marsh",
+      "persona": "Buyer persona",
       "personaRole": "Sustainability Director, Pelagia Foods International",
       "scenario": "Rehearsal: the traceability premium negotiation, three days before the real meeting.",
       "violetMoment": "Rehearsed Tuesday. Real meeting Friday. MarketEdge experts alongside you each step of the way.",
@@ -1935,7 +1935,7 @@
         },
         {
           "from": "client",
-          "text": "Thirty-two tonnes guaranteed, with a path to 40 by month six as Kepu comes online. We would rather commit to a number we can hold."
+          "text": "Thirty-two tonnes guaranteed, with a path to 40 by month six as the South Coast comes online. We would rather commit to a number we can hold."
         },
         {
           "from": "elena",
