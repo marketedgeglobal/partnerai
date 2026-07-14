@@ -73,6 +73,18 @@
   .case-badge{display:inline-block;font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;background:var(--indigo);border-radius:999px;padding:7px 16px;margin-bottom:16px}
   h2.case-h2{font-size:clamp(28px,3.6vw,42px)}
 
+  /* distinct band for the How-it-works section */
+  #how{background:#e8ebe3;border-top:0}
+  #contrast{border-top:0}
+
+  /* service-area quote graphic in See-it-in-action */
+  .svc-quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:26px 0 6px}
+  @media (max-width:820px){ .svc-quotes{grid-template-columns:1fr} }
+  .svc-quote{margin:0;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--indigo);border-radius:12px;padding:20px 22px;font-family:var(--serif);font-size:16px;line-height:1.5;color:var(--ink);display:flex;flex-direction:column}
+  .svc-quote .qa{font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive);margin-bottom:12px}
+  .svc-quote cite{margin-top:14px;font-family:var(--sans);font-style:normal;font-size:13px;font-weight:600;color:var(--olive)}
+  .illus-sub{font-family:var(--sans);font-weight:700;font-size:clamp(22px,2.6vw,30px);color:var(--ink);margin:36px 0 12px}
+
   /* section rows: video beside prominent text, alternating sides */
   #solmara .wrap{max-width:1280px}
   .sec-rows{display:flex;flex-direction:column;gap:26px;margin-top:34px}
@@ -218,9 +230,15 @@
 <section class="beat" id="solmara">
   <div class="wrap">
     <div class="beat-label">See it in action</div>
-    <div class="case-badge">Illustrative examples of our work</div>
     <h2 class="case-h2">Follow one program across all three service areas</h2>
-    <p style="color:var(--olive);max-width:60em;margin-top:14px;font-size:18px">PartnerAI runs one program through Advanced Analytics, Organizational Development, and Shared Value Partnerships. These are illustrative walkthroughs modeled on how MarketEdge works. The people are anonymized and the figures are representative, not a specific client. Start anywhere; the three sections connect.</p>
+    <p style="color:var(--olive);max-width:60em;margin-top:14px;font-size:18px">PartnerAI runs one program through Advanced Analytics, Organizational Development, and Shared Value Partnerships.</p>
+    <div class="svc-quotes reveal-stagger">
+      <blockquote class="svc-quote"><span class="qa">Advanced Analytics</span>&ldquo;This report was so fascinating, clear, and gave a great balance of substantive and process points.&rdquo;<cite>Micol Martini, WWF Secretariat</cite></blockquote>
+      <blockquote class="svc-quote"><span class="qa">Organizational Development</span>&ldquo;Before every networking session, I would identify organizations I wanted to meet, learn about their priorities, and prepare questions in advance.&rdquo;<cite>Mark Edison Raquino, SEA Coastal Leader, Philippines</cite></blockquote>
+      <blockquote class="svc-quote"><span class="qa">Shared Value Partnerships</span>&ldquo;You have given us the universe on what is possible in engaging the private sector, and we thank you greatly.&rdquo;<cite>Reed J. Aeschliman, Mission Director, USAID/Bangladesh</cite></blockquote>
+    </div>
+    <h3 class="illus-sub">Illustrative Examples</h3>
+    <p style="color:var(--olive);max-width:60em;font-size:18px">These are illustrative walkthroughs modeled on how MarketEdge works based on recent assignments to provide a snapshot on how we operate. Identifying details are anonymized and the figures are representative.</p>
     <p style="color:var(--olive);max-width:60em;margin-top:12px;font-size:18px">One rule runs through all three sections: the client keeps the tools. At handover, the partner organization owns the dashboards, the agents, and the data.</p>
     <div class="sec-rows">
       <article class="sec-row reveal">
