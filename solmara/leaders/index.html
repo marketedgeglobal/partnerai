@@ -106,7 +106,7 @@
 
     document.getElementById('profiles').innerHTML = L.profiles.map(function (f) {
       var p = pathById[f.pathway];
-      var initials = f.name.split(' ').map(function (w) { return w[0]; }).join('');
+      var initials = f.name.split(' ').map(function (w) { return w[0]; }).join('').toUpperCase();
       var basePct = (f.baseline / 5) * 100;
       var endPct = (f.endline / 5) * 100;
       return '<div class="profile">' +
