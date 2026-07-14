@@ -16,8 +16,7 @@
   .nav{display:flex;align-items:center;gap:26px;height:72px}
   .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
   .brand img{width:44px;height:44px;border-radius:6px}
-  .brand .t{font-family:var(--display);font-weight:400;font-size:19px;letter-spacing:.4px}
-  .brand .t small{display:block;font-family:var(--sans);font-size:10.5px;letter-spacing:2.4px;color:var(--olive)}
+  .brand img.pai{width:auto;height:44px}
   .nav-links{display:flex;gap:22px;margin-left:auto;font-size:14px}
   .nav-links a{text-decoration:none;color:var(--olive)}
   .nav-links a:hover{color:var(--ink)}
@@ -60,23 +59,20 @@
   .mech.violet{background:var(--violet-soft);border-color:var(--violet)}
   .mech.violet .num{color:var(--violet)}
 
-  /* section rows: full-width, stacked top to bottom */
-  .sec-rows{display:flex;flex-direction:column;gap:30px;margin-top:34px}
+  /* section rows: full-width video, text beneath */
+  #solmara .wrap{max-width:1280px}
+  .sec-rows{display:flex;flex-direction:column;gap:48px;margin-top:34px}
   .sec-row{
-    display:grid;grid-template-columns:7fr 5fr;gap:32px;align-items:center;
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:26px;
+    padding:22px 22px 26px;
   }
-  .sec-row.flip{grid-template-columns:5fr 7fr}
-  .sec-row.flip .poster-wrap{order:2}
-  @media (max-width:860px){
-    .sec-row,.sec-row.flip{grid-template-columns:1fr}
-    .sec-row.flip .poster-wrap{order:0}
-  }
-  .sec-row b{font-size:22px;font-weight:600;display:block;margin:8px 0 8px}
-  .sec-row p{font-size:15px;color:var(--olive);max-width:36em}
-  .sec-row .links{display:block;margin-top:14px}
-  .sec-row .links a{font-size:15px;font-weight:600;color:var(--indigo);text-decoration:none}
+  .sec-row .poster-wrap{margin-bottom:20px}
+  .sec-meta{display:grid;grid-template-columns:5fr 7fr;gap:28px;align-items:start;padding:0 6px}
+  @media (max-width:860px){ .sec-meta{grid-template-columns:1fr} }
+  .sec-row b{font-size:24px;font-weight:600;display:block;margin:8px 0 0}
+  .sec-row p{font-size:15.5px;color:var(--olive);max-width:44em}
+  .sec-row .links{display:block;margin-top:12px}
+  .sec-row .links a{font-size:15.5px;font-weight:600;color:var(--indigo);text-decoration:none}
   .sec-row .links a:hover{text-decoration:underline}
   .card .poster,.sec-row .poster{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#e6e8e0;display:block}
   .poster-wrap{position:relative}
@@ -103,7 +99,7 @@
   <div class="wrap nav">
     <a class="brand" href="#">
       <img src="shared/img/marketedge-logo.png" alt="MarketEdge logo">
-      <span class="t">PartnerAI<small>BY MARKETEDGE</small></span>
+      <img class="pai" src="shared/img/partnerai-logo.svg" alt="PartnerAI logo">
     </a>
     <nav class="nav-links">
       <a href="#solmara">In action</a>
@@ -119,7 +115,7 @@
   <div class="wrap">
     <div class="eyebrow">PartnerAI · Bridging insight to action</div>
     <h1>Insight only matters when it lands.</h1>
-    <p class="lede">Most organizations analyze more than they act. PartnerAI closes that gap. MarketEdge senior practitioners embed AI inside the workflows you already run, and evidence reaches the people who decide. PartnerAI is highly personalized using our source code and industry expertise to develop industry-trained AI agents, workflow automations, organization diagnostics, data management and visualization tools. It integrates with your organization&rsquo;s resources, adapts to your goals, and accelerates results.</p>
+    <p class="lede">Most organizations analyze more than they act. PartnerAI closes that gap. PartnerAI is highly personalized using our source code and industry expertise to develop industry-trained AI agents, workflow automations, organization diagnostics, data management and visualization tools. It integrates with your organization&rsquo;s resources, adapts to your goals, and accelerates results.</p>
     <div class="posline">PartnerAI ships inside MarketEdge engagements. Senior practitioners build it, run it on our own projects, and review every output that reaches an NGO, donor, or ministry client.</div>
   </div>
 </div>
@@ -139,25 +135,21 @@
           </a>
           <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
         </div>
-        <div>
-          <span class="tag">Section 1 · Advanced Analytics</span>
-          <b>Research &amp; Synthesis</b>
-          <p>Turn program data into decisions. Live findings, open bias checks, and every statement traceable to the person who said it.</p>
-          <span class="links"><a href="solmara/analytics/">Open Section 1 &rarr;</a></span>
+        <div class="sec-meta">
+          <div><span class="tag">Section 1 · Advanced Analytics</span><b>Research &amp; Synthesis</b></div>
+          <div><p>Turn program data into decisions. Live findings, open bias checks, and every statement traceable to the person who said it.</p><span class="links"><a href="solmara/analytics/">Open Section 1 &rarr;</a></span></div>
         </div>
       </article>
-      <article class="sec-row flip reveal">
+      <article class="sec-row reveal">
         <div class="poster-wrap">
           <a href="solmara/leaders/" aria-label="Open Section 2: Coastal Leaders Cohort">
             <video class="poster" src="videos/chapter2.mp4" poster="videos/chapter2-poster.png" muted loop playsinline preload="metadata" aria-label="Section 2 walkthrough animation"></video>
           </a>
           <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
         </div>
-        <div>
-          <span class="tag">Section 2 · Organizational Development</span>
-          <b>Coastal Leaders Cohort</b>
-          <p>Teams change institutions. Watch one cohort's capability grow over nine months, tracked across three pillars of support.</p>
-          <span class="links"><a href="solmara/leaders/">Open Section 2 &rarr;</a></span>
+        <div class="sec-meta">
+          <div><span class="tag">Section 2 · Organizational Development</span><b>Coastal Leaders Cohort</b></div>
+          <div><p>Teams change institutions. Watch one cohort's capability grow over nine months, tracked across three pillars of support.</p><span class="links"><a href="solmara/leaders/">Open Section 2 &rarr;</a></span></div>
         </div>
       </article>
       <article class="sec-row reveal">
@@ -167,11 +159,9 @@
           </a>
           <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
         </div>
-        <div>
-          <span class="tag">Section 3 · Shared Value Partnerships</span>
-          <b>Partnership Structuring Suite</b>
-          <p>Capital and trust move together. Score the partnership on both, map the value flows, and rehearse the conversation before it counts.</p>
-          <span class="links"><a href="solmara/partnerships/">Open Section 3 &rarr;</a></span>
+        <div class="sec-meta">
+          <div><span class="tag">Section 3 · Shared Value Partnerships</span><b>Partnership Structuring Suite</b></div>
+          <div><p>Capital and trust move together. Score the partnership on both, map the value flows, and rehearse the conversation before it counts.</p><span class="links"><a href="solmara/partnerships/">Open Section 3 &rarr;</a></span></div>
         </div>
       </article>
     </div>
