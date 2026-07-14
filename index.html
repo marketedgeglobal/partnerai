@@ -28,7 +28,10 @@
   .hero .photo{position:absolute;inset:0;background:url('shared/img/solmara-coast.jpg') center 55%/cover}
   .hero .scrim{position:absolute;inset:0;background:linear-gradient(100deg,rgba(36,35,55,.93) 25%,rgba(36,35,55,.62) 70%,rgba(36,35,55,.40))}
   .hero .wrap{position:relative}
-  .posline{font-family:var(--serif);font-style:italic;font-size:18px;color:#c9c7d8;margin-top:22px}
+  .posline{
+    font-family:var(--sans);font-weight:600;font-size:18px;color:#fff;
+    margin-top:22px;letter-spacing:.4px;max-width:44em;
+  }
 
   /* contrast section */
   .contrast-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:22px}
@@ -50,8 +53,12 @@
   .contrast-cols div:first-child h3{color:#e8b37e}
   .contrast-cols p{font-size:14.5px;color:#c9c7d8;max-width:34em}
 
-  /* mechanics cards */
-  .mech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  /* mechanics cards: fixed balanced columns so no card ever orphans */
+  .mech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:1000px){ .mech-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:680px){ .mech-grid{grid-template-columns:1fr} }
+  #engagement .mech-grid{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:860px){ #engagement .mech-grid{grid-template-columns:1fr} }
   .mech{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
   .mech .num{font-family:var(--serif);font-size:26px;color:var(--olive-soft)}
   .mech b{display:block;font-family:var(--display);font-weight:400;font-size:20px;margin:8px 0 8px}
@@ -116,7 +123,7 @@
     <div class="eyebrow">PartnerAI · Bridging insight to action</div>
     <h1>Insight only matters when it lands.</h1>
     <p class="lede">Most organizations analyze more than they act. PartnerAI closes that gap. PartnerAI is highly personalized using our source code and industry expertise to develop industry-trained AI agents, workflow automations, organization diagnostics, data management and visualization tools. It integrates with your organization&rsquo;s resources, adapts to your goals, and accelerates results.</p>
-    <div class="posline">PartnerAI ships inside MarketEdge engagements. Senior practitioners build it, run it on our own projects, and review every output that reaches an NGO, donor, or ministry client.</div>
+    <div class="posline">PartnerAI is integrated into all MarketEdge engagements.</div>
   </div>
 </div>
 
@@ -228,7 +235,7 @@
       <div class="mech"><div class="num">02</div><b>We build inside your work</b>
         <p>MarketEdge practitioners and PartnerAI tools operate in your data, your languages, and your reporting cycle. Senior review sits on every output.</p></div>
       <div class="mech"><div class="num">03</div><b>Your team keeps it</b>
-        <p>Dashboards, agents, and trained staff stay with you after we leave. Ownership is the deliverable.</p></div>
+        <p>Your team can continue to use the digital tools beyond our direct support.</p></div>
     </div>
   </div>
 </section>
@@ -315,7 +322,7 @@
     rotate = setInterval(function () {
       var current = tabs.findIndex(function (b) { return b.getAttribute('aria-pressed') === 'true'; });
       selectTab(tabs[(current + 1) % tabs.length]);
-    }, 27000);
+    }, 22000);
   }
   tabs.forEach(function (btn) {
     btn.addEventListener('click', function () {
