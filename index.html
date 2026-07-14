@@ -66,21 +66,31 @@
   .mech.violet{background:var(--violet-soft);border-color:var(--violet)}
   .mech.violet .num{color:var(--violet)}
 
-  /* section rows: full-width video, text beneath */
+  /* About section lead line */
+  .about-lead{font-family:var(--sans);font-weight:600;font-size:clamp(24px,3vw,30px);color:var(--ink);margin-top:30px}
+
+  /* Applied case-study heading */
+  .case-badge{display:inline-block;font-family:var(--sans);font-weight:600;font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:#fff;background:var(--indigo);border-radius:999px;padding:7px 16px;margin-bottom:16px}
+  h2.case-h2{font-size:clamp(28px,3.6vw,42px)}
+
+  /* section rows: video beside prominent text, alternating sides */
   #solmara .wrap{max-width:1280px}
-  .sec-rows{display:flex;flex-direction:column;gap:48px;margin-top:34px}
+  .sec-rows{display:flex;flex-direction:column;gap:26px;margin-top:34px}
   .sec-row{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:22px 22px 26px;
+    display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:34px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;
   }
-  .sec-row .poster-wrap{margin-bottom:20px}
-  .sec-meta{display:grid;grid-template-columns:5fr 7fr;gap:28px;align-items:start;padding:0 6px}
-  @media (max-width:860px){ .sec-meta{grid-template-columns:1fr} }
-  .sec-row b{font-size:24px;font-weight:600;display:block;margin:8px 0 0}
-  .sec-row p{font-size:15.5px;color:var(--olive);max-width:44em}
-  .sec-row .links{display:block;margin-top:12px}
-  .sec-row .links a{font-size:15.5px;font-weight:600;color:var(--indigo);text-decoration:none}
-  .sec-row .links a:hover{text-decoration:underline}
+  .sec-row:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
+  .sec-row:nth-child(even) .poster-wrap{order:2}
+  @media (max-width:860px){
+    .sec-row,.sec-row:nth-child(even){grid-template-columns:1fr}
+    .sec-row:nth-child(even) .poster-wrap{order:0}
+  }
+  .sec-meta{display:flex;flex-direction:column}
+  .sec-row b{font-size:27px;font-weight:600;display:block;line-height:1.15;margin:8px 0 12px}
+  .sec-row p{font-size:17px;color:var(--olive);margin-bottom:20px}
+  .sec-row a.open{align-self:flex-start;font-size:16px;font-weight:600;color:#fff;background:var(--indigo);border-radius:999px;padding:11px 24px;text-decoration:none;transition:background .2s}
+  .sec-row a.open:hover{background:#333250}
   .card .poster,.sec-row .poster{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#e6e8e0;display:block}
   .poster-wrap{position:relative}
   .poster-wrap a{display:block;cursor:pointer}
@@ -109,8 +119,10 @@
       <img class="pai" src="shared/img/partnerai-logo.svg" alt="PartnerAI logo">
     </a>
     <nav class="nav-links">
-      <a href="#solmara">In action</a>
-      <a href="#contrast">How it works</a>
+      <a href="#about">What is PartnerAI</a>
+      <a href="#how">How it works</a>
+      <a href="#contrast">The difference</a>
+      <a href="#solmara">See it in action</a>
     </nav>
   </div>
 </header>
@@ -122,58 +134,40 @@
   <div class="wrap">
     <div class="eyebrow">PartnerAI · Bridging insight to action</div>
     <h1>Insight only matters when it lands.</h1>
-    <p class="lede">Most organizations analyze more than they act. PartnerAI closes that gap. PartnerAI is highly personalized using our source code and industry expertise to develop industry-trained AI agents, workflow automations, organization diagnostics, data management and visualization tools. It integrates with your organization&rsquo;s resources, adapts to your goals, and accelerates results.</p>
+    <p class="lede">Most organizations analyze more than they act. PartnerAI closes that gap.</p>
     <div class="posline">PartnerAI is integrated into all MarketEdge engagements.</div>
   </div>
 </div>
 
-<!-- ================= SEE IT IN ACTION ================= -->
-<section class="beat" id="solmara">
+<!-- ================= ABOUT PARTNERAI ================= -->
+<section class="beat" id="about">
   <div class="wrap">
-    <div class="beat-label">See it in action · One engagement, three service areas</div>
-    <h2>PartnerAI works one programme through Advanced Analytics, Organizational Development, and Shared Value Partnerships.</h2>
-    <p style="color:var(--ink);font-weight:600;font-size:21px;margin-top:18px">Applied Case Study</p>
-    <p style="color:var(--olive);max-width:60em;margin-top:8px;font-size:18px">Three guided sections follow a blue economy programme in the <strong style="color:var(--ink)">fictional Republic of Solmara</strong>. Same engagement, same evidence base, three service areas. Start anywhere; they connect.</p>
-    <p style="color:var(--olive);max-width:60em;margin-top:12px;font-size:18px">One rule runs through all three sections: the ministry keeps the tools. At handover, MFCE owns the dashboards, the agents, and the data.</p>
-    <div class="sec-rows">
-      <article class="sec-row reveal">
-        <div class="poster-wrap">
-          <a href="solmara/analytics/" aria-label="Open Section 1: Research and Synthesis">
-            <video class="poster" src="videos/chapter1.mp4" poster="videos/chapter1-poster.png" muted loop playsinline preload="metadata" aria-label="Section 1 walkthrough animation"></video>
-          </a>
-          <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
-        </div>
-        <div class="sec-meta">
-          <div><span class="tag">Section 1 · Advanced Analytics</span><b>Research &amp; Synthesis</b></div>
-          <div><p>Turn program data into decisions. Live findings, open bias checks, and every statement traceable to the person who said it.</p><span class="links"><a href="solmara/analytics/">Open Section 1 &rarr;</a></span></div>
-        </div>
-      </article>
-      <article class="sec-row reveal">
-        <div class="poster-wrap">
-          <a href="solmara/leaders/" aria-label="Open Section 2: Coastal Leaders Cohort">
-            <video class="poster" src="videos/chapter2.mp4" poster="videos/chapter2-poster.png" muted loop playsinline preload="metadata" aria-label="Section 2 walkthrough animation"></video>
-          </a>
-          <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
-        </div>
-        <div class="sec-meta">
-          <div><span class="tag">Section 2 · Organizational Development</span><b>Coastal Leaders Cohort</b></div>
-          <div><p>Teams change institutions. Watch one cohort's capability grow over nine months, tracked across three pillars of support.</p><span class="links"><a href="solmara/leaders/">Open Section 2 &rarr;</a></span></div>
-        </div>
-      </article>
-      <article class="sec-row reveal">
-        <div class="poster-wrap">
-          <a href="solmara/partnerships/" aria-label="Open Section 3: Partnership Structuring Suite">
-            <video class="poster" src="videos/chapter3.mp4" poster="videos/chapter3-poster.png" muted loop playsinline preload="metadata" aria-label="Section 3 walkthrough animation"></video>
-          </a>
-          <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
-        </div>
-        <div class="sec-meta">
-          <div><span class="tag">Section 3 · Shared Value Partnerships</span><b>Partnership Structuring Suite</b></div>
-          <div><p>Capital and trust move together. Score the partnership on both, map the value flows, and rehearse the conversation before it counts.</p><span class="links"><a href="solmara/partnerships/">Open Section 3 &rarr;</a></span></div>
-        </div>
-      </article>
+    <p class="serif-pull reveal" style="max-width:44em">Mission-driven organizations face complex, resource-constrained challenges. Yet only 2% are using AI to assist their operations. With funder priorities shifting and competition rising, teams need to work smarter, faster, and more collaboratively to stay effective and resilient.</p>
+    <p class="about-lead reveal">That&rsquo;s why we built PartnerAI.</p>
+    <p class="reveal" style="max-width:46em;margin-top:14px;font-size:18px;color:var(--olive)">Developed by MarketEdge and used across our own projects, PartnerAI is an AI-powered assistant designed to amplify human expertise, not replace it. PartnerAI is a proprietary, trademarked AI platform developed and owned by MarketEdge. It embeds AI directly into delivery, portfolio management, and decision-making workflows for social impact organizations operating across multiple stakeholders, incentives, and reporting demands.</p>
+  </div>
+</section>
+
+<!-- ================= MECHANICS ================= -->
+<section class="beat" id="how">
+  <div class="wrap">
+    <div class="beat-label">How PartnerAI works · No black box, no replacement of judgment</div>
+    <h2 style="max-width:22em">Expert-led. AI-assisted. Traceable end to end.</h2>
+    <p style="max-width:46em;margin-top:16px;color:var(--olive);font-size:15.5px">MarketEdge built PartnerAI for its own engagements and runs it on its own projects today. Clients get the version that survived our fieldwork.</p>
+    <div class="mech-grid reveal-stagger" style="margin-top:36px">
+      <div class="mech"><div class="num">01</div><b>Real-time ingestion and synthesis</b>
+        <p>Primary and secondary data lands, and findings update live across the team. Everyone sees what is emerging while there is still time to act on it. Secondary sources join the same evidence base, indexed to exact page references.</p></div>
+      <div class="mech"><div class="num">02</div><b>Transparency and traceability</b>
+        <p>Every finding links to its source: who said it, where it came from, which interview or document. Follow the thread from final report back to original statement, and forward again.</p></div>
+      <div class="mech violet"><div class="num">03</div><b>Experts lead, AI supports</b>
+        <p>The people who conduct the interviews and write the reports review and react to incoming data in real time. AI never leads. Accuracy is checked by the people accountable for it.</p></div>
+      <div class="mech"><div class="num">04</div><b>Language and localization</b>
+        <p>Models capture rich detail in local languages; bilingual speakers verify the record. Data quality widens across geographies instead of narrowing to English.</p></div>
+      <div class="mech"><div class="num">05</div><b>Quality and bias audits</b>
+        <p>Bias and coverage checks run while the research runs. Every flag carries a corrective action and a named owner. Section 1 shows two still open.</p></div>
+      <div class="mech"><div class="num">06</div><b>Secure, purpose-limited use</b>
+        <p>Project data serves its assigned project only, under a written protocol. No client data trains models.</p></div>
     </div>
-    <div class="foot-note" style="margin-top:18px">Solmara is fictional. Every figure in the sections is illustrative.</div>
   </div>
 </section>
 
@@ -203,41 +197,44 @@
   </div>
 </section>
 
-<!-- ================= MECHANICS ================= -->
-<section class="beat" id="how">
+<!-- ================= SEE IT IN ACTION ================= -->
+<section class="beat" id="solmara">
   <div class="wrap">
-    <div class="beat-label">How PartnerAI works · No black box, no replacement of judgment</div>
-    <h2 style="max-width:22em">Expert-led. AI-assisted. Traceable end to end.</h2>
-    <p style="max-width:46em;margin-top:16px;color:var(--olive);font-size:15.5px">MarketEdge built PartnerAI for its own engagements and runs it on its own projects today. Clients get the version that survived our fieldwork.</p>
-    <div class="mech-grid reveal-stagger" style="margin-top:36px">
-      <div class="mech"><div class="num">01</div><b>Real-time ingestion and synthesis</b>
-        <p>Primary and secondary data lands, and findings update live across the team. Everyone sees what is emerging while there is still time to act on it. Secondary sources join the same evidence base, indexed to exact page references.</p></div>
-      <div class="mech"><div class="num">02</div><b>Transparency and traceability</b>
-        <p>Every finding links to its source: who said it, where it came from, which interview or document. Follow the thread from final report back to original statement, and forward again.</p></div>
-      <div class="mech violet"><div class="num">03</div><b>Experts lead, AI supports</b>
-        <p>The people who conduct the interviews and write the reports review and react to incoming data in real time. AI never leads. Accuracy is checked by the people accountable for it.</p></div>
-      <div class="mech"><div class="num">04</div><b>Language and localization</b>
-        <p>Models capture rich detail in local languages; bilingual speakers verify the record. Data quality widens across geographies instead of narrowing to English.</p></div>
-      <div class="mech"><div class="num">05</div><b>Quality and bias audits</b>
-        <p>Bias and coverage checks run while the research runs. Every flag carries a corrective action and a named owner. Section 1 shows two still open.</p></div>
-      <div class="mech"><div class="num">06</div><b>Secure, purpose-limited use</b>
-        <p>Project data serves its assigned project only, under a written protocol. No client data trains models.</p></div>
+    <div class="beat-label">See it in action</div>
+    <div class="case-badge">Applied case study · Fictional example</div>
+    <h2 class="case-h2">The fictional Republic of Solmara</h2>
+    <p style="color:var(--olive);max-width:60em;margin-top:14px;font-size:18px">PartnerAI runs one programme through Advanced Analytics, Organizational Development, and Shared Value Partnerships. Solmara, its organizations, and its people are invented, and the data is illustrative, all modeled on how MarketEdge actually works. Start anywhere; the three sections connect.</p>
+    <p style="color:var(--olive);max-width:60em;margin-top:12px;font-size:18px">One rule runs through all three sections: the ministry keeps the tools. At handover, MFCE owns the dashboards, the agents, and the data.</p>
+    <div class="sec-rows">
+      <article class="sec-row reveal">
+        <div class="poster-wrap">
+          <a href="solmara/analytics/" aria-label="Open Section 1: Research and Synthesis">
+            <video class="poster" src="videos/chapter1.mp4" poster="videos/chapter1-poster.png" muted loop playsinline preload="metadata" aria-label="Section 1 walkthrough animation"></video>
+          </a>
+          <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
+        </div>
+        <div class="sec-meta"><span class="tag">Section 1 · Advanced Analytics</span><b>Research &amp; Synthesis</b><p>Turn program data into decisions. Live findings, open bias checks, and every statement traceable to the person who said it.</p><a class="open" href="solmara/analytics/">Open Section 1 &rarr;</a></div>
+      </article>
+      <article class="sec-row reveal">
+        <div class="poster-wrap">
+          <a href="solmara/leaders/" aria-label="Open Section 2: Coastal Leaders Cohort">
+            <video class="poster" src="videos/chapter2.mp4" poster="videos/chapter2-poster.png" muted loop playsinline preload="metadata" aria-label="Section 2 walkthrough animation"></video>
+          </a>
+          <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
+        </div>
+        <div class="sec-meta"><span class="tag">Section 2 · Organizational Development</span><b>Coastal Leaders Cohort</b><p>Teams change institutions. Watch one cohort's capability grow over nine months, tracked across three pillars of support.</p><a class="open" href="solmara/leaders/">Open Section 2 &rarr;</a></div>
+      </article>
+      <article class="sec-row reveal">
+        <div class="poster-wrap">
+          <a href="solmara/partnerships/" aria-label="Open Section 3: Partnership Structuring Suite">
+            <video class="poster" src="videos/chapter3.mp4" poster="videos/chapter3-poster.png" muted loop playsinline preload="metadata" aria-label="Section 3 walkthrough animation"></video>
+          </a>
+          <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
+        </div>
+        <div class="sec-meta"><span class="tag">Section 3 · Shared Value Partnerships</span><b>Partnership Structuring Suite</b><p>Capital and trust move together. Score the partnership on both, map the value flows, and rehearse the conversation before it counts.</p><a class="open" href="solmara/partnerships/">Open Section 3 &rarr;</a></div>
+      </article>
     </div>
-  </div>
-</section>
-
-<!-- ================= HOW AN ENGAGEMENT RUNS ================= -->
-<section class="beat" id="engagement">
-  <div class="wrap">
-    <div class="beat-label">How an engagement runs · What working with MarketEdge feels like</div>
-    <div class="mech-grid reveal-stagger" style="margin-top:10px">
-      <div class="mech"><div class="num">01</div><b>Pick the workflow</b>
-        <p>You bring one process you run today: a study, a cohort, a partnership pipeline. We scope the engagement around it.</p></div>
-      <div class="mech"><div class="num">02</div><b>We build inside your work</b>
-        <p>MarketEdge practitioners and PartnerAI tools operate in your data, your languages, and your reporting cycle. Senior review sits on every output.</p></div>
-      <div class="mech"><div class="num">03</div><b>Your team keeps it</b>
-        <p>Your team can continue to use the digital tools beyond our direct support.</p></div>
-    </div>
+    <div class="foot-note" style="margin-top:18px">Solmara is fictional. Every figure in the sections is illustrative.</div>
   </div>
 </section>
 
