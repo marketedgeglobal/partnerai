@@ -47,11 +47,11 @@
   .contrast-tabs button[aria-pressed="true"]{background:#f1f3ee;border-color:#f1f3ee;color:#6a6e64}
   .contrast-tabs button[aria-pressed="true"] b{color:#242337}
   .contrast-video{width:100%;border-radius:14px;border:1px solid rgba(255,255,255,.16);display:block}
-  .contrast-cols{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:26px}
-  @media (max-width:760px){ .contrast-cols{grid-template-columns:1fr} }
-  .contrast-cols h3{font-family:var(--display);font-weight:400;font-size:21px;color:#fff;margin-bottom:8px}
+  .contrast-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin:6px 0 24px}
+  @media (max-width:760px){ .contrast-cols{grid-template-columns:1fr;gap:20px} }
+  .contrast-cols h3{font-family:var(--display);font-weight:400;font-size:clamp(22px,2.4vw,26px);color:#fff;margin-bottom:10px}
   .contrast-cols div:first-child h3{color:#e8b37e}
-  .contrast-cols p{font-size:14.5px;color:#c9c7d8;max-width:34em}
+  .contrast-cols p{font-size:17px;line-height:1.55;color:#d5d3e2;max-width:40em}
 
   /* mechanics cards: fixed balanced columns so no card ever orphans */
   .mech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -209,19 +209,19 @@
       <button data-c="od" aria-pressed="false"><b>Organizational Development</b><span>From shelved reports to capability that stays</span></button>
       <button data-c="svp" aria-pressed="false"><b>Shared Value Partnerships</b><span>From signed MOU to a partnership that runs</span></button>
     </div>
-    <div class="reveal">
-      <video class="contrast-video" src="videos/contrast.mp4" poster="videos/contrast-poster.png" autoplay muted loop playsinline preload="metadata" aria-label="Animation contrasting how most teams work with what MarketEdge delivers"></video>
-    </div>
     <div class="contrast-cols reveal-stagger">
       <div>
         <h3>What most teams experience</h3>
-        <p id="contrast-left">Raw data scattered across notebooks and inboxes. One loud meeting sets the story. The write-up arrives after the decision.</p>
+        <p id="contrast-left">Field notes, spreadsheets, and recordings pile up across notebooks and inboxes. One loud meeting sets the story, and the interview that contradicts it never gets transcribed. Weeks pass, and the write-up still lands after the decision is made.</p>
       </div>
       <div>
         <h3>What MarketEdge delivers</h3>
-        <p id="contrast-right">One living evidence base that updates as data lands. Every finding traced to its source. Senior judgment on every output, inside the decision window.</p>
-        <p style="margin-top:12px"><a id="contrast-link" href="solmara/analytics/" style="color:#fff;font-weight:600;font-size:14px">See it in Section 1 &rarr;</a></p>
+        <p id="contrast-right">Every interview, document, and dataset feeds one living evidence base that updates as data arrives. Each finding traces back to the person who said it, and the bias checks run in the open. A senior practitioner reviews every output, so the answer is decision-ready inside the window.</p>
+        <p style="margin-top:12px"><a id="contrast-link" href="solmara/analytics/" style="color:#fff;font-weight:600;font-size:15px">See it in Section 1 &rarr;</a></p>
       </div>
+    </div>
+    <div class="reveal">
+      <video class="contrast-video" src="videos/contrast.mp4" poster="videos/contrast-poster.png" autoplay muted loop playsinline preload="metadata" aria-label="Animation contrasting how most teams work with what MarketEdge delivers"></video>
     </div>
   </div>
 </section>
@@ -350,20 +350,20 @@
   var CONTRASTS = {
     aa: {
       src: 'videos/contrast.mp4', poster: 'videos/contrast-poster.png',
-      left: 'Raw data scattered across notebooks and inboxes. One loud meeting sets the story. The write-up arrives after the decision.',
-      right: 'One living evidence base that updates as data lands. Every finding traced to its source. Senior judgment on every output, inside the decision window.',
+      left: 'Field notes, spreadsheets, and recordings pile up across notebooks and inboxes. One loud meeting sets the story, and the interview that contradicts it never gets transcribed. Weeks pass, and the write-up still lands after the decision is made.',
+      right: 'Every interview, document, and dataset feeds one living evidence base that updates as data arrives. Each finding traces back to the person who said it, and the bias checks run in the open. A senior practitioner reviews every output, so the answer is decision-ready inside the window.',
       link: 'solmara/analytics/', label: 'See it in Section 1 →',
     },
     od: {
       src: 'videos/contrast-od.mp4', poster: 'videos/contrast-od-poster.png',
-      left: 'A consultant visits every few years. An 80-page report lands, gets read once, and gathers dust. The capability leaves with the consultant.',
-      right: 'Assessment becomes a habit your team owns. Mentors coach where the dashboard points, and the tools stay at handover.',
+      left: 'A consultant visits every few years. An 80-page report lands, gets read once, and gathers dust. The capability leaves when the consultant does, and the next assessment starts from zero.',
+      right: 'Assessment becomes a habit your team runs itself, tracked across the skills that matter. Mentors coach exactly where the dashboard points, month over month. At handover the dashboards, the tools, and the confidence stay with your team.',
       link: 'solmara/leaders/', label: 'See it in Section 2 →',
     },
     svp: {
       src: 'videos/contrast-svp.mp4', poster: 'videos/contrast-svp-poster.png',
-      left: 'The signing gets a photo. The pipeline lives in one inbox, check-ins slip, and by month nine nobody owns it.',
-      right: 'Value flows mapped, governance with named seats and a cadence, and the hard conversation rehearsed before it counts.',
+      left: 'The signing gets a photo and a press release. The pipeline lives in one inbox, check-ins slip, and the incentives never quite line up. Nine months in, nobody owns it.',
+      right: 'Value flows are mapped so each partner sees what they gain. Governance has named seats, a decision cadence, and shared metrics. The hard conversation gets rehearsed before it counts, so the partnership runs long after the launch.',
       link: 'solmara/partnerships/', label: 'See it in Section 3 →',
     },
   };
