@@ -105,15 +105,15 @@
 <section class="beat">
   <div class="wrap">
     <div class="beat-label">06 · Findings become strategic partnership opportunities</div>
-    <p style="font-size:15.5px;color:var(--olive);max-width:44em;margin-bottom:22px">Verified findings feed a pipeline of strategic partnership opportunities. Each prospect is scored on how it aligns with environmental, social, economic, and community interests, plus the team's capacity to execute. Move a weight and the ranking answers.</p>
-    <div class="panel" style="overflow-x:auto;margin-bottom:18px">
-      <table class="pipeline" aria-live="polite">
-        <thead>
-          <tr id="pipe-head"></tr>
-        </thead>
-        <tbody id="pipeline-body"></tbody>
-      </table>
-    </div>
+    <p style="font-size:15.5px;color:var(--olive);max-width:44em;margin-bottom:22px">Verified findings feed a pipeline of strategic partnership opportunities. Each prospect is scored on how it aligns with environmental, social, economic, and community interests, plus the team's capacity to execute. The top three lead the ranking; move a weight and the order answers.</p>
+    <style>
+      .prospect-row{display:flex;align-items:center;gap:24px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 22px;margin-bottom:12px}
+      .prospect-row.reviewed{border-color:var(--indigo);box-shadow:0 0 0 2px rgba(36,35,55,.12)}
+      .prospect-row .pr-info{flex:1;min-width:0}
+      .prospect-row .pr-fit{flex:none;text-align:right}
+      @media (max-width:720px){ .prospect-row{flex-direction:column;align-items:flex-start;gap:12px} .prospect-row svg{margin:6px auto !important} .prospect-row .pr-fit{text-align:left} }
+    </style>
+    <div id="pipeline-body" aria-live="polite" style="margin-bottom:18px"></div>
     <div class="panel" style="margin-bottom:18px">
       <div class="weights" id="weights"></div>
       <div class="weights-note">Weights renormalize to 100%. Try economic viability at 35% and watch who rises. Then read why the team ranks the third-place score first.</div>
@@ -154,7 +154,24 @@
     });
     return { w: w, total: total || 1 };
   }
-  function renderPipeline(first) {
+  function radar(scores, criteria, W) {
+    var H = Math.round(W * 0.86), cx = W / 2, cy = H / 2, R = Math.min(cx, cy) - 30, n = criteria.length, MAX = 10;
+    function pt(val, i) { var a = -Math.PI / 2 + i * 2 * Math.PI / n; var r = R * Math.min(val, MAX) / MAX; return [cx + r * Math.cos(a), cy + r * Math.sin(a)]; }
+    var rings = [0.5, 1].map(function (f) {
+      var p = criteria.map(function (c, i) { return pt(MAX * f, i).map(function (z) { return z.toFixed(1); }).join(','); }).join(' ');
+      return '<polygon points="' + p + '" fill="' + (f === 1 ? '#f5f6f1' : 'none') + '" stroke="#d9dcd4" stroke-width="1"/>';
+    }).join('');
+    var axes = criteria.map(function (c, i) { var e = pt(MAX, i); return '<line x1="' + cx + '" y1="' + cy + '" x2="' + e[0].toFixed(1) + '" y2="' + e[1].toFixed(1) + '" stroke="#e4e6de" stroke-width="1"/>'; }).join('');
+    var poly = criteria.map(function (c, i) { return pt(scores[c.key] || 0, i).map(function (z) { return z.toFixed(1); }).join(','); }).join(' ');
+    var dots = criteria.map(function (c, i) { var d = pt(scores[c.key] || 0, i); return '<circle cx="' + d[0].toFixed(1) + '" cy="' + d[1].toFixed(1) + '" r="2.6" fill="#242337"/>'; }).join('');
+    var labels = criteria.map(function (c, i) {
+      var l = pt(MAX, i), lx = cx + (l[0] - cx) * 1.32, ly = cy + (l[1] - cy) * 1.32;
+      var anchor = lx < cx - 4 ? 'end' : lx > cx + 4 ? 'start' : 'middle';
+      return '<text x="' + lx.toFixed(1) + '" y="' + (ly + 3).toFixed(1) + '" font-family="Josefin Sans,sans-serif" font-size="10.5" fill="#6a6e64" text-anchor="' + anchor + '">' + c.label.split(' ')[0] + '</text>';
+    }).join('');
+    return '<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" style="display:block;flex:none;overflow:visible;margin:0 30px 0 40px" aria-hidden="true">' + rings + axes + '<polygon points="' + poly + '" fill="rgba(36,35,55,.17)" stroke="#242337" stroke-width="2"/>' + dots + labels + '</svg>';
+  }
+  function renderPipeline() {
     var cw = currentWeights();
     var ranked = state.investors.slice().sort(function (a, b) {
       return score(b, cw.w, cw.total) - score(a, cw.w, cw.total);
@@ -162,38 +179,26 @@
     state.criteria.forEach(function (c) {
       var pct = Math.round((cw.w[c.key] / cw.total) * 100) + '%';
       var o = document.getElementById('o-' + c.key); if (o) o.textContent = pct;
-      var col = document.getElementById('col-' + c.key); if (col) col.textContent = pct;
     });
-    var tbody = document.getElementById('pipeline-body');
-    var prev = {};
-    if (!first && !reduced) {
-      Array.prototype.forEach.call(tbody.children, function (tr) { prev[tr.dataset.id] = tr.getBoundingClientRect().top; });
-    }
-    tbody.innerHTML = ranked.map(function (inv, i) {
+    document.getElementById('pipeline-body').innerHTML = ranked.slice(0, 3).map(function (inv, i) {
       var hot = inv.stage === 'Term sheet' || inv.stage === 'Due diligence';
-      var cells = state.criteria.map(function (c) {
-        var v = inv.scores[c.key];
-        var a = (Math.min(10, Math.max(0, v)) / 10 * 0.34).toFixed(2);
-        return '<td style="text-align:center"><span style="display:inline-block;min-width:26px;padding:3px 7px;border-radius:6px;font-weight:600;color:var(--ink);background:rgba(36,35,55,' + a + ')">' + v + '</span></td>';
-      }).join('');
-      return '<tr data-id="' + inv.id + '"' + (inv.name === state.review.target ? ' class="reviewed"' : '') + '>' +
-        '<td class="rank">' + (i + 1) + '</td>' +
-        '<td class="name"><b>' + inv.name + '</b><span>' + inv.type + ' · ' + inv.note + '</span></td>' +
-        '<td><span class="stage-pill' + (hot ? ' hot' : '') + '">' + inv.stage + '</span></td>' +
-        cells +
-        '<td class="score">' + score(inv, cw.w, cw.total).toFixed(2) + '</td></tr>';
+      return '<div class="prospect-row' + (inv.name === state.review.target ? ' reviewed' : '') + '">' +
+        radar(inv.scores, state.criteria, 190) +
+        '<div class="pr-info">' +
+          '<div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap">' +
+            '<span style="font-family:var(--display);font-weight:300;font-size:30px;color:var(--olive-soft);line-height:1">' + (i + 1) + '</span>' +
+            '<b style="font-size:22px;font-weight:600">' + inv.name + '</b>' +
+            '<span class="stage-pill' + (hot ? ' hot' : '') + '">' + inv.stage + '</span>' +
+          '</div>' +
+          '<div style="font-size:14.5px;color:var(--olive);margin-top:5px">' + inv.type + ' · ' + inv.sectors.join(', ') + '</div>' +
+          '<div style="font-size:15.5px;color:var(--ink);margin-top:8px">' + inv.note + '</div>' +
+        '</div>' +
+        '<div class="pr-fit">' +
+          '<div style="font-family:var(--display);font-weight:300;font-size:42px;color:var(--ink);line-height:1">' + score(inv, cw.w, cw.total).toFixed(2) + '</div>' +
+          '<div style="font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive);margin-top:2px">Fit score</div>' +
+        '</div>' +
+      '</div>';
     }).join('');
-    if (!first && !reduced) {
-      Array.prototype.forEach.call(tbody.children, function (tr) {
-        var before = prev[tr.dataset.id];
-        if (before === undefined) return;
-        var delta = before - tr.getBoundingClientRect().top;
-        if (!delta) return;
-        tr.style.transition = 'none';
-        tr.style.transform = 'translateY(' + delta + 'px)';
-        requestAnimationFrame(function () { tr.style.transition = ''; tr.style.transform = ''; });
-      });
-    }
   }
 
   fetch('../data/solmara-data.json').then(function (r) { return r.json(); }).then(function (data) {
@@ -289,13 +294,6 @@
     state.criteria = data.analytics.criteria;
     state.investors = data.analytics.investors;
     state.review = data.analytics.seniorReview;
-    document.getElementById('pipe-head').innerHTML =
-      '<th>Rank</th><th>Prospect</th><th>Stage</th>' +
-      state.criteria.map(function (c) {
-        return '<th style="text-align:center;font-size:12.5px;min-width:66px">' + c.label +
-          '<span style="display:block;font-weight:400;font-size:11px;color:var(--olive);margin-top:3px" id="col-' + c.key + '">' + c.weight + '%</span></th>';
-      }).join('') +
-      '<th style="text-align:right">Fit score</th>';
     document.getElementById('weights').innerHTML = state.criteria.map(function (c) {
       return '<div class="weight">' +
         '<label for="w-' + c.key + '">' + c.label + ' <output id="o-' + c.key + '">' + c.weight + '%</output></label>' +
