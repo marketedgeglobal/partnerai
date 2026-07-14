@@ -60,16 +60,25 @@
   .mech.violet{background:var(--violet-soft);border-color:var(--violet)}
   .mech.violet .num{color:var(--violet)}
 
-  /* chapter cards */
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  @media (max-width:860px){ .cards{grid-template-columns:1fr} }
-  .card{
+  /* section rows: full-width, stacked top to bottom */
+  .sec-rows{display:flex;flex-direction:column;gap:30px;margin-top:34px}
+  .sec-row{
+    display:grid;grid-template-columns:7fr 5fr;gap:32px;align-items:center;
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:20px;display:flex;flex-direction:column;gap:9px;
-    transition:transform .2s,box-shadow .2s;
+    padding:26px;
   }
-  .card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(36,35,55,.12)}
-  .card .poster{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#e6e8e0;display:block}
+  .sec-row.flip{grid-template-columns:5fr 7fr}
+  .sec-row.flip .poster-wrap{order:2}
+  @media (max-width:860px){
+    .sec-row,.sec-row.flip{grid-template-columns:1fr}
+    .sec-row.flip .poster-wrap{order:0}
+  }
+  .sec-row b{font-size:22px;font-weight:600;display:block;margin:8px 0 8px}
+  .sec-row p{font-size:15px;color:var(--olive);max-width:36em}
+  .sec-row .links{display:block;margin-top:14px}
+  .sec-row .links a{font-size:15px;font-weight:600;color:var(--indigo);text-decoration:none}
+  .sec-row .links a:hover{text-decoration:underline}
+  .card .poster,.sec-row .poster{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:#e6e8e0;display:block}
   .poster-wrap{position:relative}
   .poster-wrap a{display:block;cursor:pointer}
   .poster-wrap .expand{
@@ -126,48 +135,48 @@
     <h2>PartnerAI works one programme through Advanced Analytics, Organizational Development, and Shared Value Partnerships.</h2>
     <p style="color:var(--olive);max-width:46em;margin-top:14px;font-size:15.5px">Three guided sections follow a single ten-year blue economy programme in the fictional Republic of Solmara. Same engagement, same evidence base, three service areas. Start anywhere; they connect.</p>
     <p style="color:var(--olive);max-width:46em;margin-top:12px;font-size:15.5px">One rule runs through all three sections: the ministry keeps the tools. At handover, MFCE owns the dashboards, the agents, and the data.</p>
-    <div class="cards reveal-stagger" style="margin-top:34px">
-      <article class="card">
+    <div class="sec-rows">
+      <article class="sec-row reveal">
         <div class="poster-wrap">
           <a href="solmara/analytics/" aria-label="Open Section 1: Research and Synthesis">
             <video class="poster" src="videos/chapter1.mp4" poster="videos/chapter1-poster.png" muted loop playsinline preload="metadata" aria-label="Section 1 walkthrough animation"></video>
           </a>
           <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
         </div>
-        <span class="tag">Section 1 · Advanced Analytics</span>
-        <b>Research &amp; Synthesis</b>
-        <p>Turn program data into decisions. Live findings, open bias checks, and every statement traceable to the person who said it.</p>
-        <span class="links">
-          <a href="solmara/analytics/">Open Section 1 &rarr;</a>
-        </span>
+        <div>
+          <span class="tag">Section 1 · Advanced Analytics</span>
+          <b>Research &amp; Synthesis</b>
+          <p>Turn program data into decisions. Live findings, open bias checks, and every statement traceable to the person who said it.</p>
+          <span class="links"><a href="solmara/analytics/">Open Section 1 &rarr;</a></span>
+        </div>
       </article>
-      <article class="card">
+      <article class="sec-row flip reveal">
         <div class="poster-wrap">
           <a href="solmara/leaders/" aria-label="Open Section 2: Coastal Leaders Cohort">
             <video class="poster" src="videos/chapter2.mp4" poster="videos/chapter2-poster.png" muted loop playsinline preload="metadata" aria-label="Section 2 walkthrough animation"></video>
           </a>
           <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
         </div>
-        <span class="tag">Section 2 · Organizational Development</span>
-        <b>Coastal Leaders Cohort</b>
-        <p>Teams change institutions. Watch one cohort's capability grow over nine months, tracked across three pillars of support.</p>
-        <span class="links">
-          <a href="solmara/leaders/">Open Section 2 &rarr;</a>
-        </span>
+        <div>
+          <span class="tag">Section 2 · Organizational Development</span>
+          <b>Coastal Leaders Cohort</b>
+          <p>Teams change institutions. Watch one cohort's capability grow over nine months, tracked across three pillars of support.</p>
+          <span class="links"><a href="solmara/leaders/">Open Section 2 &rarr;</a></span>
+        </div>
       </article>
-      <article class="card">
+      <article class="sec-row reveal">
         <div class="poster-wrap">
           <a href="solmara/partnerships/" aria-label="Open Section 3: Partnership Structuring Suite">
             <video class="poster" src="videos/chapter3.mp4" poster="videos/chapter3-poster.png" muted loop playsinline preload="metadata" aria-label="Section 3 walkthrough animation"></video>
           </a>
           <button class="expand" aria-label="Expand walkthrough to full screen">&#x26F6;</button>
         </div>
-        <span class="tag">Section 3 · Shared Value Partnerships</span>
-        <b>Partnership Structuring Suite</b>
-        <p>Capital and trust move together. Score the partnership on both, map the value flows, and rehearse the conversation before it counts.</p>
-        <span class="links">
-          <a href="solmara/partnerships/">Open Section 3 &rarr;</a>
-        </span>
+        <div>
+          <span class="tag">Section 3 · Shared Value Partnerships</span>
+          <b>Partnership Structuring Suite</b>
+          <p>Capital and trust move together. Score the partnership on both, map the value flows, and rehearse the conversation before it counts.</p>
+          <span class="links"><a href="solmara/partnerships/">Open Section 3 &rarr;</a></span>
+        </div>
       </article>
     </div>
     <div class="foot-note" style="margin-top:18px">Solmara is fictional. Every figure in the sections is illustrative.</div>
@@ -241,12 +250,7 @@
 <!-- ================= REQUEST BAND ================= -->
 <div class="cta-band" id="demo" style="margin-top:0">
   <div class="wrap">
-    <div class="eyebrow">See it on your workflow</div>
-    <h2>Pick one real process.</h2>
-    <p>Bring a reporting cycle, an assessment, or a partnership pipeline you run today. In 30 minutes we walk it through PartnerAI and show you what changes. Your team keeps ownership at every step.</p>
-    <p style="font-size:14px;color:#a5a3bd">MarketEdge has delivered Advanced Analytics, Organizational Development, and Shared Value Partnerships work in more than 40 countries, for partners including FCDO, DFAT, USDA, and the World Wildlife Fund (WWF).</p>
-    <a class="btn" href="mailto:info@marketedgeglobal.com?subject=Walkthrough%20request%3A%20PartnerAI&body=Organization%3A%0ARole%3A%0AThe%20workflow%20we%20want%20to%20improve%3A%0A">Book a 30-minute walkthrough</a>
-    <div class="email">Or write to us directly: <a href="mailto:info@marketedgeglobal.com">info@marketedgeglobal.com</a></div>
+    <h2 style="font-size:clamp(24px,3vw,34px)">Interested in learning more? Reach out to us today at <a href="mailto:info@marketedgeglobal.com?subject=PartnerAI" style="color:#fff">info@marketedgeglobal.com</a>.</h2>
   </div>
 </div>
 
