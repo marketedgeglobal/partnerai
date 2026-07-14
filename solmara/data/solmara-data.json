@@ -1630,83 +1630,20 @@
       }
     ],
     "pathways": [
-      {
-        "key": "story",
-        "label": "Storytelling & advocacy",
-        "color": "#4a5a78"
-      },
-      {
-        "key": "enterprise",
-        "label": "Enterprise & finance",
-        "color": "#2c5e34"
-      },
-      {
-        "key": "policy",
-        "label": "Stakeholder & policy engagement",
-        "color": "#242337"
-      }
+      { "key": "operations", "label": "Operational systems", "color": "#6a6e64" },
+      { "key": "financial", "label": "Financial systems", "color": "#2c5e34" },
+      { "key": "advocacy", "label": "Community advocacy", "color": "#b4540a" },
+      { "key": "partnerships", "label": "Multi-stakeholder partnerships", "color": "#242337" },
+      { "key": "digital", "label": "Digital and AI adoption", "color": "#3f6f6a" },
+      { "key": "marketing", "label": "Marketing and comms", "color": "#4a5a78" }
     ],
     "profiles": [
-      {
-        "name": "Cooperative coordinator · Harbor Coast, crab",
-        "province": "Harbor Coast",
-        "role": "SCPF Cooperative Coordinator",
-        "pathway": "enterprise",
-        "baseline": 3,
-        "endline": 4.1,
-        "headline": "Cold-storage grant approved; federation treasurer systems rebuilt",
-        "quote": "The dashboard showed me the dip before I felt it. My mentor and I fixed the system, not the symptom."
-      },
-      {
-        "name": "Fisheries officer · Central Coast",
-        "province": "Central Coast",
-        "role": "MFCE Provincial Fisheries Officer",
-        "pathway": "story",
-        "baseline": 2.4,
-        "endline": 4,
-        "headline": "Standout growth: presented the Central Coast closure case to the national fisheries forum",
-        "quote": "I stopped reporting data and started telling the story the data proves."
-      },
-      {
-        "name": "Fisheries officer · East Coast",
-        "province": "East Coast",
-        "role": "TidePoint Field Program Lead",
-        "pathway": "policy",
-        "baseline": 3.4,
-        "endline": 4.3,
-        "headline": "Now coordinates the co-management comment process with MFCE",
-        "quote": "I knew the stakeholders. The program taught me to sequence them."
-      },
-      {
-        "name": "Cooperative coordinator · South Coast",
-        "province": "South Coast",
-        "role": "Cooperative Enterprise Manager",
-        "pathway": "enterprise",
-        "baseline": 3.1,
-        "endline": 3.9,
-        "headline": "First co-op financial statements produced with the agent, audited clean",
-        "quote": "The agent drafts, I decide. My board finally sees the numbers monthly."
-      },
-      {
-        "name": "Field program lead · West Coast",
-        "province": "West Coast",
-        "role": "SCPF Cooperative Coordinator",
-        "pathway": "story",
-        "baseline": 2.9,
-        "endline": 4.2,
-        "headline": "Led the seaweed grading campaign that reached 600 producers",
-        "quote": "Six hundred producers now ask for the price sheet by name."
-      },
-      {
-        "name": "Fisheries officer · North Coast",
-        "province": "North Coast",
-        "role": "MFCE Provincial Fisheries Officer",
-        "pathway": "policy",
-        "baseline": 3.6,
-        "endline": 4.1,
-        "headline": "Started highest; now mentors two younger fellows in the next cohort",
-        "quote": "The peer exchange was the multiplier. We solve across provinces now."
-      }
+      { "name": "Fisheries cooperative lead", "province": "Harbor Coast", "role": "Fishers' cooperative", "pathway": "operations", "baseline": 3.0, "endline": 4.1, "headline": "Rebuilt the cooperative's operating routines; the cold-storage grant came through", "quote": "With MarketEdge's mentorship and a few practical tools, I rebuilt how the cooperative runs day to day. We fixed the system, not the symptom, and the routines hold now whether or not I am in the room." },
+      { "name": "Fintech CEO", "province": "North Coast", "role": "Mobile payments platform", "pathway": "financial", "baseline": 3.6, "endline": 4.4, "headline": "Stood up the financial controls and reporting that unlocked the next funding round", "quote": "MarketEdge coached me through the financial controls investors kept asking for. The tools drafted the templates and the mentoring taught me to run them, so my board now sees the numbers on the first of the month." },
+      { "name": "Community Leader", "province": "Central Coast", "role": "Fisher and Indigenous rights network", "pathway": "advocacy", "baseline": 2.4, "endline": 4.0, "headline": "Carried the community's case into the national fisheries forum", "quote": "The program gave me the confidence and skills to turn our community's experience into a case people act on. I stopped bringing complaints and started bringing evidence, shaped with the community and not delivered to them." },
+      { "name": "NGO Director", "province": "East Coast", "role": "Conservation NGO", "pathway": "partnerships", "baseline": 3.4, "endline": 4.3, "headline": "Aligned government, funders, and communities behind one plan", "quote": "MarketEdge helped me turn high-level dialogue into practical partnerships. I already knew the stakeholders; the mentoring taught me to sequence them and hold government, funders, and communities to one plan." },
+      { "name": "AgriTech Startup Founder", "province": "West Coast", "role": "Seaweed supply-chain venture", "pathway": "digital", "baseline": 2.9, "endline": 4.2, "headline": "Put AI tools into the daily work of 600 producers", "quote": "MarketEdge showed my team how to fold the right tools into our daily work. We draft with the agents and decide ourselves, and we now reach 600 producers with work that used to take a week." },
+      { "name": "Social Enterprise Director", "province": "South Coast", "role": "Women's processing collective", "pathway": "marketing", "baseline": 3.1, "endline": 3.9, "headline": "Built the brand and comms that doubled buyer inquiries", "quote": "With MarketEdge's coaching, our collective learned to tell its own story. We built the outreach ourselves, and buyers come to us now because they finally hear the value we deliver." }
     ],
     "themeGrowth": [
       {
